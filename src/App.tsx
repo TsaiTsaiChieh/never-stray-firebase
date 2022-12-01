@@ -1,7 +1,7 @@
-const App = () => {
-  return (
-    <div>App</div>
-  )
-}
+import { Header } from './components'
+
+export const App = () => (
+  <Header />
+)
 
 export default App
