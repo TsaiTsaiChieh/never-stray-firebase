@@ -1,4 +1,7 @@
+/* eslint-disable global-require */
 /** @type {import('tailwindcss').Config} */
+const extendedColors = require('tailwindcss/colors')
+
 module.exports = {
   content: [
     './index.html',
@@ -7,6 +10,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        ...extendedColors,
         'primary-50': '#2EDFDF',
         'primary-100': '#61DED7',
         'primary-150': '#95EED9',
@@ -21,6 +25,18 @@ module.exports = {
         'gray-t50': 'rgba(151, 151, 151, 0.3)',
       },
     },
+    spacing: {
+      1: '4px',
+      2: '8px',
+      3: '12px',
+      4: '16px',
+      5: '20px',
+      6: '24px',
+      7: '28px',
+      8: '32px',
+      9: '36px',
+      10: '40px',
+    },
   },
-  plugins: [],
+  plugins: [require('tailwindcss-debug-screens')],
 }
