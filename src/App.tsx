@@ -1,7 +1,10 @@
-import { Header } from './components'
+import { Category, Header } from './components'
 
 export const App = () => (
-  <Header />
+  <>
+    <Header />
+    <Category />
+  </>
 )
 
 export default App
