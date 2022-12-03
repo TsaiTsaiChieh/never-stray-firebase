@@ -1,6 +1,13 @@
 /* eslint-disable global-require */
 /** @type {import('tailwindcss').Config} */
-const extendedColors = require('tailwindcss/colors')
+const colors = require('tailwindcss/colors')
+const plugin = require('tailwindcss/plugin')
+
+delete colors.lightBlue
+delete colors.warmGray
+delete colors.trueGray
+delete colors.coolGray
+delete colors.blueGray
 
 module.exports = {
   content: [
@@ -10,7 +17,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        ...extendedColors,
+        ...colors,
+        'primary-10': '#EBF8F7',
         'primary-50': '#2EDFDF',
         'primary-100': '#61DED7',
         'primary-150': '#95EED9',
@@ -38,5 +46,10 @@ module.exports = {
       10: '40px',
     },
   },
-  plugins: [require('tailwindcss-debug-screens')],
+  plugins: [require('tailwindcss-debug-screens'),
+  plugin(({ addVariant }) => {
+    addVariant('current', '&.active')
+    addVariant('child', '& > *')
+  })],
+
 }
