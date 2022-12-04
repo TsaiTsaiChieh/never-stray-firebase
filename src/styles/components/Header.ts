@@ -14,6 +14,7 @@ export const Container = styled(Contain)`
 `
 export const Logo = styled.img`
   content: url("/logo.svg");
+  cursor: pointer;
 `
 export const AvatarWrap = styled.div`
   display: flex;
