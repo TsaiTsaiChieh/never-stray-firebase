@@ -1,7 +1,7 @@
 import { styled } from '@linaria/react'
 
-import { colors, LG } from '.'
-import { Contain } from './Base'
+import { colors, LG } from '..'
+import { Contain } from '../Base'
 
 export const Wrapper = styled.div`
   padding: 5px 0;

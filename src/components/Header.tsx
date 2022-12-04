@@ -1,6 +1,6 @@
 import {
  AuthState, Avatar, AvatarWrap, Container, Logo, Wrapper,
-} from '../styles/Header'
+} from '../styles/components/Header'
 
 export const Header = () => (
   <Wrapper>
