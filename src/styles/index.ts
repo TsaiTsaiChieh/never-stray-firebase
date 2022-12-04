@@ -15,4 +15,5 @@ export const colors = {
   'gray-i200': '#4F4F4F',
   'gray-i250': '#333333',
   'gray-t50': 'rgba(151, 151, 151, 0.3)',
+  white: '#FFFFFF',
 }
