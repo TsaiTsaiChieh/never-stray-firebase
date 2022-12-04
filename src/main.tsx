@@ -1,5 +1,6 @@
 import './styles/reset.css'
 import './styles/global.css'
+import './i18n'
 
 import React from 'react'
 
