@@ -21,3 +21,9 @@ export const Contain = styled.div`
     width: 90%;
   }
 `
+export const FlexCenter = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: ${(props) => `${props.gap || 8}px`};
+`
