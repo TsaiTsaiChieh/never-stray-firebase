@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { faCat, faDog, faPaw } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import clsx from 'clsx'
+import i18n from 'i18next'
 
 import { FlexCenter } from '../styles/Base'
 import {
@@ -11,40 +12,24 @@ import {
 
 const Category = () => {
   const [activeId, setActiveId] = useState(0)
+  const names: string[] = i18n.t('buttons.categories', { returnObjects: true })
   const onClick = (idx: number) => {
     setActiveId(idx)
   }
-
-  const categoryItem = [
-    {
-      id: 0,
-      name: '全部',
-      icon: faPaw,
-    },
-    {
-      id: 1,
-      name: '喵喵',
-      icon: faCat,
-    },
-    {
-      id: 2,
-      name: '汪汪',
-      icon: faDog,
-    },
-
-  ]
+  const icons = [faPaw, faCat, faDog]
+  const categoryItem: CategoryItemType[] = names.map((name, i) => ({ id: i, name, icon: icons[i] }))
  return (
    <Wrapper>
      <Container>
        <FlexCenter>
-         {categoryItem.map((ele, i) => (
+         {categoryItem.map(({ id, name, icon }) => (
            <ButtonWrap
-             key={ele.id}
-             className={clsx({ active: activeId === i })}
-             onClick={() => onClick(i)}
+             key={id}
+             className={clsx({ active: activeId === id })}
+             onClick={() => onClick(id)}
            >
-             <FontAwesomeIcon icon={ele.icon} />
-             <CategoryName>{ele.name}</CategoryName>
+             <FontAwesomeIcon icon={icon} />
+             <CategoryName>{name}</CategoryName>
            </ButtonWrap>
          ))}
        </FlexCenter>
