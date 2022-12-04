@@ -8,3 +8,9 @@
   font-family: "huninn", sans-serif;
   scroll-behavior: smooth;
 }
+
+button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
