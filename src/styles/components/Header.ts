@@ -1,7 +1,7 @@
 import { styled } from '@linaria/react'
 
 import { colors, LG } from '..'
-import { Contain } from '../Base'
+import { Contain, FlexCenter } from '../Base'
 
 export const Wrapper = styled.div`
   padding: 5px 0;
@@ -16,13 +16,18 @@ export const Logo = styled.img`
   content: url("/logo.svg");
   cursor: pointer;
 `
-export const AvatarWrap = styled.div`
-  display: flex;
+export const AvatarWrap = styled(FlexCenter)`
+  gap: 1px;
   position: absolute;
   right: 4px;
   ${LG} {
     position: relative;
     right: 0;
+  }
+  svg {
+    width: 20px;
+    height: 20px;
+    color: ${colors['primary-100']};
   }
 `
 export const Avatar = styled.div`

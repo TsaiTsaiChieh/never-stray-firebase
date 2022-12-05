@@ -1,5 +1,9 @@
+import { faGoogle } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import * as i18n from 'i18next'
+
 import {
- AuthState, Avatar, AvatarWrap, Container, Logo, Wrapper,
+ AuthState, AvatarWrap, Container, Logo, Wrapper,
 } from '../styles/components/Header'
 
 export const Header = () => (
@@ -7,8 +11,8 @@ export const Header = () => (
     <Container className='flex-center'>
       <Logo />
       <AvatarWrap>
-        <Avatar />
-        <AuthState>登入</AuthState>
+        <FontAwesomeIcon icon={faGoogle} />
+        <AuthState>{i18n.t('buttons.login')}</AuthState>
       </AvatarWrap>
     </Container>
   </Wrapper>
