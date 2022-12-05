@@ -4,7 +4,7 @@ import { LG, MD } from '.'
 
 export const Contain = styled.div`
   max-width: 576px;
-  width: 80%;
+  width: 90%;
   margin: auto;
   position: relative;
   &.flex-center {
@@ -18,7 +18,7 @@ export const Contain = styled.div`
   }
   ${LG} {
     max-width: 1140px;
-    width: 90%;
+    width: 80%;
   }
 `
 export const FlexCenter = styled.div`
