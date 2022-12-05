@@ -1,13 +1,15 @@
 import { useState } from 'react'
 
-import { faCat, faDog, faPaw } from '@fortawesome/free-solid-svg-icons'
+import {
+ faCat, faDog, faPaw, faFilter,
+} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import clsx from 'clsx'
 import i18n from 'i18next'
 
 import { FlexCenter } from '../styles/Base'
 import {
- ButtonWrap, CategoryName, Container, Wrapper,
+ ButtonWrap, CategoryName, Container, FilterIconWrap, FilterText, Wrapper,
 } from '../styles/components/Category'
 
 const Category = () => {
@@ -21,6 +23,10 @@ const Category = () => {
  return (
    <Wrapper>
      <Container>
+       <FilterIconWrap>
+         <FontAwesomeIcon icon={faFilter} />
+         <FilterText>{i18n.t('buttons.filter')}</FilterText>
+       </FilterIconWrap>
        <FlexCenter>
          {categoryItem.map(({ id, name, icon }) => (
            <ButtonWrap
