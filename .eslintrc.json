@@ -68,6 +68,7 @@
     "react/prop-types": 0,
     "import/prefer-default-export": "off",
     "no-undef": "off",
+    "camelcase": "off",
     "import/no-extraneous-dependencies": [
       "error",
       {
@@ -157,12 +158,6 @@
       {
         "ts": "never",
         "tsx": "never"
-      }
-    ],
-    "camelcase": [
-      "error",
-      {
-        "allow": []
       }
     ]
   }
