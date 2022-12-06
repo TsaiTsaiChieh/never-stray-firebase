@@ -1,10 +1,7 @@
-import { Category, Header } from './components'
+import View from './routes/View'
 
 export const App = () => (
-  <>
-    <Header />
-    <Category />
-  </>
+  <View />
 )
 
 export default App
