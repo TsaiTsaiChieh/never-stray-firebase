@@ -14,6 +14,7 @@ type PetType = {
   animal_sex: string
   animal_bodytype: string
   animal_colour: string
+  animal_age: string
   animal_sterilization: string
   animal_bacterin: string
   animal_foundplace: string
