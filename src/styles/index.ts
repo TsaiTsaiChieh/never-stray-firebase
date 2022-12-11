@@ -10,6 +10,7 @@ export const colors = {
   'primary-150': '#95EED9',
   'primary-200': '#00948B',
   'primary-250': '#3A6B68',
+  'primary-t100': 'rgba(97, 222, 215, 0.45)',
   'secondary-50': '#2D9CDB',
   'blue-50': '#63B1E1',
   'pink-50': '#FFA8A8',
