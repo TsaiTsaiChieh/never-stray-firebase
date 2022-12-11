@@ -38,8 +38,8 @@ right: 26px;
 export const PetImg = styled.div`
   bottom: 170px;
   height: 152px;
-  -webkit-mask: url("images/pet-mask.svg") no-repeat center center;
-  mask: url("images/pet-mask.svg") no-repeat center center;
+  -webkit-mask: url("/images/pet-mask.svg") no-repeat center center;
+  mask: url("/images/pet-mask.svg") no-repeat center center;
   background-image: ${(props) => `url(${props.src || '/images/pet-null.svg'})`};
   background-size: cover;
   &::before {
