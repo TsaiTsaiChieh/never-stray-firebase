@@ -28,14 +28,13 @@ width: 160px;
   bottom: 170px;
 `
 export const Paw = styled.img`
+width: 140px;
 content: url('/images/paw.svg');
 position: absolute;
-top: -21px;
-right: 32px;
+top: -25px;
+right: 26px;
 `
 export const PetImg = styled.div`
-  /* width: 160px; */
-  /* position: absolute; */
   bottom: 170px;
   height: 152px;
   -webkit-mask: url("images/pet-mask.svg") no-repeat center center;
