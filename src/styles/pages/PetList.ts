@@ -43,7 +43,7 @@ export const PetImg = styled.div`
   background-size: cover;
   &::before {
     content: "";
-    display: ${(props) => (props.loading ? 'block' : 'none')};
+    display: ${(props) => (props.$loading ? 'block' : 'none')};
     position: absolute;
     height: 100%;
     width: 160px;
