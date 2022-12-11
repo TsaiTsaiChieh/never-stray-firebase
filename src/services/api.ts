@@ -10,6 +10,7 @@ export const api = createApi({
       query: ({
         limit,
         page,
+        kind,
         animal_id,
         animal_age,
         animal_sex,
@@ -20,6 +21,7 @@ export const api = createApi({
       }) => {
         let url = `?UnitId=QcbUEzN6E6DL&$top=${limit}&$skip=${limit * page}`
 
+        if (kind) url += `&animal_kind=${kind}`
         if (animal_id) url += `&animal_id={${animal_id}}`
         if (animal_age) url += `&animal_age=[{${animal_age.join(',')}}]`
         if (animal_sex) url += `&animal_sex=[{${animal_sex.join(',')}}]`
