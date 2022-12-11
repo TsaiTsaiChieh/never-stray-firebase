@@ -9,6 +9,7 @@ export const PetContainer = styled.div`
   display: grid;
   row-gap: 100px;
   grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
   ${MD} {
     grid-template-columns: repeat(3, 1fr);
   }
