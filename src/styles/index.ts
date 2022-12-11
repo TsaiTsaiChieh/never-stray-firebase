@@ -10,7 +10,6 @@ export const colors = {
   'primary-150': '#95EED9',
   'primary-200': '#00948B',
   'primary-250': '#3A6B68',
-  'primary-t100': 'rgba(97, 222, 215, 0.45)',
   'secondary-50': '#2D9CDB',
   'blue-50': '#63B1E1',
   'pink-50': '#FFA8A8',
@@ -20,5 +19,6 @@ export const colors = {
   'gray-i200': '#4F4F4F',
   'gray-i250': '#333333',
   'gray-t50': 'rgba(151, 151, 151, 0.2)',
+  'gray-t100': 'rgba(51, 51, 51, 0.5)',
   white: '#FFFFFF',
 }

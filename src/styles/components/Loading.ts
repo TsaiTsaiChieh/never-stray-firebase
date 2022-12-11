@@ -7,7 +7,7 @@ export const CatLoadingWrap = styled.div`
   position: fixed;
   width: 100vw;
   height: 100%;
-  background: ${colors['primary-t100']};
+  background: ${colors['gray-t100']};
   display: ${(props) => (props.visible ? 'flex' : 'none')};
   align-items: center;
   justify-content: center;
