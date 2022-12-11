@@ -1,7 +1,12 @@
+import { CatLoading } from './components'
 import View from './routes/View'
 
 export const App = () => (
-  <View />
+  <>
+    <CatLoading />
+    <View />
+  </>
+
 )
 
 export default App
