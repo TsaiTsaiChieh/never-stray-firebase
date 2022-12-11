@@ -7,15 +7,18 @@ export const Contain = styled.div`
   width: 90%;
   margin: auto;
   position: relative;
+
   &.flex-center {
     display: flex;
     justify-content: center;
     align-items: center;
   }
+
   ${MD} {
     max-width: 820px;
     width: 85%;
   }
+
   ${LG} {
     max-width: 1140px;
     width: 80%;
