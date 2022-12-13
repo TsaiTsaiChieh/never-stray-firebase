@@ -1,8 +1,9 @@
 import { useEffect } from 'react'
 
-import { useParams } from 'react-router-dom'
+import { useLocation, useParams, useSearchParams } from 'react-router-dom'
 
 import { Category, Header } from '../../components'
+import Pagination from '../../components/Pagination'
 import { PetKindEnum } from '../../constants/enum'
 import { useGetPetsQuery } from '../../services/api'
 import { useAppDispatch, useAppSelector } from '../../store/hook'
@@ -15,8 +16,11 @@ const PetList = () => {
   const { data } = useGetPetsQuery(filter)
   const dispatch = useAppDispatch()
   const params = useParams()
+  const location = useLocation()
+  const [searchParams] = useSearchParams()
   useEffect(() => {
     const { kind } = params
+    const page = searchParams.get('page')
     if (kind) {
       dispatch(
         setFilter({
@@ -25,7 +29,8 @@ const PetList = () => {
         }),
       )
     }
-  }, [params])
+    if (page) dispatch(setFilter({ ...filter, page: parseInt(page, 10) }))
+  }, [location.search])
 
   return (
     <>
@@ -38,6 +43,7 @@ const PetList = () => {
               <Card key={ele.animal_id} detail={ele} />
             ))}
         </PetContainer>
+        <Pagination />
       </Container>
     </>
   )
