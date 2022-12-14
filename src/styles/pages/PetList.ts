@@ -6,13 +6,20 @@ import { Contain, FlexCenter } from '../Base'
 export const Container = styled(Contain)``
 export const PetContainer = styled.div`
   margin-top: 100px;
-  display: grid;
-  row-gap: 100px;
-  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
   justify-items: center;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(9, auto);
+  grid-row-start: auto;
+  grid-row-gap: 100px;
   ${MD} {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(6, auto);
   }
+`
+export const NotFound = styled.img`
+  content: url("/images/not-found.png");
 `
 // Card
 export const CardContainer = styled(FlexCenter)`
@@ -24,16 +31,16 @@ export const CardContainer = styled(FlexCenter)`
   box-shadow: 0px 0px 8px ${colors['gray-t50']};
 `
 export const PetImgWrap = styled.div`
-width: 160px;
+  width: 160px;
   position: absolute;
   bottom: 170px;
 `
 export const Paw = styled.img`
-width: 140px;
-content: url('/images/paw.svg');
-position: absolute;
-top: -25px;
-right: 26px;
+  width: 140px;
+  content: url("/images/paw.svg");
+  position: absolute;
+  top: -25px;
+  right: 26px;
 `
 export const PetImg = styled.div`
   bottom: 170px;
