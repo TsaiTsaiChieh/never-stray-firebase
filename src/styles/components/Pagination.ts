@@ -8,11 +8,6 @@ export const PageWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   gap: 30px;
-  svg {
-    color: ${colors['gray-i150']};
-    cursor: pointer;
-    font-size: 20px;
-  }
 `
 export const LeftWrap = styled.div`
   display: flex;
@@ -20,4 +15,16 @@ export const LeftWrap = styled.div`
 `
 export const RightWrap = styled(LeftWrap)`
   display: flex;
+`
+export const PageButton = styled.button`
+  cursor: pointer;
+  svg {
+    color: ${colors['gray-i200']};
+    font-size: 20px;
+  }
+  &.disabled {
+    svg {
+      color: ${colors['gray-i150']};
+    }
+  }
 `
