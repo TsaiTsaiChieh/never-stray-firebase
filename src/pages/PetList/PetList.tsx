@@ -8,7 +8,7 @@ import { PetKindEnum } from '../../constants/enum'
 import { useGetPetsQuery } from '../../services/api'
 import { useAppDispatch, useAppSelector } from '../../store/hook'
 import { setFilter } from '../../store/reducers/petSlice'
-import { Container, PetContainer } from '../../styles/pages/PetList'
+import { Container, NotFound, PetContainer } from '../../styles/pages/PetList'
 import Card from './Card'
 
 const PetList = () => {
@@ -38,10 +38,10 @@ const PetList = () => {
       <Category />
       <Container>
         <PetContainer>
-          {data
-            && data.map((ele: PetType) => (
+          {data?.length
+            ? data.map((ele: PetType) => (
               <Card key={ele.animal_id} detail={ele} />
-            ))}
+            )) : <NotFound />}
         </PetContainer>
         <Pagination />
       </Container>
