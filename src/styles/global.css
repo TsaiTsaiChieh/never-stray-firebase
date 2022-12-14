@@ -1,7 +1,7 @@
 @font-face {
-    font-family: "huninn";
-    src: url(https://cdn.jsdelivr.net/gh/max32002/FakePearl@1.1/webfont/FakePearl-Regular.woff2) format("woff2"), url(https://cdn.jsdelivr.net/gh/max32002/FakePearl@1.1/webfont/FakePearl-Regular.woff) format("woff");
-  }
+  font-family: "huninn";
+  src: url(https://cdn.jsdelivr.net/gh/max32002/FakePearl@1.1/webfont/FakePearl-Regular.woff2) format("woff2"), url(https://cdn.jsdelivr.net/gh/max32002/FakePearl@1.1/webfont/FakePearl-Regular.woff) format("woff");
+}
 
 * {
   box-sizing: border-box;
@@ -24,4 +24,8 @@ img {
 
 a {
   text-decoration: none;
+}
+
+.disabled {
+  pointer-events: none;
 }
