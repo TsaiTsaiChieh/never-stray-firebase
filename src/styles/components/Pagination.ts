@@ -7,6 +7,7 @@ export const PageWrapper = styled.div`
   width: 95%;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   gap: 30px;
 `
 export const LeftWrap = styled.div`
@@ -26,5 +27,21 @@ export const PageButton = styled.button`
     svg {
       color: ${colors['gray-i150']};
     }
+  }
+`
+export const PageInput = styled.input`
+  width: 80px;
+  text-align: center;
+  font-size: 16px;
+  color: ${colors.white};
+  padding: 5px 10px;
+  border: 2px ${colors['gray-i200']} solid;
+  background: ${colors['primary-50']};
+  border: none;
+  cursor: pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  &:focus {
+    border: none;
   }
 `
