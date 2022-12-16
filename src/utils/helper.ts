@@ -2,7 +2,7 @@ import { faMars, faQuestion, faVenus } from '@fortawesome/free-solid-svg-icons'
 
 import { colors } from '../styles'
 
-const unknow = '未知'
+const unknown = '未知'
 export const petKindConverter = (kind: string) => {
   switch (kind) {
     case '狗':
@@ -30,7 +30,7 @@ export const petSexConverter = (sex: string) => {
     case 'F':
       return { icon: faVenus, text: '妹妹', color: colors['pink-50'] }
     default:
-      return { icon: faQuestion, text: unknow, color: colors['gray-i50'] }
+      return { icon: faQuestion, text: unknown, color: colors['gray-i50'] }
   }
 }
 export const petAgeConverter = (age: string) => {
@@ -40,6 +40,6 @@ export const petAgeConverter = (age: string) => {
     case 'child':
       return '幼年'
     default:
-      return unknow
+      return unknown
   }
 }
