@@ -1,5 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
+import { PetKindEnum } from '../constants/enum'
+
 export const api = createApi({
   reducerPath: 'api',
   baseQuery: fetchBaseQuery({
@@ -21,7 +23,7 @@ export const api = createApi({
       }) => {
         let url = `?UnitId=QcbUEzN6E6DL&$top=${limit}&$skip=${limit * page}`
 
-        if (kind) url += `&animal_kind=${kind}`
+        if (kind && PetKindEnum[kind]) url += `&animal_kind=${PetKindEnum[kind]}`
         if (animal_id) url += `&animal_id={${animal_id}}`
         if (animal_age) url += `&animal_age=[{${animal_age.join(',')}}]`
         if (animal_sex) url += `&animal_sex=[{${animal_sex.join(',')}}]`
