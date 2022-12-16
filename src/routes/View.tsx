@@ -1,14 +1,12 @@
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 
+import { Paths } from '../constants'
 import PetList from '../pages/PetList/PetList'
 
 const View = () => (
-
   <Routes>
-    <Route path='/'>
-      <Route index element={<PetList />} />
-      <Route path='/:kind' element={<PetList />} />
-    </Route>
+    <Route path='*' element={<Navigate to={Paths.home} replace />} />
+    <Route path={Paths.home} element={<PetList />} />
   </Routes>
   )
 
