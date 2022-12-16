@@ -1,13 +1,11 @@
 import { styled } from '@linaria/react'
 
 import { colors } from '..'
+import { FlexCenter } from '../Base'
 
-export const PageWrapper = styled.div`
+export const PageWrapper = styled(FlexCenter)`
   margin: 20px 0;
   width: 95%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
   gap: 30px;
 `
 export const LeftWrap = styled.div`
