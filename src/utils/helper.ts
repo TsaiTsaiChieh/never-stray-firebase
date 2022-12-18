@@ -3,7 +3,7 @@ import { faMars, faQuestion, faVenus } from '@fortawesome/free-solid-svg-icons'
 import { colors } from '../styles'
 
 const unknown = '未知'
-export const petKindConverter = (kind: string) => {
+export const petKindConverter = (kind: string): string => {
   switch (kind) {
     case '狗':
       return '汪'
@@ -33,7 +33,7 @@ export const petSexConverter = (sex: string) => {
       return { icon: faQuestion, text: unknown, color: colors['gray-i50'] }
   }
 }
-export const petAgeConverter = (age: string) => {
+export const petAgeConverter = (age: string): string => {
   switch (age.toLowerCase()) {
     case 'adult':
       return '成年'
@@ -42,4 +42,10 @@ export const petAgeConverter = (age: string) => {
     default:
       return unknown
   }
+}
+export const isPositiveInteger = (str: string): boolean => {
+  if (typeof str !== 'string') return false
+  const num = Number(str)
+  if (Number.isInteger(num) && num > 0) return true
+  return false
 }
