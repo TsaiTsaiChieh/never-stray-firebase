@@ -8,54 +8,63 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import clsx from 'clsx'
 import {
- Link, useLocation, useNavigate, useSearchParams,
+  createSearchParams, useNavigate, useSearchParams,
 } from 'react-router-dom'
 
+import { Paths } from '../constants'
 import { useAppSelector } from '../store/hook/index'
 import {
   LeftWrap, PageButton, PageInput, PageWrapper, RightWrap,
 } from '../styles/components/Pagination'
+import { isPositiveInteger } from '../utils/helper'
 
 const Pagination = () => {
   const navigate = useNavigate()
-  const { filter } = useAppSelector((state) => state.pet)
-  const { page } = filter
-  const [pageValue, setPageValue] = useState(page.toString())
-  const location = useLocation()
-const { pathname } = location
   const [searchParams] = useSearchParams()
-
-  const disablePage = (max: number) => page < max
-  const changePageInput = (e: ChangeEvent<HTMLInputElement>) => {
-    setPageValue(e.target.value)
+  const { filter } = useAppSelector((state) => state.pet)
+  const [pageValue, setPageValue] = useState(filter.page.toString())
+  const disablePage = (max: number) => filter.page <= max
+  const handlePageOnClick = (offset: number) => {
+    navigate({
+      pathname: Paths.home,
+      search: createSearchParams({
+        kind: filter.kind as PetKindUrlType,
+        page: (filter.page + offset).toString(),
+      }).toString(),
+    })
   }
-  const onKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
-    if (!/[0-9]/.test(e.key)) e.preventDefault()
+  const changePageInput = (e: ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target
+    if (isPositiveInteger(value)) setPageValue(value)
   }
   const onKeyDown = (e: KeyboardEvent) => {
     if (e.key === 'Enter') {
-      navigate(`${pathname}?page=${parseInt(pageValue, 10)}`)
+        navigate({
+          pathname: Paths.home,
+          search: createSearchParams({
+            kind: filter.kind as PetKindUrlType,
+            page: pageValue,
+          }).toString(),
+        })
     }
   }
   useEffect(() => {
-    const pageUrl = searchParams.get('page')
-    if (pageUrl) setPageValue(pageUrl)
-  }, [location.search])
+    const page = searchParams.get('page')
+    if (page) setPageValue(page)
+  }, [searchParams.get('page')])
 
   return (
     <PageWrapper>
       <LeftWrap>
         <PageButton
-          as={Link}
           className={clsx({ disabled: disablePage(10) })}
-          to={`${pathname}?page=${page - 10}`}
+          onClick={() => handlePageOnClick(-10)}
         >
           <FontAwesomeIcon icon={faAnglesLeft} />
         </PageButton>
         <PageButton
-          as={Link}
           className={clsx({ disabled: disablePage(1) })}
-          to={`${pathname}?page=${page - 1}`}
+          onClick={() => handlePageOnClick(-1)}
         >
           <FontAwesomeIcon icon={faAngleLeft} />
         </PageButton>
@@ -63,19 +72,15 @@ const { pathname } = location
       <PageInput
         type='number'
         value={pageValue}
-        onKeyPress={(e) => onKeyPress(e)}
         onKeyDown={(e) => onKeyDown(e)}
         onChange={(e) => changePageInput(e)}
       />
       <RightWrap>
-        <PageButton as={Link} to={`${pathname}?page=${page + 1}`}>
+        <PageButton onClick={() => handlePageOnClick(1)}>
           <FontAwesomeIcon icon={faAngleRight} />
         </PageButton>
-        <PageButton as={Link} to={`${pathname}?page=${page + 10}`}>
-          <FontAwesomeIcon
-            icon={faAnglesRight}
-            to={`${pathname}?page=${page + 10}`}
-          />
+        <PageButton onClick={() => handlePageOnClick(10)}>
+          <FontAwesomeIcon icon={faAnglesRight} />
         </PageButton>
       </RightWrap>
     </PageWrapper>
