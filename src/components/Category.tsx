@@ -1,34 +1,43 @@
 import { useState } from 'react'
 
 import {
- faCat, faDog, faFilter, faPaw,
+  faCat,
+  faDog,
+  faFilter,
+  faPaw,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import clsx from 'clsx'
 import i18n from 'i18next'
+import { createSearchParams, useNavigate } from 'react-router-dom'
 
 import { PetKindEnum } from '../constants/enum'
-import { useAppDispatch, useAppSelector } from '../store/hook'
-import { setFilter } from '../store/reducers/petSlice'
+import { Paths } from '../constants/index'
+import { useAppSelector } from '../store/hook'
 import { FlexCenter } from '../styles/Base'
 import {
-  ButtonWrap, CategoryName, Container, FilterIconWrap, FilterText, Wrapper,
+  ButtonWrap,
+  CategoryName,
+  Container,
+  FilterIconWrap,
+  FilterText,
+  Wrapper,
 } from '../styles/components/Category'
 
 const Category = () => {
-  const dispatch = useAppDispatch()
+  const navigate = useNavigate()
   const [activeId, setActiveId] = useState(0)
   const { filter } = useAppSelector((state) => state.pet)
   const names: string[] = i18n.t('buttons.categories', { returnObjects: true })
   const onClick = (idx: number) => {
     setActiveId(idx)
-    dispatch(
-      setFilter({
-        ...filter,
+    navigate({
+      pathname: Paths.home,
+      search: createSearchParams({
         kind: Object.keys(PetKindEnum)[idx] as PetKindUrlType,
-        page: 1,
-      }),
-    )
+        page: filter.page.toString(),
+      }).toString(),
+    })
   }
   const icons = [faPaw, faCat, faDog]
   const categoryItem: CategoryItemType[] = names.map((name, i) => ({
