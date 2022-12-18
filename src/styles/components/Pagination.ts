@@ -5,7 +5,6 @@ import { FlexCenter } from '../Base'
 
 export const PageWrapper = styled(FlexCenter)`
   margin: 20px 0;
-  width: 95%;
   gap: 30px;
 `
 export const LeftWrap = styled.div`
