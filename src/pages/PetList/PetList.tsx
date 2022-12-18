@@ -1,10 +1,9 @@
 import { useEffect } from 'react'
 
-import { useLocation, useParams, useSearchParams } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 
 import { Category, Header } from '../../components'
 import Pagination from '../../components/Pagination'
-import { PetKindEnum } from '../../constants/enum'
 import { useGetPetsQuery } from '../../services/api'
 import { useAppDispatch, useAppSelector } from '../../store/hook'
 import { setFilter } from '../../store/reducers/petSlice'
@@ -15,21 +14,17 @@ const PetList = () => {
   const { filter } = useAppSelector((state) => state.pet)
   const { data } = useGetPetsQuery(filter)
   const dispatch = useAppDispatch()
-  const params = useParams()
   const location = useLocation()
-  const [searchParams] = useSearchParams()
   useEffect(() => {
-    const { kind } = params
-    const page = searchParams.get('page')
-    if (kind) {
-      dispatch(
-        setFilter({
-          ...filter,
-          kind: PetKindEnum[kind.replace('kind=', '') as PetKindUrlType],
-        }),
-      )
-    }
-    if (page) dispatch(setFilter({ ...filter, page: parseInt(page, 10) }))
+    const urlParams = new URLSearchParams(location.search)
+    const params = Object.fromEntries(urlParams)
+    dispatch(
+      setFilter({
+        kind: params.kind as PetKindUrlType,
+        page: parseInt(params.page, 10),
+        limit: 18,
+      }),
+    )
   }, [location.search])
 
   return (
@@ -38,10 +33,13 @@ const PetList = () => {
       <Category />
       <Container>
         <PetContainer>
-          {data?.length
-            ? data.map((ele: PetType) => (
+          {data?.length ? (
+            data.map((ele: PetType) => (
               <Card key={ele.animal_id} detail={ele} />
-            )) : <NotFound />}
+            ))
+          ) : (
+            <NotFound />
+          )}
         </PetContainer>
         <Pagination />
       </Container>
