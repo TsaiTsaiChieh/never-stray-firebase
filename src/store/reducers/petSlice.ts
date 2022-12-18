@@ -1,8 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 
+import { PetKindEnum } from '../../constants/enum'
+
 const initialState: PetState = {
-  filter: { page: 1, limit: 24 },
+  filter: {
+    kind: Object.keys(PetKindEnum)[0] as PetKindUrlType,
+    page: 1,
+    limit: 18,
+  },
   pets: [],
 }
 
