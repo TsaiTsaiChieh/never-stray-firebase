@@ -1,7 +1,7 @@
 type PetKindUrlType = 'A' | 'C' | 'D'
 type PathType = 'home'
 type CategoryItemType = {
-  id: number
+  id: PetKindUrlType
   name: string
   icon: any
 }
