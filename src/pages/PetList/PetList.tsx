@@ -8,6 +8,7 @@ import { useGetPetsQuery } from '../../services/api'
 import { useAppDispatch, useAppSelector } from '../../store/hook'
 import { setFilter } from '../../store/reducers/petSlice'
 import { Container, NotFound, PetContainer } from '../../styles/pages/PetList'
+import { isPositiveInteger } from '../../utils/helper'
 import Card from './Card'
 
 const PetList = () => {
@@ -20,8 +21,8 @@ const PetList = () => {
     const params = Object.fromEntries(urlParams)
     dispatch(
       setFilter({
-        kind: params.kind as PetKindUrlType,
-        page: parseInt(params.page, 10),
+        kind: params.kind ? (params.kind as PetKindUrlType) : filter.kind,
+        page: isPositiveInteger(params.page) ? Number(params.page) : 1,
         limit: 18,
       }),
     )
