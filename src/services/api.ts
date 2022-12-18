@@ -21,7 +21,7 @@ export const api = createApi({
         animal_area_pkid,
         animal_shelter_pkid,
       }) => {
-        let url = `?UnitId=QcbUEzN6E6DL&$top=${limit}&$skip=${limit * page}`
+        let url = `?UnitId=QcbUEzN6E6DL&$top=${limit}&$skip=${limit * (page - 1)}`
 
         if (kind && PetKindEnum[kind]) url += `&animal_kind=${PetKindEnum[kind]}`
         if (animal_id) url += `&animal_id={${animal_id}}`
