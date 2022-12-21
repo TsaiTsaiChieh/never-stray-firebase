@@ -23,7 +23,6 @@ export const NotFound = styled.img`
 `
 // Card
 export const CardContainer = styled(FlexCenter)`
-  width: 225px;
   position: relative;
   background: ${colors.white};
   flex-direction: column;
@@ -31,30 +30,55 @@ export const CardContainer = styled(FlexCenter)`
   box-shadow: 0px 0px 8px ${colors['gray-t50']};
 `
 export const PetImgWrap = styled.div`
-  width: 160px;
   position: absolute;
-  bottom: 170px;
+  bottom: 120px;
+  ${MD} {
+    bottom: 170px;
+  }
 `
 export const Paw = styled.img`
-  width: 140px;
+  width: 120px;
+  top: -24px;
+  right: 18px;
   content: url("/images/paw.svg");
   position: absolute;
-  top: -25px;
+  ${MD} {
+    width: 140px;
+    top: -25px;
   right: 26px;
+  }
+`
+export const Mask = styled.div`
+  object-fit: cover;
+  width: 110px;
+  height: 6.5rem;
+  border-radius: 10px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: ${(props) => `url(${props.src || '/images/pet-null.svg'})`};
+  -webkit-mask: url("/images/pet-mask.svg") no-repeat center center;
+  mask: url("/images/pet-mask.svg") no-repeat center center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
 `
 export const PetImg = styled.div`
-  bottom: 170px;
-  height: 152px;
+  height: 120px;
+  width: 130px;
+  ${MD} {
+    width: 160px;
+    height: 152px;
+  }
   -webkit-mask: url("/images/pet-mask.svg") no-repeat center center;
   mask: url("/images/pet-mask.svg") no-repeat center center;
   background-image: ${(props) => `url(${props.src || '/images/pet-null.svg'})`};
   background-size: cover;
+  -webkit-mask-size: contain;
+  mask-size: contain;
   &::before {
     content: "";
     display: ${(props) => (props.$loading ? 'block' : 'none')};
     position: absolute;
-    height: 100%;
-    width: 160px;
     background: linear-gradient(
       to right,
       transparent 0%,
@@ -80,8 +104,11 @@ export const Name = styled.h3`
   font-size: 15px;
   letter-spacing: 0.1em;
   font-weight: bold;
-  margin-top: 100px;
+  margin-top: 70px;
   margin-bottom: 10px;
+  ${MD} {
+    margin-top: 100px;
+  }
   &::before {
     top: 20px;
     content: "";
@@ -98,31 +125,41 @@ export const Name = styled.h3`
 export const KindText = styled.span`
   font-size: 12px;
   color: ${colors['gray-i100']};
-  margin-bottom: 35px;
+  margin-bottom: 15px;
+  ${MD} {
+    margin-bottom: 35px;
+  }
 `
 export const LearnMore = styled(FlexCenter)`
-  width: 190px;
-  height: 50px;
+  width: 142px;
+  height: 32px;
   border-radius: 10px;
-  font-size: 15px;
+  font-size: 14px;
   color: ${colors['gray-i150']};
-  padding: 10px 20px 10px 15px;
   background: ${colors['primary-10']};
-  margin: 0 5px 15px;
+  margin: 0 15px 15px;
+  ${MD} {
+    width: 190px;
+    height: 50px;
+    font-size: 15px;
+  }
 `
 export const SexWrap = styled(FlexCenter)`
   letter-spacing: 0.1em;
 `
 export const SexText = styled.span``
 export const Bar = styled.div`
-  height: 31px;
+  height:16px ;
   border-left: 2px solid ${colors['primary-30']};
   width: auto;
-  margin: 0 15px;
+  margin: 0 8px;
+  ${MD} {
+    height: 31px;
+    margin: 0 15px;
+  }
 `
 export const AgeText = styled.span``
 export const OuterHoverWrap = styled.div`
-  width: 245px;
   padding: 9px;
   border-radius: 5px;
   border: 1px solid transparent;
