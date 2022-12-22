@@ -1,4 +1,5 @@
-type PetKindUrlType = 'A' | 'C' | 'D'
+type PetKindUrlType = 'W' | 'C' | 'D'
+type PetAgeUrlType = 'W' | 'A' | 'C'
 type PathType = 'home'
 type CategoryItemType = {
   id: PetKindUrlType
