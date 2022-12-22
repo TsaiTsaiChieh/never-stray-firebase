@@ -1,5 +1,6 @@
 export const MD = '@media (min-width: 768px)'
 export const LG = '@media (min-width: 1024px)'
+export const XL = '@media (min-width: 1200px)'
 
 export const colors = {
   'primary-10': '#EBF8F7',
@@ -13,6 +14,7 @@ export const colors = {
   'secondary-50': '#2D9CDB',
   'blue-50': '#63B1E1',
   'pink-50': '#FFA8A8',
+  'gray-i40': '#CECECE',
   'gray-i50': '#BDBDBD',
   'gray-i100': '#9FA0A0',
   'gray-i150': '#828282',
