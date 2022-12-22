@@ -1,6 +1,8 @@
 import { styled } from '@linaria/react'
 
-import { colors, LG, MD } from '..'
+import {
+ colors, MD, XL,
+} from '..'
 import { Contain, FlexCenter } from '../Base'
 
 export const Wrapper = styled.nav`
@@ -19,7 +21,7 @@ export const FilterIconWrap = styled(FlexCenter)`
     width: 20px;
     height: 20px;
   }
-  ${LG} {
+  ${XL} {
     display: none;
   }
 `
