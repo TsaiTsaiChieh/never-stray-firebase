@@ -28,7 +28,8 @@ const Pagination = () => {
     navigate({
       pathname: Paths.home,
       search: createSearchParams({
-        kind: filter.kind as PetKindUrlType,
+        kind: filter.kind,
+        age: filter.age,
         page: (filter.page + offset).toString(),
       }).toString(),
     })

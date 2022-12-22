@@ -42,7 +42,8 @@ const Category = () => {
       pathname: Paths.home,
       search: createSearchParams({
         kind: Object.keys(PetKindEnum)[i],
-        page: filter.page.toString(),
+        age: filter.age,
+        page: '1',
       }).toString(),
     })
   }
