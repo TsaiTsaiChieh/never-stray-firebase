@@ -1,9 +1,16 @@
 import { styled } from '@linaria/react'
 
-import { colors, MD } from '..'
+import { colors, MD, XL } from '..'
 import { Contain, FlexCenter } from '../Base'
 
-export const Container = styled(Contain)``
+export const Container = styled(Contain)`
+  ${XL} {
+    display: flex;
+  }
+`
+export const PetsAndPage = styled(FlexCenter)`
+  flex-direction: column;
+`
 export const PetContainer = styled.div`
   margin-top: 100px;
   justify-content: center;
@@ -45,7 +52,7 @@ export const Paw = styled.img`
   ${MD} {
     width: 140px;
     top: -25px;
-  right: 26px;
+    right: 26px;
   }
 `
 export const Mask = styled.div`
@@ -149,7 +156,7 @@ export const SexWrap = styled(FlexCenter)`
 `
 export const SexText = styled.span``
 export const Bar = styled.div`
-  height:16px ;
+  height: 16px;
   border-left: 2px solid ${colors['primary-30']};
   width: auto;
   margin: 0 8px;
