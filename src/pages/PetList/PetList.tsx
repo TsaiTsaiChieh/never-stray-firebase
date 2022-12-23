@@ -2,12 +2,14 @@ import { useEffect } from 'react'
 
 import { useLocation } from 'react-router-dom'
 
-import { Category, Header } from '../../components'
+import { Category, Header, LeftFilter } from '../../components'
 import Pagination from '../../components/Pagination'
 import { useGetPetsQuery } from '../../services/api'
 import { useAppDispatch, useAppSelector } from '../../store/hook'
 import { setFilter } from '../../store/reducers/petSlice'
-import { Container, NotFound, PetContainer } from '../../styles/pages/PetList'
+import {
+ Container, NotFound, PetContainer, PetsAndPage,
+} from '../../styles/pages/PetList'
 import { isPositiveInteger } from '../../utils/helper'
 import Card from './Card'
 
@@ -22,6 +24,7 @@ const PetList = () => {
     dispatch(
       setFilter({
         kind: params.kind ? (params.kind as PetKindUrlType) : filter.kind,
+        age: params.age ? (params.age as PetAgeUrlType) : filter.age,
         page: isPositiveInteger(params.page) ? Number(params.page) : 1,
         limit: 18,
       }),
@@ -33,16 +36,19 @@ const PetList = () => {
       <Header />
       <Category />
       <Container>
-        <PetContainer>
-          {data?.length ? (
+        <LeftFilter />
+        <PetsAndPage>
+          <PetContainer>
+            {data?.length ? (
             data.map((ele: PetType) => (
               <Card key={ele.animal_id} detail={ele} />
             ))
           ) : (
             <NotFound />
           )}
-        </PetContainer>
-        <Pagination />
+          </PetContainer>
+          <Pagination />
+        </PetsAndPage>
       </Container>
     </>
   )
