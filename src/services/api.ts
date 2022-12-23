@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-import { PetAgeEnum, PetKindEnum } from '../constants/enum'
+import { PetAgeEnum, PetKindEnum, PetSexEnum } from '../constants/enum'
 
 export const api = createApi({
   reducerPath: 'api',
@@ -15,7 +15,7 @@ export const api = createApi({
         kind,
         animal_id,
         age,
-        animal_sex,
+        sex,
         animal_sterilization,
         animal_colour,
         animal_area_pkid,
@@ -25,7 +25,7 @@ export const api = createApi({
         if (kind && PetKindEnum[kind]) url += `&animal_kind=${PetKindEnum[kind]}`
         if (animal_id) url += `&animal_id={${animal_id}}`
         if (age && PetAgeEnum[age]) url += `&animal_age=${PetAgeEnum[age]}`
-        if (animal_sex) url += `&animal_sex=[{${animal_sex.join(',')}}]`
+        if (sex && PetSexEnum[sex]) url += `&animal_sex=${PetSexEnum[sex]}`
         if (animal_sterilization) {
           url += `&animal_sterilization={${animal_sterilization}}`
         }
