@@ -1,5 +1,6 @@
 type PetKindUrlType = 'W' | 'C' | 'D'
 type PetAgeUrlType = 'W' | 'A' | 'C'
+type PetSexUrlType = 'W' | 'M' | 'F'
 type PathType = 'home'
 type CategoryItemType = {
   id: PetKindUrlType
