@@ -17,7 +17,7 @@ export const api = createApi({
         age,
         sex,
         animal_sterilization,
-        animal_colour,
+        color,
         animal_area_pkid,
         animal_shelter_pkid,
       }) => {
@@ -29,8 +29,8 @@ export const api = createApi({
         if (animal_sterilization) {
           url += `&animal_sterilization={${animal_sterilization}}`
         }
-        if (animal_colour) {
-          url += `&animal_colour=[{${animal_colour.join(',')}}]`
+        if (color) {
+          url += `&animal_colour=${color}`
         }
         if (animal_area_pkid) url += `&animal_area_pkid={${animal_area_pkid}}`
         if (animal_shelter_pkid) {
