@@ -16,8 +16,9 @@ import {
 interface Props {
   label: string
   options: LabelValueType[]
+  placeholder?: string
 }
-const ColorFilter = ({ label, options }: Props) => {
+const ColorFilter = ({ label, options, placeholder }: Props) => {
   const nav = useNavigate()
   const { filter } = useAppSelector((state) => state.pet)
   const [searchParams] = useSearchParams()
@@ -46,6 +47,7 @@ const ColorFilter = ({ label, options }: Props) => {
         defaultValue={defaultValue}
         options={options}
         isSearchable={false}
+        placeholder={placeholder}
         onChange={(e) => onChange(e)}
       />
     </OptionsFilterWrap>
