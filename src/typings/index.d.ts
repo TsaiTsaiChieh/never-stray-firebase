@@ -2,6 +2,10 @@ type PetKindUrlType = 'W' | 'C' | 'D'
 type PetAgeUrlType = 'W' | 'A' | 'C'
 type PetSexUrlType = 'W' | 'M' | 'F'
 type PathType = 'home'
+type LabelValueType = {
+  value: string
+  label: string
+}
 type CategoryItemType = {
   id: PetKindUrlType
   name: string
