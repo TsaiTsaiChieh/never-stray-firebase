@@ -6,9 +6,11 @@ import { Contain, FlexCenter } from '../Base'
 export const Container = styled(Contain)`
   ${XL} {
     display: flex;
+    justify-content: space-evenly;
   }
 `
 export const PetsAndPage = styled(FlexCenter)`
+/* width: 720px; */
   flex-direction: column;
 `
 export const PetContainer = styled.div`
@@ -24,6 +26,9 @@ export const PetContainer = styled.div`
     grid-template-columns: repeat(3, auto);
     grid-template-rows: repeat(6, auto);
   }
+`
+export const NotFoundWrap = styled(FlexCenter)`
+  width: 720px;
 `
 export const NotFound = styled.img`
   content: url("/images/not-found.png");
