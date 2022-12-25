@@ -25,7 +25,9 @@ const PetList = () => {
       setFilter({
         kind: params.kind ? (params.kind as PetKindUrlType) : filter.kind,
         age: params.age ? (params.age as PetAgeUrlType) : filter.age,
+        sex: params.sex ? (params.sex as PetSexUrlType) : filter.sex,
         page: isPositiveInteger(params.page) ? Number(params.page) : 1,
+        color: params.color ? params.color : filter.color,
         limit: 18,
       }),
     )
