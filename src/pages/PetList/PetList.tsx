@@ -8,7 +8,7 @@ import { useGetPetsQuery } from '../../services/api'
 import { useAppDispatch, useAppSelector } from '../../store/hook'
 import { setFilter } from '../../store/reducers/petSlice'
 import {
- Container, NotFound, PetContainer, PetsAndPage,
+ Container, NotFound, NotFoundWrap, PetContainer, PetsAndPage,
 } from '../../styles/pages/PetList'
 import { isPositiveInteger } from '../../utils/helper'
 import Card from './Card'
@@ -28,7 +28,7 @@ const PetList = () => {
         sex: params.sex ? (params.sex as PetSexUrlType) : filter.sex,
         page: isPositiveInteger(params.page) ? Number(params.page) : 1,
         color: params.color ? params.color : filter.color,
-        limit: 18,
+        limit: import.meta.env.VITE_PET_LIMIT,
       }),
     )
   }, [location.search])
@@ -46,7 +46,9 @@ const PetList = () => {
               <Card key={ele.animal_id} detail={ele} />
             ))
           ) : (
-            <NotFound />
+            <NotFoundWrap>
+              <NotFound />
+            </NotFoundWrap>
           )}
           </PetContainer>
           <Pagination />
