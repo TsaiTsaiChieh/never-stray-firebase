@@ -59,7 +59,7 @@ export const OptionBtnOuter = styled(FlexCenter)`
 `
 export const Selector = styled(Select)`
   width: 268px;
-  .css-13cymwt-control {
+  .css-13cymwt-control, .css-t3ipsp-control {
     height: 40px;
   }
 `
