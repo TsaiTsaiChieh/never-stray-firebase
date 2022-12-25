@@ -3,25 +3,35 @@ import {
 } from 'react'
 
 import {
-  faAngleLeft, faAngleRight, faAnglesLeft, faAnglesRight,
+  faAngleLeft,
+  faAngleRight,
+  faAnglesLeft,
+  faAnglesRight,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import clsx from 'clsx'
 import {
-  createSearchParams, useNavigate, useSearchParams,
+  createSearchParams,
+  useNavigate,
+  useSearchParams,
 } from 'react-router-dom'
 
 import { Paths } from '../constants'
 import { useAppSelector } from '../store/hook/index'
 import {
-  LeftWrap, PageButton, PageInput, PageWrapper, RightWrap,
+  LeftWrap,
+  PageButton,
+  PageInput,
+  PageWrapper,
+  RightWrap,
 } from '../styles/components/Pagination'
 import { isPositiveInteger } from '../utils/helper'
 
 const Pagination = () => {
+  const LIMIT = import.meta.env.VITE_PET_LIMIT
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
-  const { filter } = useAppSelector((state) => state.pet)
+  const { filter, pets } = useAppSelector((state) => state.pet)
   const [pageValue, setPageValue] = useState(filter.page.toString())
   const disablePage = (max: number) => filter.page <= max
   const handlePageOnClick = (offset: number) => {
@@ -41,15 +51,15 @@ const Pagination = () => {
   }
   const onKeyDown = (e: KeyboardEvent) => {
     if (e.key === 'Enter') {
-        navigate({
-          pathname: Paths.home,
-          search: createSearchParams({
-            kind: filter.kind as PetKindUrlType,
-            sex: filter.sex,
-            age: filter.age,
-            page: pageValue,
-          }).toString(),
-        })
+      navigate({
+        pathname: Paths.home,
+        search: createSearchParams({
+          kind: filter.kind as PetKindUrlType,
+          sex: filter.sex,
+          age: filter.age,
+          page: pageValue,
+        }).toString(),
+      })
     }
   }
   useEffect(() => {
@@ -80,10 +90,16 @@ const Pagination = () => {
         onChange={(e) => changePageInput(e)}
       />
       <RightWrap>
-        <PageButton onClick={() => handlePageOnClick(1)}>
+        <PageButton
+          className={clsx({ disabled: pets.length < LIMIT })}
+          onClick={() => handlePageOnClick(1)}
+        >
           <FontAwesomeIcon icon={faAngleRight} />
         </PageButton>
-        <PageButton onClick={() => handlePageOnClick(10)}>
+        <PageButton
+          className={clsx({ disabled: pets.length < LIMIT })}
+          onClick={() => handlePageOnClick(10)}
+        >
           <FontAwesomeIcon icon={faAnglesRight} />
         </PageButton>
       </RightWrap>
