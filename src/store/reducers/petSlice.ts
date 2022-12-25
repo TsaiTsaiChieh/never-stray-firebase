@@ -8,6 +8,7 @@ const initialState: PetState = {
     kind: Object.keys(PetKindEnum)[0] as PetKindUrlType,
     age: Object.keys(PetAgeEnum)[0] as PetAgeUrlType,
     sex: Object.keys(PetSexEnum)[0] as PetSexUrlType,
+    color: undefined,
     page: 1,
     limit: 18,
   },
