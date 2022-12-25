@@ -43,6 +43,7 @@ const Category = () => {
       search: createSearchParams({
         kind: Object.keys(PetKindEnum)[i],
         age: filter.age,
+        sex: filter.sex,
         page: '1',
       }).toString(),
     })

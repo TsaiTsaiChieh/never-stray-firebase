@@ -30,6 +30,7 @@ const Pagination = () => {
       search: createSearchParams({
         kind: filter.kind,
         age: filter.age,
+        sex: filter.sex,
         page: (filter.page + offset).toString(),
       }).toString(),
     })
@@ -44,6 +45,8 @@ const Pagination = () => {
           pathname: Paths.home,
           search: createSearchParams({
             kind: filter.kind as PetKindUrlType,
+            sex: filter.sex,
+            age: filter.age,
             page: pageValue,
           }).toString(),
         })
