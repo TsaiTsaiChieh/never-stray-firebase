@@ -1,5 +1,4 @@
-export const PetKindEnum: { [key in PetKindUrlType]: string | undefined } = {
-  W: undefined,
+export const PetKindEnum: { [key in PetKindUrlType]: string } = {
   C: '貓',
   D: '狗',
 }

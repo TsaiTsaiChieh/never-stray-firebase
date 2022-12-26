@@ -2,7 +2,7 @@ type GetPetsRes = PetType[]
 type GetPetReq = {
   limit: number
   page: number
-  kind: PetKindUrlType
+  kind?: PetKindUrlType
   id?: number
   age: PetAgeUrlType
   sex: PetSexUrlType
