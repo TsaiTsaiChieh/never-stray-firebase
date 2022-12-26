@@ -8,6 +8,6 @@ type GetPetReq = {
   sex: PetSexUrlType
   animal_sterilization?: string
   color?: string
-  animal_area_pkid?: number
+  city?: number
   animal_shelter_pkid?: number
 }
