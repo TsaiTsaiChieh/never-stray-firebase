@@ -25,7 +25,7 @@ import {
   PageWrapper,
   RightWrap,
 } from '../styles/components/Pagination'
-import { isPositiveInteger } from '../utils/helper'
+import { isPositiveInteger, searchQuery } from '../utils/helper'
 
 const Pagination = () => {
   const LIMIT = import.meta.env.VITE_PET_LIMIT
@@ -35,14 +35,11 @@ const Pagination = () => {
   const [pageValue, setPageValue] = useState(filter.page.toString())
   const disablePage = (max: number) => filter.page <= max
   const handlePageOnClick = (offset: number) => {
+    const params = searchQuery(filter)
+    params.page = (filter.page + offset).toString()
     navigate({
       pathname: Paths.home,
-      search: createSearchParams({
-        kind: filter.kind,
-        age: filter.age,
-        sex: filter.sex,
-        page: (filter.page + offset).toString(),
-      }).toString(),
+      search: createSearchParams(params).toString(),
     })
   }
   const changePageInput = (e: ChangeEvent<HTMLInputElement>) => {

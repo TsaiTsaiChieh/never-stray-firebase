@@ -27,6 +27,7 @@ import {
   FilterText,
   Wrapper,
 } from '../styles/components/Category'
+import { searchQuery } from '../utils/helper'
 
 const Category = () => {
   const navigate = useNavigate()
@@ -38,14 +39,11 @@ const Category = () => {
   const names: string[] = i18n.t('buttons.categories', { returnObjects: true })
   const onClick = (i: number) => {
     setActiveId(Object.keys(PetKindEnum)[i] as PetKindUrlType)
+    const params = searchQuery(filter)
+    params.kind = Object.keys(PetKindEnum)[i]
     navigate({
       pathname: Paths.home,
-      search: createSearchParams({
-        kind: Object.keys(PetKindEnum)[i],
-        age: filter.age,
-        sex: filter.sex,
-        page: '1',
-      }).toString(),
+      search: createSearchParams(params).toString(),
     })
   }
   const icons = [faPaw, faCat, faDog]

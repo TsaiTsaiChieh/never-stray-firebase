@@ -13,6 +13,7 @@ import {
   OptionsFilterWrap,
   Selector,
 } from '../../styles/components/LeftFilter'
+import { searchQuery } from '../../utils/helper'
 
 interface Props {
   label: string
@@ -27,14 +28,11 @@ const ColorFilter = ({ label, options, placeholder }: Props) => {
 
   const onChange = (newValue: SingleValue<LabelValueType>) => {
     if (newValue !== null) {
+      const params = searchQuery(filter)
+      params.color = newValue.value
       nav({
         pathname: Paths.home,
-        search: createSearchParams({
-          kind: filter.kind,
-          sex: filter.sex,
-          page: '1',
-          color: newValue.value,
-        }).toString(),
+        search: createSearchParams(params).toString(),
       })
     } else {
       searchParams.delete('color')
