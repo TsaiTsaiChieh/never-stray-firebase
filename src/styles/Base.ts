@@ -1,6 +1,6 @@
 import { styled } from '@linaria/react'
 
-import { LG, MD } from '.'
+import { LG, MD, XL } from '.'
 
 export const Contain = styled.div`
   max-width: 576px;
@@ -29,4 +29,7 @@ export const FlexCenter = styled.div`
   justify-content: center;
   align-items: center;
   gap: ${(props) => `${props.gap || 8}px`};
+  ${XL} {
+    gap: ${(props) => `${props.xlGap || 10}px`};
+  }
 `

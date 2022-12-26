@@ -62,7 +62,7 @@ const Category = () => {
           <FontAwesomeIcon icon={faFilter} />
           <FilterText>{i18n.t('buttons.filter')}</FilterText>
         </FilterIconWrap>
-        <FlexCenter>
+        <FlexCenter xlGap={35}>
           {categoryItem.map(({ id, name, icon }, i) => (
             <ButtonWrap
               key={id}
