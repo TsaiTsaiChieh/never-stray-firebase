@@ -49,3 +49,15 @@ export const isPositiveInteger = (str: string): boolean => {
   if (Number.isInteger(num) && num > 0) return true
   return false
 }
+export const searchQuery = (filter: GetPetReq) => {
+  const params: any = {}
+  if (filter.id) params.id = filter.id
+  if (filter.kind) params.kind = filter.kind
+  if (filter.age) params.age = filter.age
+  if (filter.sex) params.sex = filter.sex
+  if (filter.page) params.page = filter.page
+  if (filter.color) params.color = filter.color
+  if (filter.city) params.city = filter.city
+  if (filter.shelter) params.shelter = filter.shelter
+  return params
+}
