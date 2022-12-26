@@ -6,7 +6,8 @@ import {
 import { SingleValue } from 'react-select'
 
 import { Paths } from '../../constants'
-import { useAppSelector } from '../../store/hook'
+import { useAppDispatch, useAppSelector } from '../../store/hook'
+import { setFilter } from '../../store/reducers/petSlice'
 import {
   LabelName,
   OptionsFilterWrap,
@@ -19,20 +20,27 @@ interface Props {
   placeholder?: string
 }
 const ColorFilter = ({ label, options, placeholder }: Props) => {
+  const dispatch = useAppDispatch()
   const nav = useNavigate()
   const { filter } = useAppSelector((state) => state.pet)
-  const [searchParams] = useSearchParams()
+  const [searchParams, setSearchParams] = useSearchParams()
 
   const onChange = (newValue: SingleValue<LabelValueType>) => {
-    nav({
-      pathname: Paths.home,
-      search: createSearchParams({
-        kind: filter.kind,
-        sex: filter.sex,
-        page: '1',
-        color: newValue!.value,
-      }).toString(),
-    })
+    if (newValue !== null) {
+      nav({
+        pathname: Paths.home,
+        search: createSearchParams({
+          kind: filter.kind,
+          sex: filter.sex,
+          page: '1',
+          color: newValue.value,
+        }).toString(),
+      })
+    } else {
+      searchParams.delete('color')
+      setSearchParams(searchParams)
+      dispatch(setFilter({ ...filter, color: undefined }))
+    }
   }
   const colorUrl = searchParams.get('color')
   const defaultValue: LabelValueType | undefined = colorUrl !== null
@@ -49,6 +57,7 @@ const ColorFilter = ({ label, options, placeholder }: Props) => {
         isSearchable={false}
         placeholder={placeholder}
         onChange={(e) => onChange(e)}
+        isClearable
       />
     </OptionsFilterWrap>
   )
