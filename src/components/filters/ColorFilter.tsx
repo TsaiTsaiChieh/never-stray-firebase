@@ -56,7 +56,7 @@ const ColorFilter = ({ label, options, placeholder }: Props) => {
         options={options}
         isSearchable={false}
         placeholder={placeholder}
-        onChange={(e) => onChange(e)}
+        onChange={onChange}
         isClearable
       />
     </OptionsFilterWrap>
