@@ -18,7 +18,7 @@ export const api = createApi({
         sex,
         animal_sterilization,
         color,
-        animal_area_pkid,
+        city,
         animal_shelter_pkid,
       }) => {
         let url = `?UnitId=QcbUEzN6E6DL&$top=${limit}&$skip=${limit * (page - 1)}`
@@ -32,9 +32,9 @@ export const api = createApi({
         if (color) {
           url += `&animal_colour=${color}`
         }
-        if (animal_area_pkid) url += `&animal_area_pkid={${animal_area_pkid}}`
+        if (city) url += `&animal_area_pkid=${city}`
         if (animal_shelter_pkid) {
-          url += `&animal_shelter_pkid={${animal_shelter_pkid}}`
+          url += `&animal_shelter_pkid=${animal_shelter_pkid}`
         }
         console.log(`${import.meta.env.VITE_API_URL}${url}`)
         return {
