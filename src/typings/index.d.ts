@@ -1,6 +1,6 @@
 type PetKindUrlType = 'C' | 'D'
 type PetAgeUrlType = 'A' | 'C'
-type PetSexUrlType = 'W' | 'M' | 'F'
+type PetSexUrlType = 'M' | 'F'
 type PathType = 'home'
 type LabelValueType = {
   value: string

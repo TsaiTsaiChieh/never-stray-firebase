@@ -1,14 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 
-import { PetSexEnum } from '../../constants/enum'
 import { api } from '../../services/api'
 
 const initialState: PetState = {
   filter: {
     kind: undefined,
     age: undefined,
-    sex: Object.keys(PetSexEnum)[0] as PetSexUrlType,
+    sex: undefined,
     color: undefined,
     page: 1,
     limit: import.meta.env.VITE_PET_LIMIT,

@@ -6,8 +6,7 @@ export const PetAgeEnum: { [key in PetAgeUrlType]: string } = {
   A: 'adult',
   C: 'child',
 }
-export const PetSexEnum: { [key in PetSexUrlType]: string | undefined } = {
-  W: undefined,
+export const PetSexEnum: { [key in PetSexUrlType]: string } = {
   M: 'M',
   F: 'F',
 }

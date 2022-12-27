@@ -1,10 +1,11 @@
 import { useState } from 'react'
 
-import { createSearchParams, useNavigate } from 'react-router-dom'
+import { createSearchParams, useNavigate, useSearchParams } from 'react-router-dom'
 
 import { Paths } from '../../constants'
-import { PetSexEnum } from '../../constants/enum'
-import { useAppSelector } from '../../store/hook'
+import { PetAgeEnum, PetSexEnum } from '../../constants/enum'
+import { useAppDispatch, useAppSelector } from '../../store/hook'
+import { setFilter } from '../../store/reducers/petSlice'
 import {
   LabelName,
   OptionBtn,
@@ -12,24 +13,32 @@ import {
   OptionGroup,
   OptionsFilterWrap,
 } from '../../styles/components/LeftFilter'
+import { searchQuery } from '../../utils/helper'
 
 interface Props {
   label: string
   options: string[]
 }
 const SexFilter = ({ label, options }: Props) => {
+  const dispatch = useAppDispatch()
   const { filter } = useAppSelector((state) => state.pet)
-  const [active, setActive] = useState<PetSexUrlType>(filter.sex)
+  const [searchParams] = useSearchParams()
+  const ageUrl = searchParams.get('sex')
+  let ageIdx = 0
+  if (ageUrl !== null) ageIdx = Object.keys(PetAgeEnum).indexOf(ageUrl) + 1
+  const [active, setActive] = useState<number>(ageIdx)
   const navigate = useNavigate()
   const onClick = (i: number) => {
-    setActive(Object.keys(PetSexEnum)[i] as PetSexUrlType)
+    setActive(i)
+    const params = searchQuery(filter)
+    if (i !== 0) params.sex = Object.keys(PetSexEnum)[i - 1]
+    else {
+      delete params.sex
+      dispatch(setFilter({ ...filter, sex: undefined }))
+    }
     navigate({
       pathname: Paths.home,
-      search: createSearchParams({
-        kind: filter.kind,
-        sex: Object.keys(PetSexEnum)[i],
-        page: '1',
-      }).toString(),
+      search: createSearchParams(params).toString(),
     })
   }
   return (
@@ -38,7 +47,7 @@ const SexFilter = ({ label, options }: Props) => {
       <OptionGroup>
         {options.map((ele, i) => (
           <OptionBtnOuter
-            $active={active === Object.keys(PetSexEnum)[i]}
+            $active={i === active}
             key={ele}
             onClick={() => onClick(i)}
           >
