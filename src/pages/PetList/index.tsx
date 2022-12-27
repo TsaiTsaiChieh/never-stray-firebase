@@ -30,6 +30,7 @@ const PetList = () => {
         page: isPositiveInteger(params.page) ? Number(params.page) : 1,
         color: params.color ? params.color : filter.color,
         city: params.city ? parseInt(params.city, 10) : filter.city,
+        shelter: params.shelter ? parseInt(params.shelter, 10) : filter.shelter,
         limit: import.meta.env.VITE_PET_LIMIT,
       }),
     )
