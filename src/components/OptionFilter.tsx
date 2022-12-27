@@ -25,9 +25,9 @@ const OptionFilter = ({ fieldName, label, options }: Props) => {
   const { filter } = useAppSelector((state) => state.pet)
   const [searchParams] = useSearchParams()
   let fieldIdx = 0
-  const urlParams = searchParams.get(fieldName)
-  if (urlParams !== null) {
-    fieldIdx = Object.keys(optionEnum).indexOf(urlParams) + 1
+  const urlParam = searchParams.get(fieldName)
+  if (urlParam !== null) {
+    fieldIdx = Object.keys(optionEnum).indexOf(urlParam) + 1
   }
   const [activeId, setActiveId] = useState<number>(fieldIdx)
   const onClick = (i: number) => {
