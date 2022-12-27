@@ -1,5 +1,6 @@
 import i18n from 'i18next'
 
+import { SelectorFilter } from '../../components'
 import CityFilter from '../../components/CityFilter'
 import ColorFilter from '../../components/filters/ColorFilter'
 import OptionFilter from '../../components/OptionFilter'
@@ -16,9 +17,12 @@ const LeftFilter = () => {
   const ColorOpts: string[] = i18n.t('filters.colors', {
     returnObjects: true,
   })
-  const filterCityOpts: LabelValueType[] = i18n.t('filters.cities', { returnObjects: true })
-  const colorPlaceholder: string = i18n.t('placeholders.color')
-  const cityPlaceholder: string = i18n.t('placeholders.city')
+  const CityOpts: LabelValueType[] = i18n.t('filters.cities', { returnObjects: true })
+  const ShelterOpts: LabelValueType[] = i18n.t('filters.shelters', { returnObjects: true })
+  const ColorPlaceholder: string = i18n.t('placeholders.color')
+  const CityPlaceholder: string = i18n.t('placeholders.city')
+  const ShelterPlaceholder: string = i18n.t('placeholders.shelter')
+
   return (
     <FilterContainer>
       <OptionFilter fieldName='age' label={Labels[0]} options={AgeOpts} />
@@ -26,9 +30,10 @@ const LeftFilter = () => {
       <ColorFilter
         label={Labels[2]}
         options={ColorOpts.map((ele) => ({ label: ele, value: ele }))}
-        placeholder={colorPlaceholder}
+        placeholder={ColorPlaceholder}
       />
-      <CityFilter label={Labels[3]} options={filterCityOpts} placeholder={cityPlaceholder} />
+      <CityFilter label={Labels[3]} options={CityOpts} placeholder={CityPlaceholder} />
+      <SelectorFilter fieldName='shelter' label={Labels[4]} options={ShelterOpts} placeholder={ShelterPlaceholder} />
     </FilterContainer>
   )
 }
