@@ -3,7 +3,7 @@ import i18n from 'i18next'
 import CityFilter from '../../components/CityFilter'
 import ColorFilter from '../../components/filters/ColorFilter'
 import OptionFilter from '../../components/OptionFilter'
-import { FilterContainer } from '../../styles/components/LeftFilter'
+import { FilterContainer } from '../../styles/pages/LeftFilter'
 
 const LeftFilter = () => {
   const Labels: string[] = i18n.t('labels.filters', { returnObjects: true })
