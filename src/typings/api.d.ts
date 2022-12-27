@@ -4,7 +4,7 @@ type GetPetReq = {
   page: number
   kind?: PetKindUrlType
   id?: number
-  age: PetAgeUrlType
+  age?: PetAgeUrlType
   sex: PetSexUrlType
   color?: string
   city?: number

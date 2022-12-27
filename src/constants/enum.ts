@@ -2,8 +2,7 @@ export const PetKindEnum: { [key in PetKindUrlType]: string } = {
   C: '貓',
   D: '狗',
 }
-export const PetAgeEnum: { [key in PetAgeUrlType]: string | undefined } = {
-  W: undefined,
+export const PetAgeEnum: { [key in PetAgeUrlType]: string } = {
   A: 'adult',
   C: 'child',
 }
