@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 
 import { useLocation } from 'react-router-dom'
 
-import { Category, Header, LeftFilter } from '../../components'
+import { Category, Header } from '../../components'
 import Pagination from '../../components/Pagination'
 import { useGetPetsQuery } from '../../services/api'
 import { useAppDispatch, useAppSelector } from '../../store/hook'
@@ -12,6 +12,7 @@ import {
 } from '../../styles/pages/PetList'
 import { isPositiveInteger } from '../../utils/helper'
 import Card from './Card'
+import LeftFilter from './LeftFilter'
 
 const PetList = () => {
   const { filter } = useAppSelector((state) => state.pet)
@@ -28,6 +29,7 @@ const PetList = () => {
         sex: params.sex ? (params.sex as PetSexUrlType) : filter.sex,
         page: isPositiveInteger(params.page) ? Number(params.page) : 1,
         color: params.color ? params.color : filter.color,
+        city: params.city ? parseInt(params.city, 10) : filter.city,
         limit: import.meta.env.VITE_PET_LIMIT,
       }),
     )

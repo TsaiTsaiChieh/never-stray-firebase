@@ -1,7 +1,7 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
 
 import { Paths } from '../constants'
-import PetList from '../pages/PetList/PetList'
+import PetList from '../pages/PetList'
 
 const View = () => (
   <Routes>
