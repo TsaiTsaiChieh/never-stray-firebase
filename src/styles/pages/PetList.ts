@@ -10,8 +10,10 @@ export const Container = styled(Contain)`
   }
 `
 export const PetsAndPage = styled(FlexCenter)`
-/* width: 720px; */
   flex-direction: column;
+  ${XL} {
+    width: 720px;
+  }
 `
 export const PetContainer = styled.div`
   margin-top: 100px;
