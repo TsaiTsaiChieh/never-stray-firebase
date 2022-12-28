@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import {
   createSearchParams,
   useNavigate,
@@ -16,7 +18,7 @@ import {
 import { searchQuery } from '../utils/helper'
 
 interface Props {
-  fieldName: keyof Pick<GetPetReq, 'species'| 'city' | 'color' | 'shelter'>
+  fieldName: keyof Pick<GetPetReq, 'species' | 'city' | 'color' | 'shelter'>
   options: LabelValueType[]
   label: string
   placeholder?: string
@@ -28,14 +30,15 @@ const SelectorFilter = ({
   const [searchParams, setSearchParams] = useSearchParams()
   const nav = useNavigate()
   const { filter } = useAppSelector((state) => state.pet)
-  let fieldIdx = 0
   const urlParam = searchParams.get(fieldName)
-  if (urlParam !== null) {
-    fieldIdx = options.map((ele) => ele.value).indexOf(urlParam)
-  }
-  const defaultValue: LabelValueType | undefined = fieldIdx > -1 && urlParam !== null
+  const fieldIdx = urlParam === null
+      ? 0
+      : options.map((ele) => ele.value.toString()).indexOf(urlParam)
+  const [defaultValue] = useState<LabelValueType | null>(
+    fieldIdx > -1 && urlParam !== null
       ? { value: options[fieldIdx].value, label: options[fieldIdx].label }
-      : undefined
+      : null,
+  )
   const onChange = (newValue: SingleValue<LabelValueType>) => {
     if (newValue !== null) {
       const params = searchQuery(filter)
