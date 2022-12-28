@@ -3,7 +3,7 @@ type PetAgeUrlType = 'A' | 'C'
 type PetSexUrlType = 'M' | 'F'
 type PathType = 'home'
 type LabelValueType = {
-  value: string
+  value: string | number
   label: string
 }
 type CategoryItemType = {
