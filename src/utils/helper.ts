@@ -56,6 +56,7 @@ export const searchQuery = (filter: GetPetReq) => {
   if (filter.age) params.age = filter.age
   if (filter.sex) params.sex = filter.sex
   if (filter.page) params.page = filter.page
+  if (filter.species) params.species = filter.species
   if (filter.color) params.color = filter.color
   if (filter.city) params.city = filter.city
   if (filter.shelter) params.shelter = filter.shelter
