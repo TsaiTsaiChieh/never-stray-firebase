@@ -16,6 +16,7 @@ export const api = createApi({
         id,
         age,
         sex,
+        species,
         color,
         city,
         shelter,
@@ -25,6 +26,7 @@ export const api = createApi({
         if (id) url += `&animal_id=${id}`
         if (age && PetAgeEnum[age]) url += `&animal_age=${PetAgeEnum[age]}`
         if (sex && PetSexEnum[sex]) url += `&animal_sex=${PetSexEnum[sex]}`
+        if (species) url += `&animal_Variety=${species}`
         if (color) {
           url += `&animal_colour=${color}`
         }

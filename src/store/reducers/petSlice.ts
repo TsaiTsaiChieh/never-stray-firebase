@@ -9,6 +9,7 @@ const initialState: PetState = {
     age: undefined,
     sex: undefined,
     color: undefined,
+    species: undefined,
     page: 1,
     limit: import.meta.env.VITE_PET_LIMIT,
   },

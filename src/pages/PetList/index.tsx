@@ -28,6 +28,7 @@ const PetList = () => {
         age: params.age ? (params.age as PetAgeUrlType) : filter.age,
         sex: params.sex ? (params.sex as PetSexUrlType) : filter.sex,
         page: isPositiveInteger(params.page) ? Number(params.page) : 1,
+        species: params.species ? params.species : filter.species,
         color: params.color ? params.color : filter.color,
         city: params.city ? parseInt(params.city, 10) : filter.city,
         shelter: params.shelter ? parseInt(params.shelter, 10) : filter.shelter,
