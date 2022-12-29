@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { Paths } from '../constants'
 import { useAppDispatch } from '../store/hook'
-import { resetState } from '../store/reducers/petSlice'
+import { resetFilter } from '../store/reducers/petSlice'
 import {
   AuthState,
   AvatarWrap,
@@ -19,7 +19,7 @@ export const Header = () => {
   const nav = useNavigate()
   const go2home = () => {
     nav({ pathname: Paths.home })
-    dispatch(resetState())
+    dispatch(resetFilter())
   }
 
   return (
