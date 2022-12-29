@@ -1,7 +1,12 @@
 import { useState } from 'react'
 
-import { useSearchParams } from 'react-router-dom'
+import {
+  createSearchParams,
+  useNavigate,
+  useSearchParams,
+} from 'react-router-dom'
 
+import { Paths } from '../constants'
 import { PetAgeEnum, PetSexEnum } from '../constants/enum'
 import { useAppDispatch, useAppSelector } from '../store/hook'
 import { setFilter } from '../store/reducers/petSlice'
@@ -20,6 +25,7 @@ interface Props {
   options: string[]
 }
 const OptionFilter = ({ fieldName, label, options }: Props) => {
+  const nav = useNavigate()
   const dispatch = useAppDispatch()
   const optionEnum = fieldName === 'age' ? PetAgeEnum : PetSexEnum
   const { filter } = useAppSelector((state) => state.pet)
@@ -43,6 +49,10 @@ const OptionFilter = ({ fieldName, label, options }: Props) => {
         }),
       )
     }
+    nav({
+      pathname: Paths.home,
+      search: createSearchParams(params).toString(),
+    })
   }
   return (
     <OptionsFilterWrap>
