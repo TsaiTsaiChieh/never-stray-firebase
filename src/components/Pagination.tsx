@@ -44,24 +44,22 @@ const Pagination = () => {
   }
   const changePageInput = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target
-    if (isPositiveInteger(value)) setPageValue(value)
+    if (isPositiveInteger(value) || value === '') setPageValue(value)
   }
   const onKeyDown = (e: KeyboardEvent) => {
     if (e.key === 'Enter') {
+      const params = searchQuery(filter)
+      params.page = pageValue === '' ? 1 : pageValue
       navigate({
         pathname: Paths.home,
-        search: createSearchParams({
-          kind: filter.kind as PetKindUrlType,
-          sex: filter.sex,
-          age: filter.age,
-          page: pageValue,
-        }).toString(),
+        search: createSearchParams(params).toString(),
       })
     }
   }
   useEffect(() => {
     const page = searchParams.get('page')
     if (page) setPageValue(page)
+    else if (page === null) setPageValue('1')
   }, [searchParams.get('page')])
 
   return (
