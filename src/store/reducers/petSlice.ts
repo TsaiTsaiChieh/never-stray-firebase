@@ -20,7 +20,9 @@ export const petSlice = createSlice({
   name: 'pet',
   initialState,
   reducers: {
-    resetState: () => initialState,
+    resetFilter: (state) => {
+      state.filter = initialState.filter
+    },
     setFilter: (state, { payload }: PayloadAction<GetPetReq>) => {
       state.filter = payload
     },
@@ -35,6 +37,6 @@ export const petSlice = createSlice({
   },
 })
 
-export const { resetState, setFilter } = petSlice.actions
+export const { resetFilter, setFilter } = petSlice.actions
 
 export default petSlice.reducer
