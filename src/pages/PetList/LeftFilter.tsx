@@ -26,23 +26,23 @@ const LeftFilter = () => {
 
   return (
     <FilterContainer>
-      <TextFilter />
-      <OptionFilter fieldName='age' label={Labels[0]} options={AgeOpts} />
-      <OptionFilter fieldName='sex' label={Labels[1]} options={SexOpts} />
-      <SelectorFilter fieldName='species' label={Labels[2]} options={SpeciesOpts.map((ele) => ({ label: ele, value: ele }))} placeholder={Placeholders[0]} />
+      <TextFilter fieldName='id' label={Labels[0]} placeholder={Placeholders[0]} />
+      <OptionFilter fieldName='age' label={Labels[1]} options={AgeOpts} />
+      <OptionFilter fieldName='sex' label={Labels[2]} options={SexOpts} />
+      <SelectorFilter fieldName='species' label={Labels[3]} options={SpeciesOpts.map((ele) => ({ label: ele, value: ele }))} placeholder={Placeholders[1]} />
       <SelectorFilter
         fieldName='color'
-        label={Labels[3]}
+        label={Labels[4]}
         options={ColorOpts.map((ele) => ({ label: ele, value: ele }))}
-        placeholder={Placeholders[1]}
+        placeholder={Placeholders[2]}
       />
       <SelectorFilter
         fieldName='city'
-        label={Labels[4]}
+        label={Labels[5]}
         options={CityOpts}
-        placeholder={Placeholders[2]}
+        placeholder={Placeholders[3]}
       />
-      <SelectorFilter fieldName='shelter' label={Labels[5]} options={ShelterOpts} placeholder={Placeholders[3]} />
+      <SelectorFilter fieldName='shelter' label={Labels[6]} options={ShelterOpts} placeholder={Placeholders[4]} />
     </FilterContainer>
   )
 }
