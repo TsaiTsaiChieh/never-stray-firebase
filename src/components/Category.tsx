@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import {
   faCat,
@@ -36,9 +36,9 @@ const Category = () => {
   const { filter } = useAppSelector((state) => state.pet)
   const [searchParams] = useSearchParams()
   const kindUrl = searchParams.get('kind')
-  let kindIdx = 0
-  if (kindUrl !== null) kindIdx = Object.keys(PetKindEnum).indexOf(kindUrl) + 1
-  const [activeId, setActiveId] = useState<number>(kindIdx)
+  const [activeId, setActiveId] = useState<number>(
+    kindUrl !== null ? Object.keys(PetKindEnum).indexOf(kindUrl.toUpperCase()) + 1 : 0,
+  )
   const names: string[] = i18n.t('buttons.categories', { returnObjects: true })
   const onClick = (i: number) => {
     setActiveId(i)
@@ -59,6 +59,10 @@ const Category = () => {
     name,
     icon: icons[i],
   }))
+  // reset state
+  useEffect(() => {
+   if (kindUrl === null) setActiveId(0)
+  }, [kindUrl])
 
   return (
     <Wrapper>
