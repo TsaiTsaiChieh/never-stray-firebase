@@ -24,6 +24,7 @@ const PetList = () => {
     const params = Object.fromEntries(urlParams)
     dispatch(
       setFilter({
+        id: params.id ? parseInt(params.id, 10) : filter.id,
         kind: params.kind ? (params.kind as PetKindUrlType) : filter.kind,
         age: params.age ? (params.age as PetAgeUrlType) : filter.age,
         sex: params.sex ? (params.sex as PetSexUrlType) : filter.sex,
