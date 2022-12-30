@@ -11,6 +11,7 @@ export const Container = styled(Contain)`
 `
 export const PetsAndPage = styled(FlexCenter)`
   flex-direction: column;
+  margin-left: 20px;
   ${XL} {
     width: 720px;
   }
@@ -166,7 +167,7 @@ export const Bar = styled.div`
   height: 16px;
   border-left: 2px solid ${colors['primary-30']};
   width: auto;
-  margin: 0 8px;
+  margin: 0 5px;
   ${MD} {
     height: 31px;
     margin: 0 15px;
