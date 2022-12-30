@@ -1,5 +1,7 @@
 import { ChangeEvent, KeyboardEvent, useState } from 'react'
 
+import { faCircleXmark } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   createSearchParams,
   useNavigate,
@@ -7,7 +9,8 @@ import {
 } from 'react-router-dom'
 
 import { Paths } from '../constants'
-import { useAppSelector } from '../store/hook/index'
+import { useAppDispatch } from '../store/hook'
+import { resetFilter } from '../store/reducers/petSlice'
 import {
   LabelName,
   OptionsFilterWrap,
@@ -20,38 +23,54 @@ interface Props {
   fieldName: keyof Pick<GetPetReq, 'id'>
   label: string
   placeholder?: string
+  maxLength?: number
 }
-const TextFilter = ({ fieldName, label, placeholder }: Props) => {
+const TextFilter = ({
+  fieldName,
+  label,
+  placeholder,
+  maxLength = 8,
+}: Props) => {
+  const dispatch = useAppDispatch()
   const nav = useNavigate()
   const [searchParams] = useSearchParams()
   const urlParam = searchParams.get(fieldName)
-  const [searchValue, setSearchValue] = useState<string | undefined>(
-    urlParam !== null ? urlParam : undefined,
-  )
+  const [text, setText] = useState<string>(urlParam !== null ? urlParam : '')
   const changeInput = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target
-    if (isPositiveInteger(value) || value === '') setSearchValue(value)
+    if (isPositiveInteger(value) || value === '') { setText(value.slice(0, maxLength)) }
   }
   const onkeyDown = (e: KeyboardEvent) => {
-    if (e.key === 'Enter' && searchValue) {
+    if (e.key === 'Enter' && text) {
       nav({
         pathname: Paths.home,
-        search: createSearchParams({ id: searchValue.toString() }).toString(),
+        search: createSearchParams({ id: text.toString() }).toString(),
       })
     }
   }
-
+  const clearText = () => {
+    setText('')
+    dispatch(resetFilter())
+    searchParams.delete(fieldName)
+    nav({
+      pathname: Paths.home,
+      search: createSearchParams(searchParams).toString(),
+    })
+  }
   return (
     <OptionsFilterWrap>
       <LabelName>{label}</LabelName>
       <TextSearchOuter>
         <TextSearch
           type='number'
-          value={searchValue}
-          onChange={(e) => changeInput(e)}
-          onKeyDown={(e) => onkeyDown(e)}
+          value={text}
+          onChange={changeInput}
+          onKeyDown={onkeyDown}
           placeholder={placeholder}
         />
+        {!text ? null : (
+          <FontAwesomeIcon icon={faCircleXmark} onClick={clearText} />
+        )}
       </TextSearchOuter>
     </OptionsFilterWrap>
   )
