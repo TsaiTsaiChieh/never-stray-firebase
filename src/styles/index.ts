@@ -17,6 +17,7 @@ export const colors = {
   'pink-50': '#FFA8A8',
   'gray-i40': '#CECECE',
   'gray-i50': '#BDBDBD',
+  'gray-i60': '#C4C4C4',
   'gray-i100': '#9FA0A0',
   'gray-i150': '#828282',
   'gray-i200': '#4F4F4F',
