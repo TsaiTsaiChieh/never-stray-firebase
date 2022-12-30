@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import {
   createSearchParams,
@@ -34,13 +34,14 @@ const SelectorFilter = ({
   const fieldIdx = urlParam === null
       ? 0
       : options.map((ele) => ele.value.toString()).indexOf(urlParam)
-  const [defaultValue] = useState<LabelValueType | null>(
+  const [value, setValue] = useState<LabelValueType | null>(
     fieldIdx > -1 && urlParam !== null
       ? { value: options[fieldIdx].value, label: options[fieldIdx].label }
       : null,
   )
   const onChange = (newValue: SingleValue<LabelValueType>) => {
     if (newValue !== null) {
+      setValue(newValue)
       const params = searchQuery(filter)
       params[fieldName] = newValue.value
       nav({
@@ -48,17 +49,22 @@ const SelectorFilter = ({
         search: createSearchParams(params).toString(),
       })
     } else {
+      setValue(null)
       searchParams.delete(fieldName)
       setSearchParams(searchParams)
       dispatch(setFilter({ ...filter, [fieldName]: undefined }))
     }
   }
+  // reset state
+  useEffect(() => {
+    if (urlParam === null) setValue(null)
+  }, [urlParam])
 
   return (
     <OptionsFilterWrap>
       <LabelName>{label}</LabelName>
       <Selector
-        defaultValue={defaultValue}
+        value={value}
         options={options}
         placeholder={placeholder}
         onChange={onChange}
