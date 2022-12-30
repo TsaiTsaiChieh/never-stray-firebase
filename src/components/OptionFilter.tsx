@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import {
   createSearchParams,
@@ -30,11 +30,8 @@ const OptionFilter = ({ fieldName, label, options }: Props) => {
   const optionEnum = fieldName === 'age' ? PetAgeEnum : PetSexEnum
   const { filter } = useAppSelector((state) => state.pet)
   const [searchParams] = useSearchParams()
-  let fieldIdx = 0
   const urlParam = searchParams.get(fieldName)
-  if (urlParam !== null) {
-    fieldIdx = Object.keys(optionEnum).indexOf(urlParam) + 1
-  }
+  const fieldIdx = urlParam !== null ? Object.keys(optionEnum).indexOf(urlParam) + 1 : 0
   const [activeId, setActiveId] = useState<number>(fieldIdx)
   const onClick = (i: number) => {
     setActiveId(i)
@@ -54,6 +51,11 @@ const OptionFilter = ({ fieldName, label, options }: Props) => {
       search: createSearchParams(params).toString(),
     })
   }
+  // reset state
+  useEffect(() => {
+   if (urlParam === null) setActiveId(0)
+  }, [urlParam])
+
   return (
     <OptionsFilterWrap>
       <LabelName>{label}</LabelName>
