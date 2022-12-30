@@ -27,7 +27,6 @@ export const OptionGroup = styled.div`
   display: flex;
   gap: 7px;
 `
-
 export const OptionBtn = styled.button`
   font-size: 14px;
   width: 80px;
@@ -62,4 +61,19 @@ export const Selector = styled(Select)`
   .css-13cymwt-control, .css-t3ipsp-control {
     height: 40px;
   }
+`
+export const TextSearch = styled.input`
+width: 268px;
+height: 40px;
+border-radius: 5px;
+border: 1px solid ${colors['gray-i40']};
+`
+export const TextSearchOuter = styled(OptionBtnOuter)`
+width: 274px;
+height: 46px;
+&:hover {
+  ${TextSearch} {
+  border: 1px solid ${colors['primary-100']};
+  }
+}
 `
