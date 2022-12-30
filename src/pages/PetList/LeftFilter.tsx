@@ -1,8 +1,8 @@
 import i18n from 'i18next'
 
-import { SelectorFilter } from '../../components'
+import { SelectorFilter, TextFilter } from '../../components'
 import OptionFilter from '../../components/OptionFilter'
-import { FilterContainer } from '../../styles/pages/LeftFilter'
+import { FilterContainer } from '../../styles/components/Filter'
 
 const LeftFilter = () => {
   const Labels: string[] = i18n.t('labels.filters', { returnObjects: true })
@@ -26,6 +26,7 @@ const LeftFilter = () => {
 
   return (
     <FilterContainer>
+      <TextFilter />
       <OptionFilter fieldName='age' label={Labels[0]} options={AgeOpts} />
       <OptionFilter fieldName='sex' label={Labels[1]} options={SexOpts} />
       <SelectorFilter fieldName='species' label={Labels[2]} options={SpeciesOpts.map((ele) => ({ label: ele, value: ele }))} placeholder={Placeholders[0]} />

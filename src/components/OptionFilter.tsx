@@ -16,7 +16,7 @@ import {
   OptionBtnOuter,
   OptionGroup,
   OptionsFilterWrap,
-} from '../styles/pages/LeftFilter'
+} from '../styles/components/Filter'
 import { searchQuery } from '../utils/helper'
 
 interface Props {

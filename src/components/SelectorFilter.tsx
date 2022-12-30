@@ -14,7 +14,7 @@ import {
   LabelName,
   OptionsFilterWrap,
   Selector,
-} from '../styles/pages/LeftFilter'
+} from '../styles/components/Filter'
 import { searchQuery } from '../utils/helper'
 
 interface Props {
