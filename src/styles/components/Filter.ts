@@ -12,34 +12,40 @@ export const FilterContainer = styled(FlexCenter)`
   padding: 45px 22px 50px 22px;
   color: ${colors['gray-i200']};
   flex-direction: column;
+  row-gap: 20px;
   ${XL} {
     display: flex;
   }
 `
 export const OptionsFilterWrap = styled.div`
+  width: 279px;
   display: flex;
   flex-direction: column;
 `
 export const LabelName = styled.label`
   margin-bottom: 8px;
+  margin-left: 2px;
+  letter-spacing: 0.05em;
+  font-size: 15px;
+  color: ${colors['gray-i200']};
 `
 export const OptionGroup = styled.div`
+  justify-content: space-between;
   display: flex;
-  gap: 7px;
 `
 export const OptionBtn = styled.button`
   font-size: 14px;
   width: 80px;
   height: 40px;
-  letter-spacing: 0.1em;
-  color: ${colors['gray-i200']};
+  letter-spacing: 0.05em;
+  color: ${colors['gray-i210']};
   border: 1px solid ${colors['gray-i40']};
   border-radius: 5px;
   background: ${colors.white};
 `
 export const OptionBtnOuter = styled(FlexCenter)`
-  width: 86px;
-  height: 46px;
+  width: 84px;
+  height: 44px;
   border-radius: 5px;
   &:hover {
     background-color: ${colors['primary-i52']};
@@ -57,23 +63,79 @@ export const OptionBtnOuter = styled(FlexCenter)`
   }
 `
 export const Selector = styled(Select)`
-  width: 268px;
-  .css-13cymwt-control, .css-t3ipsp-control {
+  width: 275px;
+  .Select__control {
+    border: 1px solid ${colors['gray-i40']};
     height: 40px;
+    cursor: pointer;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    transition: all 0.4s;
+  }
+  .Select__placeholder {
+    color: ${colors['gray-i50']};
+  }
+  .Select__single-value {
+    color: ${colors['gray-i200']};
+  }
+  .Select__control--is-focused {
+    box-shadow: 0 0 0 1px ${colors['primary-i52']};
+    border: 1px solid ${colors['primary-50']};
+  }
+  .Select__control--menu-is-open {
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+  .Select__option {
+    cursor: pointer;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    color: ${colors['gray-i200']};
+    background: white;
+    &:hover {
+      background: ${colors['primary-20']};
+    }
+  }
+`
+export const SelectOuter = styled(OptionBtnOuter)`
+  width: 279px;
+  &:hover {
+    ${Selector} {
+      .Select__control {
+        border: 1px solid ${colors['primary-100']};
+      }
+    }
   }
 `
 export const TextSearch = styled.input`
-width: 268px;
-height: 40px;
-border-radius: 5px;
-border: 1px solid ${colors['gray-i40']};
+  width: 275px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid ${colors['gray-i40']};
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  color: ${colors['gray-i200']};
+  padding-left: 10px;
+  &::placeholder {
+    color: ${colors['gray-i50']};
+  }
+  &:focus {
+    outline: none;
+  }
 `
 export const TextSearchOuter = styled(OptionBtnOuter)`
-width: 274px;
-height: 46px;
-&:hover {
-  ${TextSearch} {
-  border: 1px solid ${colors['primary-100']};
+  width: 279px;
+  position: relative;
+  &:hover {
+    ${TextSearch} {
+      border: 1px solid ${colors['primary-100']};
+    }
   }
-}
+  svg {
+    color: ${colors['gray-i60']};
+    position: absolute;
+    right: 12px;
+    cursor: pointer;
+  }
 `
