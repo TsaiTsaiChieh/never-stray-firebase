@@ -38,14 +38,25 @@ const TextFilter = ({
   const [text, setText] = useState<string>(urlParam !== null ? urlParam : '')
   const changeInput = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target
-    if (isPositiveInteger(value) || value === '') { setText(value.slice(0, maxLength)) }
+    if (isPositiveInteger(value) || value === '') {
+      setText(value.slice(0, maxLength))
+    }
   }
   const onkeyDown = (e: KeyboardEvent) => {
-    if (e.key === 'Enter' && text) {
-      nav({
-        pathname: Paths.home,
-        search: createSearchParams({ id: text.toString() }).toString(),
-      })
+    if (e.key === 'Enter') {
+      if (text) {
+        nav({
+          pathname: Paths.home,
+          search: createSearchParams({
+            [fieldName]: text.toString(),
+          }).toString(),
+        })
+      } else if (text === '') {
+        dispatch(resetFilter())
+        nav({
+          pathname: Paths.home,
+        })
+      }
     }
   }
   const clearText = () => {
