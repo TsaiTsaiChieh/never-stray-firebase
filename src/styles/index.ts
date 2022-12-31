@@ -21,6 +21,7 @@ export const colors = {
   'gray-i100': '#9FA0A0',
   'gray-i150': '#828282',
   'gray-i200': '#4F4F4F',
+  'gray-i210': '#606060',
   'gray-i250': '#333333',
   'gray-t50': 'rgba(151, 151, 151, 0.2)',
   'gray-t100': 'rgba(51, 51, 51, 0.5)',
