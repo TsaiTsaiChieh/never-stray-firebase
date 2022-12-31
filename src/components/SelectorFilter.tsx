@@ -14,6 +14,7 @@ import {
   LabelName,
   OptionsFilterWrap,
   Selector,
+  SelectOuter,
 } from '../styles/components/Filter'
 import { searchQuery } from '../utils/helper'
 
@@ -63,14 +64,18 @@ const SelectorFilter = ({
   return (
     <OptionsFilterWrap>
       <LabelName>{label}</LabelName>
-      <Selector
-        value={value}
-        options={options}
-        placeholder={placeholder}
-        onChange={onChange}
-        isSearchable={false}
-        isClearable
-      />
+      <SelectOuter>
+        <Selector
+          classNamePrefix='Select'
+          value={value}
+          options={options}
+          placeholder={placeholder}
+          onChange={onChange}
+          isSearchable={false}
+          isClearable
+          components={{ IndicatorSeparator: () => null }}
+        />
+      </SelectOuter>
     </OptionsFilterWrap>
   )
 }
