@@ -17,6 +17,17 @@ export const FilterContainer = styled(FlexCenter)`
     display: flex;
   }
 `
+export const FilterIconWrap = styled.div`
+  width: 100%;
+  margin-bottom: 20px;
+  svg {
+    color: ${colors['gray-i50']};
+    margin-right: 5px;
+  }
+  span {
+    color: ${colors['gray-i150']};
+  }
+`
 export const OptionsFilterWrap = styled.div`
   width: 279px;
   display: flex;
@@ -137,5 +148,17 @@ export const TextSearchOuter = styled(OptionBtnOuter)`
     position: absolute;
     right: 12px;
     cursor: pointer;
+  }
+`
+export const ResetBtn = styled(OptionBtn)`
+  width: 90px;
+`
+export const ResetBtnOuter = styled(OptionBtnOuter)`
+  width: 94px;
+  &:hover {
+    background-color: ${colors['pink-i52']};
+    ${ResetBtn} {
+      border-color: ${colors['pink-50']};
+    }
   }
 `
