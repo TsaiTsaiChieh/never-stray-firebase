@@ -15,6 +15,7 @@ export const colors = {
   'secondary-50': '#2D9CDB',
   'blue-50': '#63B1E1',
   'pink-50': '#FFA8A8',
+  'pink-i52': 'rgba(255, 168, 168, 0.5)',
   'gray-i40': '#CECECE',
   'gray-i50': '#BDBDBD',
   'gray-i60': '#C4C4C4',
