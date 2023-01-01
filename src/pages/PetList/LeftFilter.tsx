@@ -2,6 +2,8 @@ import i18n from 'i18next'
 
 import { SelectorFilter, TextFilter } from '../../components'
 import OptionFilter from '../../components/OptionFilter'
+import { city2shelters, shelter2city } from '../../constants/limitation'
+import { useAppSelector } from '../../store/hook'
 import { FilterContainer } from '../../styles/components/Filter'
 
 const LeftFilter = () => {
@@ -21,15 +23,35 @@ const LeftFilter = () => {
   const Placeholders: string[] = i18n.t('placeholders.selector', {
     returnObjects: true,
   })
-  const CityOpts: LabelValueType[] = i18n.t('filters.cities', { returnObjects: true })
-  const ShelterOpts: LabelValueType[] = i18n.t('filters.shelters', { returnObjects: true })
+  const CityOpts: LabelValueType[] = i18n.t('filters.cities', {
+    returnObjects: true,
+  })
+  const ShelterOpts: LabelValueType[] = i18n.t('filters.shelters', {
+    returnObjects: true,
+  })
+  const { filter } = useAppSelector((state) => state.pet)
+  const shelterOptsMap = filter.city
+    ? ShelterOpts.filter((ele) => city2shelters[filter.city!].includes(ele.value as number))
+    : ShelterOpts
+  const cityOptsMap = filter.shelter
+    ? CityOpts.filter((ele) => shelter2city[filter.shelter!] === ele.value)
+    : CityOpts
 
   return (
     <FilterContainer>
-      <TextFilter fieldName='id' label={Labels[0]} placeholder={Placeholders[0]} />
+      <TextFilter
+        fieldName='id'
+        label={Labels[0]}
+        placeholder={Placeholders[0]}
+      />
       <OptionFilter fieldName='age' label={Labels[1]} options={AgeOpts} />
       <OptionFilter fieldName='sex' label={Labels[2]} options={SexOpts} />
-      <SelectorFilter fieldName='species' label={Labels[3]} options={SpeciesOpts.map((ele) => ({ label: ele, value: ele }))} placeholder={Placeholders[1]} />
+      <SelectorFilter
+        fieldName='species'
+        label={Labels[3]}
+        options={SpeciesOpts.map((ele) => ({ label: ele, value: ele }))}
+        placeholder={Placeholders[1]}
+      />
       <SelectorFilter
         fieldName='color'
         label={Labels[4]}
@@ -39,10 +61,15 @@ const LeftFilter = () => {
       <SelectorFilter
         fieldName='city'
         label={Labels[5]}
-        options={CityOpts}
+        options={cityOptsMap}
         placeholder={Placeholders[3]}
       />
-      <SelectorFilter fieldName='shelter' label={Labels[6]} options={ShelterOpts} placeholder={Placeholders[4]} />
+      <SelectorFilter
+        fieldName='shelter'
+        label={Labels[6]}
+        options={shelterOptsMap}
+        placeholder={Placeholders[4]}
+      />
     </FilterContainer>
   )
 }
