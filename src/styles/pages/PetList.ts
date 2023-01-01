@@ -118,7 +118,7 @@ export const Name = styled.h3`
   color: ${colors['gray-i200']};
   position: relative;
   font-size: 15px;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.05em;
   font-weight: bold;
   margin-top: 70px;
   margin-bottom: 10px;
@@ -161,7 +161,7 @@ export const LearnMore = styled(FlexCenter)`
   }
 `
 export const SexWrap = styled(FlexCenter)`
-  letter-spacing: 0.1em;
+  letter-spacing: 0.05em;
 `
 export const SexText = styled.span``
 export const Bar = styled.div`
@@ -197,7 +197,7 @@ export const OuterHoverWrap = styled.div`
     }
     ${Bar}::before {
       content: "瞭解我多一點";
-      letter-spacing: 0.1em;
+      letter-spacing: 0.05em;
       font-size: 14px;
     }
     ${PetImg} {
