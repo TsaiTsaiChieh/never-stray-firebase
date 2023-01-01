@@ -13,6 +13,7 @@ export const PetsAndPage = styled(FlexCenter)`
   flex-direction: column;
   margin-left: 20px;
   ${XL} {
+    min-width: 720px;
     width: 720px;
   }
 `
