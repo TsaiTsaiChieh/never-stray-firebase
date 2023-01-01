@@ -1,12 +1,22 @@
+import { faFilter } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import i18n from 'i18next'
+import { useNavigate } from 'react-router-dom'
 
 import { SelectorFilter, TextFilter } from '../../components'
 import OptionFilter from '../../components/OptionFilter'
+import { Paths } from '../../constants'
 import { city2shelters, shelter2city } from '../../constants/limitation'
-import { useAppSelector } from '../../store/hook'
-import { FilterContainer } from '../../styles/components/Filter'
+import { useAppDispatch, useAppSelector } from '../../store/hook'
+import { resetFilter } from '../../store/reducers/petSlice'
+import { FilterText } from '../../styles/components/Category'
+import {
+ FilterContainer, FilterIconWrap, OptionsFilterWrap, ResetBtn, ResetBtnOuter,
+} from '../../styles/components/Filter'
 
 const LeftFilter = () => {
+  const dispatch = useAppDispatch()
+  const nav = useNavigate()
   const Labels: string[] = i18n.t('labels.filters', { returnObjects: true })
   const SpeciesOpts: string[] = i18n.t('filters.species', {
     returnObjects: true,
@@ -36,9 +46,16 @@ const LeftFilter = () => {
   const cityOptsMap = filter.shelter
     ? CityOpts.filter((ele) => shelter2city[filter.shelter!] === ele.value)
     : CityOpts
-
+  const resetState = () => {
+    dispatch(resetFilter())
+    nav({ pathname: Paths.home })
+  }
   return (
     <FilterContainer>
+      <FilterIconWrap>
+        <FontAwesomeIcon icon={faFilter} />
+        <FilterText>{i18n.t('buttons.filter')}</FilterText>
+      </FilterIconWrap>
       <TextFilter
         fieldName='id'
         label={Labels[0]}
@@ -70,6 +87,11 @@ const LeftFilter = () => {
         options={shelterOptsMap}
         placeholder={Placeholders[4]}
       />
+      <OptionsFilterWrap>
+        <ResetBtnOuter>
+          <ResetBtn onClick={resetState}>{i18n.t('buttons.reset')}</ResetBtn>
+        </ResetBtnOuter>
+      </OptionsFilterWrap>
     </FilterContainer>
   )
 }
