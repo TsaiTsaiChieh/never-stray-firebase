@@ -9,5 +9,5 @@ type GetPetReq = {
   species?: string
   color?: string
   city?: CityUrlType
-  shelter?: number
+  shelter?: ShelterUrlType
 }
