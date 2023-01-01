@@ -28,7 +28,7 @@ export const FilterIconWrap = styled(FlexCenter)`
 export const FilterText = styled.span`
   font-size: 16px;
   color: ${colors['primary-100']};
-  letter-spacing: 2.4px;
+  letter-spacing: 0.05em;
 `
 export const ButtonWrap = styled.button`
   display: flex;
@@ -46,7 +46,7 @@ export const ButtonWrap = styled.button`
     height: 24px;
   }
   span {
-    letter-spacing: 2.4px;
+    letter-spacing: 0.05em;
   }
   &.active {
     background: ${colors['primary-100']};
