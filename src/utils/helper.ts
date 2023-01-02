@@ -62,3 +62,5 @@ export const searchQuery = (filter: GetPetReq) => {
   if (filter.shelter) params.shelter = filter.shelter
   return params
 }
+export const mixAntiReplace = (str: string): string => str.replace('混種', '米克斯').trim()
+export const mixReplace = (str: string): string => str.replace('米克斯', '混種').trim()
