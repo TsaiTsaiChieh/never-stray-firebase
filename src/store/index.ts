@@ -17,7 +17,7 @@ const persistConfig = {
   key: 'root',
   storage,
   whitelist: [''],
-  blacklist: ['pet', 'loading'],
+  blacklist: ['pet', 'loading', 'ui'],
 }
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 
