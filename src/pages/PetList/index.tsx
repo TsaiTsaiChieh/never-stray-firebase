@@ -12,7 +12,7 @@ import {
 } from '../../styles/pages/PetList'
 import { isPositiveInteger } from '../../utils/helper'
 import Card from './Card'
-import LeftFilter from './LeftFilter'
+import Filter from './Filter'
 
 const PetList = () => {
   const { filter } = useAppSelector((state) => state.pet)
@@ -43,7 +43,7 @@ const PetList = () => {
       <Header />
       <Category />
       <Container>
-        <LeftFilter />
+        <Filter />
         <PetsAndPage>
           <PetContainer>
             {data?.length ? (

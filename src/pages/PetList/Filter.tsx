@@ -15,7 +15,7 @@ import {
 } from '../../styles/components/Filter'
 import { mixAntiReplace } from '../../utils/helper'
 
-const LeftFilter = () => {
+const Filter = () => {
   const dispatch = useAppDispatch()
   const nav = useNavigate()
   const Labels: string[] = i18n.t('labels.filters', { returnObjects: true })
@@ -41,6 +41,7 @@ const LeftFilter = () => {
     returnObjects: true,
   })
   const { filter } = useAppSelector((state) => state.pet)
+  const { filterVisible } = useAppSelector((state) => state.ui)
   const shelterOptsMap = filter.city
     ? ShelterOpts.filter((ele) => city2shelters[filter.city!].includes(ele.value as number))
     : ShelterOpts
@@ -52,7 +53,7 @@ const LeftFilter = () => {
     nav({ pathname: Paths.home })
   }
   return (
-    <FilterContainer>
+    <FilterContainer $visible={filterVisible}>
       <FilterIconWrap>
         <FontAwesomeIcon icon={faFilter} />
         <FilterText>{i18n.t('buttons.filter')}</FilterText>
@@ -100,4 +101,4 @@ const LeftFilter = () => {
   )
 }
 
-export default LeftFilter
+export default Filter
