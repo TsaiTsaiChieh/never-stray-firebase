@@ -81,7 +81,6 @@ export const Selector = styled(Select)`
     cursor: pointer;
     font-size: 14px;
     letter-spacing: 0.05em;
-    transition: all 0.4s;
   }
   .Select__placeholder {
     color: ${colors['gray-i50']};
@@ -96,6 +95,7 @@ export const Selector = styled(Select)`
   .Select__control--menu-is-open {
     svg {
       transform: rotate(180deg);
+      transition: all 0.4s;
     }
   }
   .Select__option {
