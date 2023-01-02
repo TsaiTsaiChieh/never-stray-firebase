@@ -1,23 +1,35 @@
 import { styled } from '@linaria/react'
 import Select from 'react-select'
 
-import { colors, XL } from '..'
+import { colors, MD, XL } from '..'
 import { FlexCenter } from '../Base'
 
-export const FilterContainer = styled(FlexCenter)`
+export const FilterContainer = styled(FlexCenter)<{ $visible: boolean }>`
   height: fit-content;
-  display: none;
+  display: ${(props) => (props.$visible ? 'flex' : 'none')};
   box-shadow: 0px 0px 8px ${colors['gray-t50']};
   border-radius: 5px;
   padding: 45px 22px 50px 22px;
   color: ${colors['gray-i200']};
   flex-direction: column;
-  row-gap: 20px;
+  left: -70px;
+  row-gap: 25px;
+  background: ${colors.white};
+  ${MD} {
+    height: calc(100vh - 106px);
+    position: absolute;
+    z-index: 10;
+    left: 0;
+    padding: 45px 35px 50px 35px;
+  }
   ${XL} {
+    height: 100%;
+    position: relative;
     display: flex;
   }
 `
 export const FilterIconWrap = styled.div`
+  display: none;
   width: 100%;
   margin-bottom: 20px;
   svg {
@@ -26,6 +38,9 @@ export const FilterIconWrap = styled.div`
   }
   span {
     color: ${colors['gray-i150']};
+  }
+  ${XL} {
+    display: flex;
   }
 `
 export const OptionsFilterWrap = styled.div`

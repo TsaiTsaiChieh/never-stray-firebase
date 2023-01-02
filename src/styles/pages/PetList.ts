@@ -4,6 +4,7 @@ import { colors, MD, XL } from '..'
 import { Contain, FlexCenter } from '../Base'
 
 export const Container = styled(Contain)`
+  position: static;
   ${XL} {
     display: flex;
     justify-content: space-evenly;
