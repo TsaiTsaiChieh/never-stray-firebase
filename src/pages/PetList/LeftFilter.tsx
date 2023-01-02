@@ -13,6 +13,7 @@ import { FilterText } from '../../styles/components/Category'
 import {
  FilterContainer, FilterIconWrap, OptionsFilterWrap, ResetBtn, ResetBtnOuter,
 } from '../../styles/components/Filter'
+import { mixAntiReplace } from '../../utils/helper'
 
 const LeftFilter = () => {
   const dispatch = useAppDispatch()
@@ -66,7 +67,10 @@ const LeftFilter = () => {
       <SelectorFilter
         fieldName='species'
         label={Labels[3]}
-        options={SpeciesOpts.map((ele) => ({ label: ele, value: ele }))}
+        options={SpeciesOpts.map((ele) => ({
+          label: mixAntiReplace(ele),
+          value: mixAntiReplace(ele),
+        }))}
         placeholder={Placeholders[1]}
       />
       <SelectorFilter

@@ -1,6 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 import { PetAgeEnum, PetKindEnum, PetSexEnum } from '../constants/enum'
+import { mixReplace } from '../utils/helper'
 
 export const api = createApi({
   reducerPath: 'api',
@@ -26,7 +27,7 @@ export const api = createApi({
         if (id) url += `&animal_id=${id}`
         if (age && PetAgeEnum[age]) url += `&animal_age=${PetAgeEnum[age]}`
         if (sex && PetSexEnum[sex]) url += `&animal_sex=${PetSexEnum[sex]}`
-        if (species) url += `&animal_Variety=${species}`
+        if (species) url += `&animal_Variety=${mixReplace(species)}`
         if (color) {
           url += `&animal_colour=${color}`
         }

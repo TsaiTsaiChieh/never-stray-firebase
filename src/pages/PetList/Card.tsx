@@ -5,7 +5,12 @@ import {
  Bar,
  CardContainer, KindText, LearnMore, Name, OuterHoverWrap, SexText, SexWrap,
 } from '../../styles/pages/PetList'
-import { petAgeConverter, petKindConverter, petSexConverter } from '../../utils/helper'
+import {
+  mixAntiReplace,
+  petAgeConverter,
+  petKindConverter,
+  petSexConverter,
+} from '../../utils/helper'
 import Avatar from './Avatar'
 
 interface Props {
@@ -23,7 +28,7 @@ const Card = ({ detail }: Props) => {
       <CardContainer>
         <Avatar src={detail.album_file} />
         <Name>{petName}</Name>
-        <KindText>{animal_Variety.trim()}</KindText>
+        <KindText>{mixAntiReplace(animal_Variety)}</KindText>
         <LearnMore as='button'>
           <SexWrap>
             <FontAwesomeIcon icon={sex.icon} color={sex.color} />
