@@ -19,6 +19,7 @@ import { PetKindEnum } from '../constants/enum'
 import { Paths } from '../constants/index'
 import { useAppDispatch, useAppSelector } from '../store/hook'
 import { setFilter } from '../store/reducers/petSlice'
+import { toggleFilterVisible } from '../store/reducers/uiSlice'
 import { FlexCenter } from '../styles/Base'
 import {
   ButtonWrap,
@@ -63,11 +64,13 @@ const Category = () => {
   useEffect(() => {
    if (kindUrl === null) setActiveId(0)
   }, [kindUrl])
-
+  const toggleFilter = () => {
+    dispatch(toggleFilterVisible())
+  }
   return (
     <Wrapper>
       <Container>
-        <FilterIconWrap>
+        <FilterIconWrap onClick={toggleFilter}>
           <FontAwesomeIcon icon={faFilter} />
           <FilterText>{i18n.t('buttons.filter')}</FilterText>
         </FilterIconWrap>
