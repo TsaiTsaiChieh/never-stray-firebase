@@ -1,6 +1,6 @@
 import { styled } from '@linaria/react'
 
-import { colors, LG } from '..'
+import { colors, LG, SM } from '..'
 import { Contain, FlexCenter } from '../Base'
 
 export const Wrapper = styled.div`
@@ -19,7 +19,10 @@ export const Logo = styled.img`
 export const AvatarWrap = styled(FlexCenter)`
   gap: 1px;
   position: absolute;
-  right: 4px;
+  right: 0;
+  ${SM} {
+    right: 4px;
+  }
   ${LG} {
     position: relative;
     right: 0;
@@ -40,5 +43,8 @@ export const Avatar = styled.div`
 export const AuthState = styled.button`
   color: ${colors['gray-i200']};
   margin: auto 0;
-  font-size: 16px;
+  font-size: 14px;
+  ${SM} {
+    font-size: 15px;
+  }
 `

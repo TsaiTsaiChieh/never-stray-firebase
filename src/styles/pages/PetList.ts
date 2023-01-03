@@ -1,6 +1,8 @@
 import { styled } from '@linaria/react'
 
-import { colors, MD, XL } from '..'
+import {
+ colors, MD, SM, XL,
+} from '..'
 import { Contain, FlexCenter } from '../Base'
 
 export const Container = styled(Contain)`
@@ -12,9 +14,9 @@ export const Container = styled(Contain)`
 `
 export const PetsAndPage = styled(FlexCenter)`
   flex-direction: column;
-  margin-left: 20px;
   ${XL} {
     min-width: 720px;
+    margin-left: 20px;
     width: 720px;
   }
 `
@@ -48,17 +50,24 @@ export const CardContainer = styled(FlexCenter)`
 `
 export const PetImgWrap = styled.div`
   position: absolute;
-  bottom: 120px;
+  bottom: 124px;
+  ${SM} {
+    bottom: 115px;
+  }
   ${MD} {
     bottom: 170px;
   }
 `
 export const Paw = styled.img`
   width: 120px;
-  top: -24px;
-  right: 18px;
+  top: -18px;
+  right: 10px;
   content: url("/images/paw.svg");
   position: absolute;
+  ${SM} {
+    top: -26px;
+    right: 18px;
+  }
   ${MD} {
     width: 140px;
     top: -25px;
@@ -80,8 +89,12 @@ export const Mask = styled.div`
   mask-size: contain;
 `
 export const PetImg = styled.div`
-  height: 120px;
-  width: 130px;
+  width: 100px;
+  height: 100px;
+  ${SM} {
+    width: 130px;
+    height: 120px;
+  }
   ${MD} {
     width: 160px;
     height: 152px;
@@ -148,13 +161,20 @@ export const KindText = styled.span`
   }
 `
 export const LearnMore = styled(FlexCenter)`
-  width: 142px;
+  width: 100px;
   height: 32px;
   border-radius: 10px;
-  font-size: 14px;
+  font-size: 13px;
   color: ${colors['gray-i150']};
   background: ${colors['primary-10']};
   margin: 0 15px 15px;
+  gap: 0;
+  ${SM} {
+    height: 35px;
+    width: 142px;
+    font-size: 14px;
+    gap: 10px;
+  }
   ${MD} {
     width: 190px;
     height: 50px;
@@ -163,13 +183,17 @@ export const LearnMore = styled(FlexCenter)`
 `
 export const SexWrap = styled(FlexCenter)`
   letter-spacing: 0.05em;
+  gap: 5px;
 `
 export const SexText = styled.span``
 export const Bar = styled.div`
   height: 16px;
   border-left: 2px solid ${colors['primary-30']};
   width: auto;
-  margin: 0 5px;
+  margin: 7px 6px;
+  ${SM} {
+    margin: 0 8px;
+  }
   ${MD} {
     height: 31px;
     margin: 0 15px;
@@ -177,7 +201,10 @@ export const Bar = styled.div`
 `
 export const AgeText = styled.span``
 export const OuterHoverWrap = styled.div`
-  padding: 9px;
+  padding: 5px;
+  ${SM} {
+    padding: 9px;
+  }
   border-radius: 5px;
   border: 1px solid transparent;
   &:hover {
@@ -199,7 +226,13 @@ export const OuterHoverWrap = styled.div`
     ${Bar}::before {
       content: "瞭解我多一點";
       letter-spacing: 0.05em;
-      font-size: 14px;
+      font-size: 10px;
+      ${SM} {
+        font-size: 14px;
+      }
+      ${MD} {
+        font-size: 16px;
+      }
     }
     ${PetImg} {
       -webkit-filter: brightness(75%);

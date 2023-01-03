@@ -1,7 +1,9 @@
 import { styled } from '@linaria/react'
 import Select from 'react-select'
 
-import { colors, MD, XL } from '..'
+import {
+ colors, MD, SM, XL,
+} from '..'
 import { FlexCenter } from '../Base'
 
 export const FilterContainer = styled(FlexCenter)<{ $visible: boolean }>`
@@ -12,15 +14,19 @@ export const FilterContainer = styled(FlexCenter)<{ $visible: boolean }>`
   padding: 45px 22px 50px 22px;
   color: ${colors['gray-i200']};
   flex-direction: column;
-  left: -70px;
   row-gap: 25px;
   background: ${colors.white};
-  ${MD} {
+  z-index: 10;
+  height: calc(100vh - 105px);
+  ${SM} {
     height: calc(100vh - 106px);
+  }
+  ${MD} {
     position: absolute;
     z-index: 10;
     left: 0;
     padding: 45px 35px 50px 35px;
+    right: auto;
   }
   ${XL} {
     height: 100%;
