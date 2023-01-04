@@ -47,15 +47,17 @@ const Category = ({ scrolled }:Props) => {
   const onClick = (i: number) => {
     setActiveId(i)
     const params = searchQuery(filter)
+    params.page = 1
     if (i !== 0) params.kind = Object.keys(PetKindEnum)[i - 1]
-    else {
+    else if (i === 0) { // means all kind
       delete params.kind
-      dispatch(setFilter({ ...filter, kind: undefined }))
+      dispatch(setFilter({ ...filter, page: 1, kind: undefined }))
     }
     navigate({
       pathname: Paths.home,
       search: createSearchParams(params).toString(),
     })
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
   const icons = [faPaw, faCat, faDog]
   const categoryItem: CategoryItemType[] = names.map((name, i) => ({
