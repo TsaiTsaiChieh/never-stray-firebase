@@ -104,6 +104,8 @@ export const PetImg = styled.div`
   mask-size: contain;
   &::before {
     content: "";
+    width: 100%;
+    height: 100%;
     display: ${(props) => (props.$loading ? 'block' : 'none')};
     position: absolute;
     background: linear-gradient(
@@ -112,7 +114,7 @@ export const PetImg = styled.div`
       ${colors.white} 50%,
       transparent 100%
     );
-    animation: load 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    animation: load 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   }
   @keyframes load {
     from {
