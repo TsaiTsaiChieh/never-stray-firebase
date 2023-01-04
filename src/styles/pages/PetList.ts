@@ -34,9 +34,6 @@ export const PetContainer = styled.div`
     grid-template-rows: repeat(6, auto);
   }
 `
-export const NotFoundWrap = styled(FlexCenter)`
-  width: 720px;
-`
 export const NotFound = styled.img`
   content: url("/images/not-found.png");
 `
