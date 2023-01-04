@@ -14,7 +14,7 @@ export const Wrapper = styled.nav<{ $scrolled: boolean }>`
   transition: 0.35s ease-in-out;
   top: ${(props) => (props.$scrolled ? 0 : 'auto')};
   padding: ${(props) => (props.$scrolled ? '12px 0' : '10px 0')};
-  border-bottom: ${(props) => (props.$scrolled ? `3px solid ${colors['primary-100']}` : 'none')};
+  border-bottom: ${(props) => (props.$scrolled ? `3px solid ${colors['primary-100']}` : '3px solid transparent')};
 `
 export const Container = styled(Contain)`
   gap: 12px;
