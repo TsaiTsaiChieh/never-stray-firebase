@@ -31,7 +31,10 @@ import {
 } from '../styles/components/Category'
 import { searchQuery } from '../utils/helper'
 
-const Category = () => {
+interface Props {
+  scrolled: boolean
+}
+const Category = ({ scrolled }:Props) => {
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
   const { filter } = useAppSelector((state) => state.pet)
@@ -68,7 +71,7 @@ const Category = () => {
     dispatch(toggleFilterVisible())
   }
   return (
-    <Wrapper>
+    <Wrapper $scrolled={scrolled}>
       <Container>
         <FilterIconWrap onClick={toggleFilter}>
           <FontAwesomeIcon icon={faFilter} />
