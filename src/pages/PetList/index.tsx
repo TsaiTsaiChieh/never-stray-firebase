@@ -3,20 +3,16 @@ import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 
 import { Category, Header } from '../../components'
-import Pagination from '../../components/Pagination'
 import { useGetPetsQuery } from '../../services/api'
 import { useAppDispatch, useAppSelector } from '../../store/hook'
 import { setFilter } from '../../store/reducers/petSlice'
 import {
   Container,
-  NotFound,
-  NotFoundWrap,
-  PetContainer,
   PetsAndPage,
 } from '../../styles/pages/PetList'
 import { isPositiveInteger } from '../../utils/helper'
-import Card from './Card'
 import Filter from './Filter'
+import Pets from './Pets'
 
 const PetList = () => {
   const { filter } = useAppSelector((state) => state.pet)
@@ -60,18 +56,7 @@ const PetList = () => {
       <Container>
         <Filter />
         <PetsAndPage>
-          <PetContainer>
-            {data?.length ? (
-            data.map((ele: PetType) => (
-              <Card key={ele.animal_id} detail={ele} />
-            ))
-          ) : (
-            <NotFoundWrap>
-              <NotFound />
-            </NotFoundWrap>
-          )}
-          </PetContainer>
-          <Pagination />
+          {data && <Pets data={data} />}
         </PetsAndPage>
       </Container>
     </>
