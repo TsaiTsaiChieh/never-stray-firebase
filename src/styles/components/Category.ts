@@ -5,9 +5,16 @@ import {
 } from '..'
 import { Contain, FlexCenter } from '../Base'
 
-export const Wrapper = styled.nav`
+export const Wrapper = styled.nav<{ $scrolled: boolean }>`
+  width: 100%;
   padding: 10px 0;
+  z-index: 15;
   background: ${colors['primary-10']};
+  position: ${(props) => (props.$scrolled ? 'fixed' : 'relative')};
+  transition: 0.35s ease-in-out;
+  top: ${(props) => (props.$scrolled ? 0 : 'auto')};
+  padding: ${(props) => (props.$scrolled ? '12px 0' : '10px 0')};
+  border-bottom: ${(props) => (props.$scrolled ? `3px solid ${colors['primary-100']}` : 'none')};
 `
 export const Container = styled(Contain)`
   gap: 12px;
