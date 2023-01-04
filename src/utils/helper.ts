@@ -55,11 +55,11 @@ export const searchQuery = (filter: GetPetReq) => {
   if (filter.kind) params.kind = filter.kind
   if (filter.age) params.age = filter.age
   if (filter.sex) params.sex = filter.sex
-  if (filter.page) params.page = filter.page
   if (filter.species) params.species = filter.species
   if (filter.color) params.color = filter.color
   if (filter.city) params.city = filter.city
   if (filter.shelter) params.shelter = filter.shelter
+  if (filter.page) params.page = filter.page
   return params
 }
 export const mixAntiReplace = (str: string): string => str.replace('混種', '米克斯').trim()
