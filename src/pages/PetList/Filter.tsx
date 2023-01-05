@@ -15,7 +15,10 @@ import {
 } from '../../styles/components/Filter'
 import { mixAntiReplace } from '../../utils/helper'
 
-const Filter = () => {
+interface Props {
+  scrolled: boolean
+}
+const Filter = ({ scrolled }:Props) => {
   const dispatch = useAppDispatch()
   const nav = useNavigate()
   const Labels: string[] = i18n.t('labels.filters', { returnObjects: true })
@@ -53,7 +56,7 @@ const Filter = () => {
     nav({ pathname: Paths.home })
   }
   return (
-    <FilterContainer $visible={filterVisible}>
+    <FilterContainer $visible={filterVisible} $scrolled={scrolled}>
       <FilterIconWrap>
         <FontAwesomeIcon icon={faFilter} />
         <FilterText>{i18n.t('buttons.filter')}</FilterText>
