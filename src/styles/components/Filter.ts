@@ -6,7 +6,7 @@ import {
 } from '..'
 import { FlexCenter } from '../Base'
 
-export const FilterContainer = styled(FlexCenter)<{ $visible: boolean }>`
+export const FilterContainer = styled(FlexCenter)<{$visible: boolean; $scrolled: boolean}>`
   height: fit-content;
   display: ${(props) => (props.$visible ? 'flex' : 'none')};
   box-shadow: 0px 0px 8px ${colors['gray-t50']};
@@ -17,12 +17,12 @@ export const FilterContainer = styled(FlexCenter)<{ $visible: boolean }>`
   row-gap: 25px;
   background: ${colors.white};
   z-index: 10;
-  height: calc(100vh - 105px);
   ${SM} {
     height: calc(100vh - 106px);
   }
   ${MD} {
-    position: absolute;
+    position: ${(props) => (props.$scrolled ? 'fixed' : 'absolute')};
+    height: ${(props) => (props.$scrolled ? 'calc(100vh - 53px)' : 'calc(100vh - 109px)')};
     z-index: 10;
     left: 0;
     padding: 45px 35px 50px 35px;
@@ -30,7 +30,8 @@ export const FilterContainer = styled(FlexCenter)<{ $visible: boolean }>`
   }
   ${XL} {
     height: 100%;
-    position: relative;
+    position: ${(props) => (props.$scrolled ? 'sticky' : 'relative')};
+    top: ${(props) => (props.$scrolled ? '60px' : 'auto')};
     display: flex;
   }
 `
@@ -38,6 +39,7 @@ export const FilterIconWrap = styled.div`
   display: none;
   width: 100%;
   margin-bottom: 20px;
+  position: sticky;
   svg {
     color: ${colors['gray-i50']};
     margin-right: 5px;
@@ -48,6 +50,7 @@ export const FilterIconWrap = styled.div`
   ${XL} {
     display: flex;
   }
+  margin-top: 0;
 `
 export const OptionsFilterWrap = styled.div`
   width: 279px;
