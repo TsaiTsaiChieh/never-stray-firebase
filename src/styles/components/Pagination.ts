@@ -34,11 +34,9 @@ export const PageInput = styled.input`
   padding: 5px 10px;
   border: 2px ${colors['gray-i200']} solid;
   background: ${colors['primary-50']};
+  outline: none;
   border: none;
   cursor: pointer;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  &:focus {
-    border: none;
-  }
 `
