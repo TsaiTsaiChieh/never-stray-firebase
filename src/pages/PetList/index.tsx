@@ -54,7 +54,7 @@ const PetList = () => {
       <Header />
       <Category scrolled={scrolled} />
       <Container>
-        <Filter />
+        <Filter scrolled={scrolled} />
         <PetsAndPage>
           {data && <Pets data={data} />}
         </PetsAndPage>
