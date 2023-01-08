@@ -21,7 +21,7 @@ const PetList = () => {
   const location = useLocation()
   const [scrolled, setScrolled] = useState<boolean>(false)
   useEffect(() => {
-    const onScroll = () => (window.scrollY > 50 ? setScrolled(true) : setScrolled(false))
+    const onScroll = () => (window.scrollY > 0 ? setScrolled(true) : setScrolled(false))
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
