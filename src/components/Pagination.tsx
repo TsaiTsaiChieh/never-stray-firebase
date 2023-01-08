@@ -69,12 +69,14 @@ const Pagination = () => {
         <PageButton
           className={clsx({ disabled: disablePage(10) })}
           onClick={() => handlePageOnClick(-10)}
+          aria-label='prev-10'
         >
           <FontAwesomeIcon icon={faAnglesLeft} />
         </PageButton>
         <PageButton
           className={clsx({ disabled: disablePage(1) })}
           onClick={() => handlePageOnClick(-1)}
+          aria-label='prev-1'
         >
           <FontAwesomeIcon icon={faAngleLeft} />
         </PageButton>
@@ -89,12 +91,14 @@ const Pagination = () => {
         <PageButton
           className={clsx({ disabled: pets.length < LIMIT })}
           onClick={() => handlePageOnClick(1)}
+          aria-label='prev+1'
         >
           <FontAwesomeIcon icon={faAngleRight} />
         </PageButton>
         <PageButton
           className={clsx({ disabled: pets.length < LIMIT })}
           onClick={() => handlePageOnClick(10)}
+          aria-label='prev+10'
         >
           <FontAwesomeIcon icon={faAnglesRight} />
         </PageButton>
