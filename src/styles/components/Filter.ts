@@ -7,20 +7,27 @@ import {
 import { FlexCenter } from '../Base'
 
 export const FilterContainer = styled(FlexCenter)<{$visible: boolean; $scrolled: boolean}>`
-  height: fit-content;
+  width: 100%;
+  height: ${(props) => (props.$scrolled ? 'calc(100vh - 59px)' : 'calc(100vh - 108px)')};
   display: ${(props) => (props.$visible ? 'flex' : 'none')};
   box-shadow: 0px 0px 8px ${colors['gray-t50']};
   border-radius: 5px;
   padding: 45px 22px 50px 22px;
   color: ${colors['gray-i200']};
   flex-direction: column;
-  row-gap: 25px;
+  row-gap: 10px;
   background: ${colors.white};
-  z-index: 10;
+  z-index: 100;
+  position: sticky;
+  top: ${(props) => (props.$scrolled ? '59px' : '108px')};
+  overflow-y: auto;
   ${SM} {
-    height: calc(100vh - 106px);
+    top: ${(props) => (props.$scrolled ? '60px' : '109px')};
+    height: ${(props) => (props.$scrolled ? 'calc(100vh - 60px)' : 'calc(100vh - 109px)')};
   }
   ${MD} {
+    width: auto;
+    row-gap: 25px;
     position: ${(props) => (props.$scrolled ? 'fixed' : 'absolute')};
     height: ${(props) => (props.$scrolled ? 'calc(100vh - 53px)' : 'calc(100vh - 109px)')};
     z-index: 10;

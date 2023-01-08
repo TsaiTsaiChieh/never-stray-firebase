@@ -7,6 +7,7 @@ import { Contain, FlexCenter } from '../Base'
 
 export const Container = styled(Contain)`
   position: static;
+  width: 100%;
   ${XL} {
     display: flex;
     justify-content: space-evenly;
@@ -28,7 +29,10 @@ export const PetContainer = styled.div`
   grid-template-columns: repeat(2, auto);
   grid-template-rows: repeat(9, auto);
   grid-row-start: auto;
-  grid-row-gap: 100px;
+  grid-row-gap: 85px;
+  ${SM} {
+    grid-row-gap: 100px;
+  }
   ${MD} {
     grid-template-columns: repeat(3, auto);
     grid-template-rows: repeat(6, auto);
@@ -170,7 +174,7 @@ export const LearnMore = styled(FlexCenter)`
   gap: 0;
   ${SM} {
     height: 35px;
-    width: 142px;
+    width: 138px;
     font-size: 14px;
     gap: 10px;
   }
