@@ -13,6 +13,8 @@ export const Container = styled(Contain)`
   }
 `
 export const Logo = styled.img`
+  width: 136px;
+  height: 40px;
   content: url("/logo.svg");
   cursor: pointer;
 `
