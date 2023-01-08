@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 
 import { useLocation } from 'react-router-dom'
 
@@ -11,6 +11,7 @@ import {
   PetsAndPage,
 } from '../../styles/pages/PetList'
 import { isPositiveInteger } from '../../utils/helper'
+import { useScrolled } from '../../utils/useScrolled'
 import Filter from './Filter'
 import Pets from './Pets'
 
@@ -19,12 +20,7 @@ const PetList = () => {
   const { data } = useGetPetsQuery(filter)
   const dispatch = useAppDispatch()
   const location = useLocation()
-  const [scrolled, setScrolled] = useState<boolean>(false)
-  useEffect(() => {
-    const onScroll = () => (window.scrollY > 0 ? setScrolled(true) : setScrolled(false))
-    window.addEventListener('scroll', onScroll)
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+  const scrolled = useScrolled()
 
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search)
