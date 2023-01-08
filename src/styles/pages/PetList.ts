@@ -118,10 +118,10 @@ export const PetImg = styled.div`
   }
   @keyframes load {
     from {
-      left: -150px;
+      left: -100px;
     }
     to {
-      left: 100%;
+      left: 55px;
     }
   }
 `
