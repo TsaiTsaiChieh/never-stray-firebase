@@ -17,7 +17,7 @@ const Avatar = ({ src }: Props) => {
 
  return (
    <PetImgWrap>
-     <Paw />
+     <Paw alt='' />
      <PetImg $loading={loading} src={img || loadingImgPath} />
    </PetImgWrap>
  )

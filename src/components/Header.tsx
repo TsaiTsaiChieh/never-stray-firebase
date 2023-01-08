@@ -25,7 +25,7 @@ export const Header = () => {
   return (
     <Wrapper>
       <Container className='flex-center'>
-        <Logo onClick={go2home} />
+        <Logo onClick={go2home} alt='logo' />
         <AvatarWrap>
           <FontAwesomeIcon icon={faGoogle} />
           <AuthState>{i18n.t('buttons.login')}</AuthState>
