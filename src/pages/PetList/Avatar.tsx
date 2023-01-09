@@ -10,7 +10,7 @@ const Avatar = ({ src }: Props) => {
   const [loading, setLoading] = useState<boolean>(true)
   const nullImgPath = '/images/pet-null.svg'
   const loadingImgPath = '/images/pet-mask.svg'
-  const img = src === '' ? nullImgPath : useProgressiveImage(src)
+  const img = useProgressiveImage(src === '' ? nullImgPath : src)
   useEffect(() => {
     if (img) setLoading(false)
   }, [img])
