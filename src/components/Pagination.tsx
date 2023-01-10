@@ -36,6 +36,7 @@ const Pagination = ({ length }: Props) => {
   const [searchParams] = useSearchParams()
   const { filter } = useAppSelector((state) => state.pet)
   const [pageValue, setPageValue] = useState(filter.page.toString())
+  const page = searchParams.get('page')
   const disablePage = (max: number) => filter.page <= max
   const handlePageOnClick = (offset: number) => {
     const params = searchQuery(filter)
@@ -61,10 +62,9 @@ const Pagination = ({ length }: Props) => {
     }
   }
   useEffect(() => {
-    const page = searchParams.get('page')
     if (page) setPageValue(page)
     else if (page === null) setPageValue('1')
-  }, [searchParams.get('page')])
+  }, [page])
 
   return (
     <PageWrapper>
