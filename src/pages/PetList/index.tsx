@@ -17,7 +17,7 @@ import Pets from './Pets'
 
 const PetList = () => {
   const { filter } = useAppSelector((state) => state.pet)
-  const { data } = useGetPetsQuery(filter)
+  const { data } = useGetPetsQuery(filter, { refetchOnMountOrArgChange: true })
   const dispatch = useAppDispatch()
   const location = useLocation()
   const scrolled = useScrolled()
