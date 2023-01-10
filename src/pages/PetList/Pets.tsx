@@ -12,21 +12,25 @@ interface Props {
 const Pets = ({ data }: Props) => {
   const { catLoading } = useAppSelector((state) => state.loading)
   const initOffset = window.innerWidth < 768 ? 6 : 9
-  const offset = window.innerWidth < 768 ? 2 : 9
+  const offset = window.innerWidth < 768 ? 2 : 3
   const lastItemRef = useRef<any | null>(null)
   const observer = useRef<IntersectionObserver | null>(null)
   const [page, setPage] = useState<number>(1)
-  const [ids, setIds] = useState<number[]>([])
-  const totalPage = Math.ceil((data.length - initOffset) / offset) + 1
+  const [ids, setIds] = useState<number[]>(data.slice(0, initOffset).map((ele) => ele.animal_id))
+  const totalPage = useRef<number>(data.length < initOffset
+  ? 1
+  : Math.ceil((data.length - initOffset) / offset) + 1)
+
   useEffect(() => {
     setIds(data.slice(0, initOffset).map((ele) => ele.animal_id))
     return () => {
       setIds([])
+      setPage(1)
     }
   }, [data.length])
 
   useEffect(() => {
-    if (page <= totalPage) {
+    if (page <= totalPage.current) {
       const newPage = page + 1
       const options = {
         root: document,
@@ -52,7 +56,6 @@ const Pets = ({ data }: Props) => {
         observer.current.observe(lastItemRef.current)
       }
     }
-
     return () => {
       if (observer.current !== null) {
         observer.current.disconnect()
@@ -60,15 +63,12 @@ const Pets = ({ data }: Props) => {
     }
   })
 
-  //  console.log(data.map((ele) => ele.animal_id), ids)
-
   return (
     <>
       <PetContainer>
         {catLoading ? <CatLoading /> : null}
         {!catLoading && data.length
-          ? // ? data.map((ele) => <Card key={ele.animal_id} detail={ele} />)
-            ids.map((id, i) => {
+            ? ids.map((id, i) => {
               if (data.length >= ids.length) {
                 const ref = i === ids.length - 1 ? lastItemRef : null
                 return <Card key={id} detail={data[i]} ref={ref} />
