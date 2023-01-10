@@ -78,7 +78,7 @@ const Pets = ({ data }: Props) => {
           : null}
         {!catLoading && !data.length ? <NotFound /> : null}
       </PetContainer>
-      <Pagination />
+      <Pagination length={data.length} />
     </>
   )
 }

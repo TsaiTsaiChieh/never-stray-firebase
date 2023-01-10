@@ -27,11 +27,14 @@ import {
 } from '../styles/components/Pagination'
 import { isPositiveInteger, searchQuery } from '../utils/helper'
 
-const Pagination = () => {
+interface Props {
+  length: number
+}
+const Pagination = ({ length }: Props) => {
   const LIMIT = import.meta.env.VITE_PET_LIMIT
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
-  const { filter, pets } = useAppSelector((state) => state.pet)
+  const { filter } = useAppSelector((state) => state.pet)
   const [pageValue, setPageValue] = useState(filter.page.toString())
   const disablePage = (max: number) => filter.page <= max
   const handlePageOnClick = (offset: number) => {
@@ -89,14 +92,14 @@ const Pagination = () => {
       />
       <RightWrap>
         <PageButton
-          className={clsx({ disabled: pets.length < LIMIT })}
+          className={clsx({ disabled: length < LIMIT })}
           onClick={() => handlePageOnClick(1)}
           aria-label='prev+1'
         >
           <FontAwesomeIcon icon={faAngleRight} />
         </PageButton>
         <PageButton
-          className={clsx({ disabled: pets.length < LIMIT })}
+          className={clsx({ disabled: length < LIMIT })}
           onClick={() => handlePageOnClick(10)}
           aria-label='prev+10'
         >
