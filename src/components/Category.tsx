@@ -1,11 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import {
-  faCat,
-  faDog,
-  faFilter,
-  faPaw,
-} from '@fortawesome/free-solid-svg-icons'
+import { faFilter } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import clsx from 'clsx'
 import i18n from 'i18next'
@@ -23,6 +18,7 @@ import { toggleFilterVisible } from '../store/reducers/uiSlice'
 import { FlexCenter } from '../styles/Base'
 import {
   ButtonWrap,
+  CategoryIcon,
   CategoryName,
   Container,
   FilterIconWrap,
@@ -34,14 +30,16 @@ import { searchQuery } from '../utils/helper'
 interface Props {
   scrolled: boolean
 }
-const Category = ({ scrolled }:Props) => {
+const Category = ({ scrolled }: Props) => {
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
   const { filter } = useAppSelector((state) => state.pet)
   const [searchParams] = useSearchParams()
   const kindUrl = searchParams.get('kind')
   const [activeId, setActiveId] = useState<number>(
-    kindUrl !== null ? Object.keys(PetKindEnum).indexOf(kindUrl.toUpperCase()) + 1 : 0,
+    kindUrl !== null
+      ? Object.keys(PetKindEnum).indexOf(kindUrl.toUpperCase()) + 1
+      : 0,
   )
   const names: string[] = i18n.t('buttons.categories', { returnObjects: true })
   const onClick = (i: number) => {
@@ -49,7 +47,8 @@ const Category = ({ scrolled }:Props) => {
     const params = searchQuery(filter)
     params.page = 1
     if (i !== 0) params.kind = Object.keys(PetKindEnum)[i - 1]
-    else if (i === 0) { // means all kind
+    else if (i === 0) {
+      // means all kind
       delete params.kind
       dispatch(setFilter({ ...filter, page: 1, kind: undefined }))
     }
@@ -59,15 +58,15 @@ const Category = ({ scrolled }:Props) => {
     })
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
-  const icons = [faPaw, faCat, faDog]
+  const icons = ['/images/all.svg', '/images/cat.svg', '/images/dog.svg']
   const categoryItem: CategoryItemType[] = names.map((name, i) => ({
     id: i,
     name,
-    icon: icons[i],
+    iconPath: icons[i],
   }))
   // reset state
   useEffect(() => {
-   if (kindUrl === null) setActiveId(0)
+    if (kindUrl === null) setActiveId(0)
   }, [kindUrl])
   const toggleFilter = () => {
     dispatch(toggleFilterVisible())
@@ -80,13 +79,13 @@ const Category = ({ scrolled }:Props) => {
           <FilterText>{i18n.t('buttons.filter')}</FilterText>
         </FilterIconWrap>
         <FlexCenter xlGap={35}>
-          {categoryItem.map(({ id, name, icon }, i) => (
+          {categoryItem.map(({ id, name, iconPath }, i) => (
             <ButtonWrap
               key={id}
               className={clsx({ active: activeId === id })}
               onClick={() => onClick(i)}
             >
-              <FontAwesomeIcon icon={icon} />
+              <CategoryIcon $content={iconPath} />
               <CategoryName>{name}</CategoryName>
             </ButtonWrap>
           ))}
