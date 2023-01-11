@@ -45,8 +45,8 @@ export const Card = forwardRef(
           <Name>{petName}</Name>
           <KindText>{mixAntiReplace(animal_Variety)}</KindText>
           <LearnMore as='button'>
-            <SexWrap className='d物喔'>
-              <SexIcon $content={sex.iconPath} filter={sex.color} />
+            <SexWrap>
+              <SexIcon $content={sex.iconPath} filter={sex.color} alt='sex.name' />
               <SexText>{sex.name}</SexText>
             </SexWrap>
             <Bar />
