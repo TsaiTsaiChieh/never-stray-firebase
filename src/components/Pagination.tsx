@@ -2,13 +2,6 @@ import {
  ChangeEvent, KeyboardEvent, useEffect, useState,
 } from 'react'
 
-import {
-  faAngleLeft,
-  faAngleRight,
-  faAnglesLeft,
-  faAnglesRight,
-} from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import clsx from 'clsx'
 import {
   createSearchParams,
@@ -21,6 +14,7 @@ import { useAppSelector } from '../store/hook/index'
 import {
   LeftWrap,
   PageButton,
+  PageIcon,
   PageInput,
   PageWrapper,
   RightWrap,
@@ -32,6 +26,12 @@ interface Props {
 }
 const Pagination = ({ length }: Props) => {
   const LIMIT = import.meta.env.VITE_PET_LIMIT
+  const iconPaths: string[] = [
+    'angles-left',
+    'angle-left',
+    'angle-right',
+    'angles-right',
+  ]
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
   const { filter } = useAppSelector((state) => state.pet)
@@ -72,16 +72,22 @@ const Pagination = ({ length }: Props) => {
         <PageButton
           className={clsx({ disabled: disablePage(10) })}
           onClick={() => handlePageOnClick(-10)}
-          aria-label='prev-10'
+          aria-label={iconPaths[0]}
         >
-          <FontAwesomeIcon icon={faAnglesLeft} />
+          <PageIcon
+            $content={`/images/${iconPaths[0]}.svg`}
+            alt={iconPaths[0]}
+          />
         </PageButton>
         <PageButton
           className={clsx({ disabled: disablePage(1) })}
           onClick={() => handlePageOnClick(-1)}
-          aria-label='prev-1'
+          aria-label={iconPaths[1]}
         >
-          <FontAwesomeIcon icon={faAngleLeft} />
+          <PageIcon
+            $content={`/images/${iconPaths[1]}.svg`}
+            alt={iconPaths[1]}
+          />
         </PageButton>
       </LeftWrap>
       <PageInput
@@ -95,16 +101,22 @@ const Pagination = ({ length }: Props) => {
         <PageButton
           className={clsx({ disabled: length < LIMIT })}
           onClick={() => handlePageOnClick(1)}
-          aria-label='prev+1'
+          aria-label={iconPaths[2]}
         >
-          <FontAwesomeIcon icon={faAngleRight} />
+          <PageIcon
+            $content={`/images/${iconPaths[2]}.svg`}
+            alt={iconPaths[2]}
+          />
         </PageButton>
         <PageButton
           className={clsx({ disabled: length < LIMIT })}
           onClick={() => handlePageOnClick(10)}
-          aria-label='prev+10'
+          aria-label={iconPaths[3]}
         >
-          <FontAwesomeIcon icon={faAnglesRight} />
+          <PageIcon
+            $content={`/images/${iconPaths[3]}.svg`}
+            alt={iconPaths[3]}
+          />
         </PageButton>
       </RightWrap>
     </PageWrapper>
