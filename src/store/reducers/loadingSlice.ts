@@ -6,6 +6,7 @@ import { api } from '../../services/api'
 const initialState: LoadingState = {
   catLoading: false,
   dogLoading: false,
+  pageLoading: false,
 }
 
 export const loadingSlice = createSlice({
@@ -18,13 +19,13 @@ export const loadingSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addMatcher(api.endpoints.getPets.matchPending, (state) => {
-      state.catLoading = true
+      state.pageLoading = true
     })
     builder.addMatcher(api.endpoints.getPets.matchFulfilled, (state) => {
-      state.catLoading = false
+      state.pageLoading = false
     })
     builder.addMatcher(api.endpoints.getPets.matchRejected, (state) => {
-      state.catLoading = false
+      state.pageLoading = false
     })
   },
 })
