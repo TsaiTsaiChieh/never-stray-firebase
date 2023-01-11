@@ -67,7 +67,7 @@ const SelectorFilter = ({
       <LabelName>{label}</LabelName>
       <SelectOuter>
         <Selector
-          aria-labelledby={fieldName}
+          aria-label={fieldName}
           classNamePrefix='Select'
           value={value}
           options={options}
