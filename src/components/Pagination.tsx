@@ -85,6 +85,7 @@ const Pagination = ({ length }: Props) => {
         </PageButton>
       </LeftWrap>
       <PageInput
+        aria-label='page'
         type='number'
         value={pageValue}
         onKeyDown={(e) => onKeyDown(e)}
