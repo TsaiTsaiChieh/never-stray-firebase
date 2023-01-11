@@ -1,5 +1,3 @@
-import { faMars, faQuestion, faVenus } from '@fortawesome/free-solid-svg-icons'
-
 import { filters } from '../styles'
 
 const unknown = '未知'
@@ -11,16 +9,6 @@ export const petKindConverter = (kind: string): string => {
       return '喵'
     default:
       return kind
-  }
-}
-export const petSexIconConverter = (sex: string) => {
-  switch (sex.toLowerCase()) {
-    case 'm':
-      return faMars
-    case 'f':
-      return faVenus
-    default:
-      return faQuestion
   }
 }
 export const petSexConverter = (sex: string): SexIconType => {
