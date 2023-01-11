@@ -6,7 +6,10 @@ import {
 } from '..'
 import { FlexCenter } from '../Base'
 
-export const FilterContainer = styled(FlexCenter)<{$visible: boolean; $scrolled: boolean}>`
+export const FilterContainer = styled(FlexCenter)<{
+  $visible: boolean
+  $scrolled: boolean
+}>`
   width: 100%;
   height: ${(props) => (props.$scrolled ? 'calc(100vh - 59px)' : 'calc(100vh - 108px)')};
   display: ${(props) => (props.$visible ? 'flex' : 'none')};
@@ -53,7 +56,6 @@ export const FilterIconWrap = styled.div`
   ${XL} {
     display: flex;
   }
- 
 `
 export const FilterIcon = styled.img`
   content: url("/images/filter.svg");
@@ -169,6 +171,18 @@ export const TextSearch = styled.input`
     outline: none;
   }
 `
+export const ClearIcon = styled.img`
+  content: url("/images/circle-xmark.svg");
+  cursor: pointer;
+  position: absolute;
+  right: 12px;
+  filter: ${filters['gray-i60']};
+  width: 16px;
+  height: 16px;
+  &:hover {
+    filter: ${filters['gray-i250']};
+  }
+`
 export const TextSearchOuter = styled(OptionBtnOuter)`
   width: 279px;
   position: relative;
@@ -176,12 +190,6 @@ export const TextSearchOuter = styled(OptionBtnOuter)`
     ${TextSearch} {
       border: 1px solid ${colors['primary-100']};
     }
-  }
-  svg {
-    color: ${colors['gray-i60']};
-    position: absolute;
-    right: 12px;
-    cursor: pointer;
   }
 `
 export const ResetBtn = styled(OptionBtn)`
