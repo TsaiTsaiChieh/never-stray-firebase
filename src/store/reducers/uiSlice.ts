@@ -1,9 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import { sizes } from '../../styles'
-
 const initialState: UiState = {
-  filterVisible: window.innerWidth <= sizes.MD,
+  filterVisible: false,
 }
 
 export const uiSlice = createSlice({
