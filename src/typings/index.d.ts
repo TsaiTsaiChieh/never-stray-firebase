@@ -66,7 +66,7 @@ type LabelValueType = {
 type CategoryItemType = {
   id: number
   name: string
-  icon: any
+  iconPath: string
 }
 type PetType = {
   animal_id: number
