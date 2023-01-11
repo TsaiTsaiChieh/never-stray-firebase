@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react'
 
-import { faFilter } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import clsx from 'clsx'
 import i18n from 'i18next'
 import {
@@ -21,6 +19,7 @@ import {
   CategoryIcon,
   CategoryName,
   Container,
+  FilterIcon,
   FilterIconWrap,
   FilterText,
   Wrapper,
@@ -75,7 +74,7 @@ const Category = ({ scrolled }: Props) => {
     <Wrapper $scrolled={scrolled}>
       <Container>
         <FilterIconWrap onClick={toggleFilter}>
-          <FontAwesomeIcon icon={faFilter} />
+          <FilterIcon alt='filter' />
           <FilterText>{i18n.t('buttons.filter')}</FilterText>
         </FilterIconWrap>
         <FlexCenter xlGap={35}>
@@ -85,7 +84,7 @@ const Category = ({ scrolled }: Props) => {
               className={clsx({ active: activeId === id })}
               onClick={() => onClick(i)}
             >
-              <CategoryIcon $content={iconPath} />
+              <CategoryIcon $content={iconPath} alt={name} />
               <CategoryName>{name}</CategoryName>
             </ButtonWrap>
           ))}

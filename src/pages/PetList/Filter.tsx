@@ -1,5 +1,3 @@
-import { faFilter } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import i18n from 'i18next'
 import { useNavigate } from 'react-router-dom'
 
@@ -11,7 +9,7 @@ import { useAppDispatch, useAppSelector } from '../../store/hook'
 import { resetFilter } from '../../store/reducers/petSlice'
 import { FilterText } from '../../styles/components/Category'
 import {
- FilterContainer, FilterIconWrap, OptionsFilterWrap, ResetBtn, ResetBtnOuter,
+ FilterContainer, FilterIcon, FilterIconWrap, OptionsFilterWrap, ResetBtn, ResetBtnOuter,
 } from '../../styles/components/Filter'
 import { mixAntiReplace } from '../../utils/helper'
 
@@ -58,7 +56,7 @@ const Filter = ({ scrolled }:Props) => {
   return (
     <FilterContainer $visible={filterVisible} $scrolled={scrolled}>
       <FilterIconWrap>
-        <FontAwesomeIcon icon={faFilter} />
+        <FilterIcon />
         <FilterText>{i18n.t('buttons.filter')}</FilterText>
       </FilterIconWrap>
       <TextFilter
