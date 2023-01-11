@@ -1,7 +1,5 @@
 import { ChangeEvent, KeyboardEvent, useState } from 'react'
 
-import { faCircleXmark } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   createSearchParams,
   useNavigate,
@@ -12,6 +10,7 @@ import { Paths } from '../constants'
 import { useAppDispatch } from '../store/hook'
 import { resetFilter } from '../store/reducers/petSlice'
 import {
+  ClearIcon,
   LabelName,
   OptionsFilterWrap,
   TextSearch,
@@ -80,7 +79,7 @@ const TextFilter = ({
           placeholder={placeholder}
         />
         {!text ? null : (
-          <FontAwesomeIcon icon={faCircleXmark} onClick={clearText} />
+          <ClearIcon onClick={clearText} alt='clear' />
         )}
       </TextSearchOuter>
     </OptionsFilterWrap>
