@@ -56,7 +56,7 @@ const Filter = ({ scrolled }:Props) => {
   return (
     <FilterContainer $visible={filterVisible} $scrolled={scrolled}>
       <FilterIconWrap>
-        <FilterIcon />
+        <FilterIcon alt='filter' />
         <FilterText>{i18n.t('buttons.filter')}</FilterText>
       </FilterIconWrap>
       <TextFilter
