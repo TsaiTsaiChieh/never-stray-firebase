@@ -2,7 +2,7 @@ type PetState = {
   filter: GetPetReq
 }
 type LoadingState = {
-  dogLoading: boolean
+  mainLoading: boolean
   pageLoading: boolean
 }
 type UiState = {

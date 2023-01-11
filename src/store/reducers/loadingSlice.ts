@@ -4,7 +4,7 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 import { api } from '../../services/api'
 
 const initialState: LoadingState = {
-  dogLoading: false,
+  mainLoading: true,
   pageLoading: false,
 }
 
@@ -12,8 +12,8 @@ export const loadingSlice = createSlice({
   name: 'loading',
   initialState,
   reducers: {
-    setDogLoading: (state, { payload }: PayloadAction<boolean>) => {
-      state.dogLoading = payload
+    setMainLoading: (state, { payload }: PayloadAction<boolean>) => {
+      state.mainLoading = payload
     },
   },
   extraReducers: (builder) => {
@@ -29,6 +29,6 @@ export const loadingSlice = createSlice({
   },
 })
 
-export const { setDogLoading } = loadingSlice.actions
+export const { setMainLoading } = loadingSlice.actions
 
 export default loadingSlice.reducer
