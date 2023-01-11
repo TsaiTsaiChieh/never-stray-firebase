@@ -23,18 +23,18 @@ export const FilterIconWrap = styled(FlexCenter)`
   cursor: pointer;
   position: absolute;
   top: 7px;
-
-  svg {
-    color: ${colors['primary-100']};
-    width: 18px;
-    height: 18px;
-    ${SM} {
-      width: 20px;
-      height: 20px;
-    }
-  }
   ${XL} {
     display: none;
+  }
+`
+export const FilterIcon = styled.img`
+  content: url("/images/filter.svg");
+  width: 18px;
+  height: 18px;
+  filter: ${filters['primary-100']};
+  ${SM} {
+    width: 20px;
+    height: 20px;
   }
 `
 export const FilterText = styled.span`

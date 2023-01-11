@@ -2,7 +2,7 @@ import { styled } from '@linaria/react'
 import Select from 'react-select'
 
 import {
- colors, MD, SM, XL,
+ colors, filters, MD, SM, XL,
 } from '..'
 import { FlexCenter } from '../Base'
 
@@ -47,17 +47,20 @@ export const FilterIconWrap = styled.div`
   width: 100%;
   margin-bottom: 20px;
   position: sticky;
-  svg {
-    color: ${colors['gray-i50']};
-    margin-right: 5px;
-  }
   span {
     color: ${colors['gray-i150']};
   }
   ${XL} {
     display: flex;
   }
-  margin-top: 0;
+ 
+`
+export const FilterIcon = styled.img`
+  content: url("/images/filter.svg");
+  width: 16px;
+  height: 16px;
+  filter: ${filters['gray-i150']};
+  margin-right: 5px;
 `
 export const OptionsFilterWrap = styled.div`
   width: 279px;
