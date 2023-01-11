@@ -40,6 +40,13 @@ export const filters = {
     'invert(91%) sepia(66%) saturate(3817%) hue-rotate(150deg) brightness(91%) contrast(90%)',
   'primary-200':
     'invert(32%) sepia(67%) saturate(3428%) hue-rotate(158deg) brightness(96%) contrast(103%)',
+    'blue-50': 'invert(76%) sepia(11%) saturate(4813%) hue-rotate(175deg) brightness(93%) contrast(89%)',
+    'pink-50': 'invert(87%) sepia(98%) saturate(6014%) hue-rotate(290deg) brightness(96%) contrast(108%)',
+    'gray-i50': 'invert(86%) sepia(3%) saturate(13%) hue-rotate(330deg) brightness(87%) contrast(94%)',
+    'gray-i60': 'invert(77%) sepia(34%) saturate(20%) hue-rotate(314deg) brightness(96%) contrast(93%)',
+    'gray-i150': 'invert(52%) sepia(9%) saturate(20%) hue-rotate(331deg) brightness(96%) contrast(96%)',
+    'gray-i200': 'invert(29%) sepia(53%) saturate(1%) hue-rotate(37deg) brightness(94%) contrast(97%)',
+    'gray-i250': 'invert(19%) sepia(0%) saturate(2608%) hue-rotate(293deg) brightness(90%) contrast(92%)',
   white:
-    'invert(100%) sepia(1%) saturate(6933%) hue-rotate(359deg) brightness(109%) contrast(93%);',
+    'invert(100%) sepia(1%) saturate(6933%) hue-rotate(359deg) brightness(109%) contrast(93%)',
 }
