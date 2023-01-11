@@ -1,6 +1,6 @@
 import { styled } from '@linaria/react'
 
-import { colors } from '..'
+import { colors, filters } from '..'
 import { FlexCenter } from '../Base'
 
 export const PageWrapper = styled(FlexCenter)`
@@ -14,15 +14,24 @@ export const LeftWrap = styled.div`
 export const RightWrap = styled(LeftWrap)`
   display: flex;
 `
+export const PageIcon = styled.img<{ $content: string }>`
+  content: ${(props) => `url(${props.$content})`};
+  width: 100%;
+  height: 22px;
+  font-size: 20px;
+  filter: ${filters['gray-i200']};
+`
 export const PageButton = styled.button`
   cursor: pointer;
+  width: 50%;
+  height: 40px;
   svg {
     color: ${colors['gray-i200']};
     font-size: 20px;
   }
   &.disabled {
-    svg {
-      color: ${colors['gray-i150']};
+    ${PageIcon} {
+      filter: ${filters['gray-i150']};
     }
   }
 `
