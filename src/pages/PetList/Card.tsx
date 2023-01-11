@@ -1,7 +1,5 @@
 import { forwardRef, Ref } from 'react'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
 import {
   AgeText,
   Bar,
@@ -10,6 +8,7 @@ import {
   LearnMore,
   Name,
   OuterHoverWrap,
+  SexIcon,
   SexText,
   SexWrap,
 } from '../../styles/pages/PetList'
@@ -46,9 +45,9 @@ export const Card = forwardRef(
           <Name>{petName}</Name>
           <KindText>{mixAntiReplace(animal_Variety)}</KindText>
           <LearnMore as='button'>
-            <SexWrap>
-              <FontAwesomeIcon icon={sex.icon} color={sex.color} />
-              <SexText>{sex.text}</SexText>
+            <SexWrap className='d物喔'>
+              <SexIcon $content={sex.iconPath} filter={sex.color} />
+              <SexText>{sex.name}</SexText>
             </SexWrap>
             <Bar />
             <AgeText>{age}</AgeText>
