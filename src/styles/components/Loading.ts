@@ -40,7 +40,7 @@ export const PawLoader = styled.div`
 export const Paw = styled.svg`
   width: 100%;
   height: 100%;
-  animation: 1000ms pawAnimation ease-in-out infinite;
+  animation: 800ms pawAnimation ease-in-out infinite;
   opacity: 0;
   svg {
     width: 100%;
@@ -54,16 +54,16 @@ export const Paw = styled.svg`
     transform: rotate(10deg) translate(125%, 0);
   }
   &:nth-child(4) {
-    animation-delay: 0.75s;
+    animation-delay: 0.2s;
   }
   &:nth-child(3) {
-    animation-delay: 1s;
+    animation-delay: 0.4s;
   }
   &:nth-child(2) {
-    animation-delay: 1.25s;
+    animation-delay: 0.6s;
   }
   &:nth-child(1) {
-    animation-delay: 1.5s;
+    animation-delay: 0.8s;
   }
   .no-cssanimations & {
     opacity: 1;
