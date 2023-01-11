@@ -1,5 +1,3 @@
-import { faGoogle } from '@fortawesome/free-brands-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import * as i18n from 'i18next'
 import { useNavigate } from 'react-router-dom'
 
@@ -10,6 +8,7 @@ import {
   AuthState,
   AvatarWrap,
   Container,
+  GoogleLogo,
   Logo,
   Wrapper,
 } from '../styles/components/Header'
@@ -27,7 +26,7 @@ export const Header = () => {
       <Container className='flex-center'>
         <Logo onClick={go2home} alt='logo' />
         <AvatarWrap>
-          <FontAwesomeIcon icon={faGoogle} />
+          <GoogleLogo />
           <AuthState>{i18n.t('buttons.login')}</AuthState>
         </AvatarWrap>
       </Container>

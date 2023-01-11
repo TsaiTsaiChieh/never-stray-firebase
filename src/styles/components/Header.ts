@@ -1,6 +1,8 @@
 import { styled } from '@linaria/react'
 
-import { colors, LG, SM } from '..'
+import {
+ colors, filters, LG, SM,
+} from '..'
 import { Contain, FlexCenter } from '../Base'
 
 export const Wrapper = styled.div`
@@ -29,11 +31,12 @@ export const AvatarWrap = styled(FlexCenter)`
     position: relative;
     right: 0;
   }
-  svg {
-    width: 20px;
-    height: 20px;
-    color: ${colors['primary-100']};
-  }
+`
+export const GoogleLogo = styled.img`
+  content: url("/images/google.svg");
+  width: 20px;
+  height: 20px;
+  filter: ${filters['primary-100']};
 `
 export const Avatar = styled.div`
   width: 34px;
