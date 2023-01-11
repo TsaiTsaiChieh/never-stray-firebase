@@ -26,7 +26,7 @@ export const Header = () => {
       <Container className='flex-center'>
         <Logo onClick={go2home} alt='logo' />
         <AvatarWrap>
-          <GoogleLogo />
+          <GoogleLogo alt='login' />
           <AuthState>{i18n.t('buttons.login')}</AuthState>
         </AvatarWrap>
       </Container>
