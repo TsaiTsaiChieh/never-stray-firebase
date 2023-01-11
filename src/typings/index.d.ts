@@ -68,6 +68,11 @@ type CategoryItemType = {
   name: string
   iconPath: string
 }
+type SexIconType = {
+  iconPath: string
+  name: string
+  color: string
+}
 type PetType = {
   animal_id: number
   animal_subid: string
