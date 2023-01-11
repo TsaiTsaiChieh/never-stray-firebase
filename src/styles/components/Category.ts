@@ -1,7 +1,7 @@
 import { styled } from '@linaria/react'
 
 import {
- colors, MD, SM, XL,
+ colors, filters, MD, SM, XL,
 } from '..'
 import { Contain, FlexCenter } from '../Base'
 
@@ -45,6 +45,12 @@ export const FilterText = styled.span`
     font-size: 15px;
   }
 `
+export const CategoryIcon = styled.img<{$content: string}>`
+width: 24px;
+height: 24px;
+content: ${(props) => `url(${props.$content})`};
+filter: ${filters['primary-200']};
+`
 export const ButtonWrap = styled.button`
   display: flex;
   justify-content: center;
@@ -71,8 +77,8 @@ export const ButtonWrap = styled.button`
     span {
       color: ${colors.white};
     }
-    svg {
-      color: ${colors.white};
+    ${CategoryIcon} {
+      filter: ${filters.white};
     }
   }
   &:hover {
@@ -80,11 +86,12 @@ export const ButtonWrap = styled.button`
     span {
       color: white;
     }
-    svg {
-      color: ${colors.white};
+    ${CategoryIcon} {
+      filter: ${filters.white};
     }
   }
 `
+
 export const CategoryName = styled.span`
   font-size: 14px;
   color: ${colors['gray-i200']};
