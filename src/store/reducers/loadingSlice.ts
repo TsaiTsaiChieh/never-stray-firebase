@@ -4,7 +4,6 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 import { api } from '../../services/api'
 
 const initialState: LoadingState = {
-  catLoading: false,
   dogLoading: false,
   pageLoading: false,
 }
