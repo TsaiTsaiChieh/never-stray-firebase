@@ -34,7 +34,7 @@ const Pets = ({ data }: Props) => {
       const newPage = page + 1
       const options = {
         root: document,
-        rootMargin: '20px',
+        rootMargin: '40px',
         threshold: 1,
       }
       const callback = (entries: IntersectionObserverEntry[]) => {
