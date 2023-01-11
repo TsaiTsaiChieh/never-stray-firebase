@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 
-import { CatLoading } from '../../components'
+import { PawLoading } from '../../components'
 import Pagination from '../../components/Pagination'
 import { useAppSelector } from '../../store/hook'
 import { NotFound, PetContainer } from '../../styles/pages/PetList'
@@ -10,7 +10,7 @@ interface Props {
   data: PetType[]
 }
 const Pets = ({ data }: Props) => {
-  const { catLoading } = useAppSelector((state) => state.loading)
+  const { pageLoading } = useAppSelector((state) => state.loading)
   const initOffset = window.innerWidth < 768 ? 6 : 9
   const offset = window.innerWidth < 768 ? 2 : 3
   const lastItemRef = useRef<any | null>(null)
@@ -66,8 +66,8 @@ const Pets = ({ data }: Props) => {
   return (
     <>
       <PetContainer>
-        {catLoading ? <CatLoading /> : null}
-        {!catLoading && data.length
+        {pageLoading ? <PawLoading /> : null}
+        {!pageLoading && data.length
             ? ids.map((id, i) => {
               if (data.length >= ids.length) {
                 const ref = i === ids.length - 1 ? lastItemRef : null
@@ -76,7 +76,7 @@ const Pets = ({ data }: Props) => {
               return null
             })
           : null}
-        {!catLoading && !data.length ? <NotFound /> : null}
+        {!pageLoading && !data.length ? <NotFound /> : null}
       </PetContainer>
       <Pagination length={data.length} />
     </>
