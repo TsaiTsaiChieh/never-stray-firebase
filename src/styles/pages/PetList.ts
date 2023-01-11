@@ -176,7 +176,6 @@ export const LearnMore = styled(FlexCenter)`
     height: 35px;
     width: 138px;
     font-size: 14px;
-    gap: 10px;
   }
   ${MD} {
     width: 190px;
@@ -186,23 +185,39 @@ export const LearnMore = styled(FlexCenter)`
 `
 export const SexWrap = styled(FlexCenter)`
   letter-spacing: 0.05em;
-  gap: 5px;
+  gap: 2px;
+  width: 52%;
+  ${MD} {
+    gap: 5px;
+  }
+`
+export const SexIcon = styled.img<{ $content: string; filter: string }>`
+  content: ${(props) => `url(${props.$content})`};
+  width: 13px;
+  height: 15px;
+
+  filter: ${(props) => props.filter};
+  padding: 0;
+  ${MD} {
+    width: 16px;
+    height: 18px;
+  }
 `
 export const SexText = styled.span``
 export const Bar = styled.div`
+  width: 2%;
   height: 16px;
   border-left: 2px solid ${colors['primary-30']};
-  width: auto;
-  margin: 7px 6px;
   ${SM} {
     margin: 0 8px;
   }
   ${MD} {
     height: 31px;
-    margin: 0 15px;
   }
 `
-export const AgeText = styled.span``
+export const AgeText = styled.span`
+  width: 46%;
+`
 export const OuterHoverWrap = styled.div`
   padding: 5px;
   ${SM} {
@@ -223,6 +238,7 @@ export const OuterHoverWrap = styled.div`
       display: none;
     }
     ${Bar} {
+      width: 100%;
       border: none;
       height: auto;
     }
