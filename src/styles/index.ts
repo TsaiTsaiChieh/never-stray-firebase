@@ -29,3 +29,8 @@ export const colors = {
   'gray-t100': 'rgba(51, 51, 51, 0.5)',
   white: '#FFFFFF',
 }
+export const filters = {
+  'primary-100': 'invert(91%) sepia(66%) saturate(3817%) hue-rotate(150deg) brightness(91%) contrast(90%)',
+  'primary-200': 'invert(32%) sepia(67%) saturate(3428%) hue-rotate(158deg) brightness(96%) contrast(103%)',
+  white: 'invert(100%) sepia(1%) saturate(6933%) hue-rotate(359deg) brightness(109%) contrast(93%);',
+}
