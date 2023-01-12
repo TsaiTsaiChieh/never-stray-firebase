@@ -1,7 +1,7 @@
 import { styled } from '@linaria/react'
 
 import {
- colors, MD, SM, XL,
+ colors, filters, MD, SM, XL,
 } from '..'
 import { Contain, FlexCenter } from '../Base'
 
@@ -64,6 +64,7 @@ export const Paw = styled.img`
   top: -18px;
   right: 10px;
   content: url("/images/paw.svg");
+  filter: ${filters['primary-100']};
   position: absolute;
   ${SM} {
     top: -26px;
@@ -226,9 +227,9 @@ export const OuterHoverWrap = styled.div`
   border-radius: 5px;
   border: 1px solid transparent;
   &:hover {
-    background: ${colors['primary-20']};
+    background: ${colors['primary-10']};
     box-shadow: 0px 0px 8px ${colors['gray-t50']};
-    border: 1px solid ${colors['primary-50']};
+    border: 1px solid ${colors['primary-100']};
     ${LearnMore} {
       background: ${colors['primary-150']};
       color: ${colors['primary-200']};
