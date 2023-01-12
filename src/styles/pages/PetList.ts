@@ -1,7 +1,7 @@
 import { styled } from '@linaria/react'
 
 import {
- colors, MD, SM, XL,
+ colors, filters, MD, SM, XL,
 } from '..'
 import { Contain, FlexCenter } from '../Base'
 
@@ -64,6 +64,7 @@ export const Paw = styled.img`
   top: -18px;
   right: 10px;
   content: url("/images/paw.svg");
+  filter: ${filters['primary-100']};
   position: absolute;
   ${SM} {
     top: -26px;
