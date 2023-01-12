@@ -213,7 +213,7 @@ export const OuterHoverWrap = styled.div`
   &:hover {
     background: ${colors['primary-20']};
     box-shadow: 0px 0px 8px ${colors['gray-t50']};
-    border: 1px solid ${colors['primary-50']};
+    border: 1px solid ${colors['primary-100']};
     ${LearnMore} {
       background: ${colors['primary-150']};
       color: ${colors['primary-200']};

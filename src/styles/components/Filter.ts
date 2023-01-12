@@ -121,7 +121,7 @@ export const Selector = styled(Select)`
   }
   .Select__control--is-focused {
     box-shadow: 0 0 0 1px ${colors['primary-i52']};
-    border: 1px solid ${colors['primary-50']};
+    border: 1px solid ${colors['primary-100']};
   }
   .Select__control--menu-is-open {
     svg {
