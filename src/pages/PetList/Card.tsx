@@ -1,5 +1,6 @@
 import { forwardRef, Ref } from 'react'
 
+import Avatar from './Avatar'
 import {
   AgeText,
   Bar,
@@ -18,7 +19,6 @@ import {
   petKindConverter,
   petSexConverter,
 } from '../../utils/helper'
-import Avatar from './Avatar'
 
 interface Props {
   detail: PetType
@@ -46,7 +46,11 @@ export const Card = forwardRef(
           <KindText>{mixAntiReplace(animal_Variety)}</KindText>
           <LearnMore as='button'>
             <SexWrap>
-              <SexIcon $content={sex.iconPath} filter={sex.color} alt='sex.name' />
+              <SexIcon
+                $content={sex.iconPath}
+                filter={sex.color}
+                alt='sex.name'
+              />
               <SexText>{sex.name}</SexText>
             </SexWrap>
             <Bar />
