@@ -208,7 +208,7 @@ export const SexText = styled.span``
 export const Bar = styled.div`
   width: 2%;
   height: 16px;
-  border-left: 2px solid ${colors['primary-30']};
+  border-left: 2px solid #E2F5F0;
   ${SM} {
     margin: 0 8px;
   }
