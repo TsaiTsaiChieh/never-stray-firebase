@@ -5,10 +5,11 @@
   src: url("/fonts/jf-openhuninn.woff2") format("woff2");
 }
 
-* {
+body {
   box-sizing: border-box;
   font-family: "huninn", sans-serif;
   scroll-behavior: smooth;
+  background: #FAFAFA;
 }
 
 button {
