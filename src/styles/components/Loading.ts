@@ -1,6 +1,6 @@
 import { styled } from '@linaria/react'
 
-import { colors, MD } from '..'
+import { filters, MD } from '..'
 import { FlexCenter } from '../Base'
 
 export const CatLoadingWrap = styled.div`
@@ -46,7 +46,7 @@ export const Paw = styled.svg`
   svg {
     width: 100%;
     height: 100%;
-    fill: ${colors['primary-100']};
+    filter: ${filters.primary};
   }
   &:nth-child(odd) {
     transform: rotate(-20deg);

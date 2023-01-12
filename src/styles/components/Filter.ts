@@ -96,15 +96,15 @@ export const OptionBtnOuter = styled(FlexCenter)`
   &:hover {
     background-color: ${colors['primary-i52']};
     ${OptionBtn} {
-      border: 1px solid ${colors['primary-100']};
+      border: 1px solid ${colors.primary};
     }
   }
   /* active */
   ${OptionBtn} {
-    background: ${(props) => (props.$active ? colors['primary-100'] : colors.white)};
+    background: ${(props) => (props.$active ? colors.primary : colors.white)};
     color: ${(props) => (props.$active ? colors.white : colors['gray-i200'])};
     border: ${(props) => (props.$active
-        ? `1px solid ${colors['primary-100']}`
+        ? `1px solid ${colors.primary}`
         : `1px solid ${colors['gray-i50']}`)};
   }
 `
@@ -125,7 +125,7 @@ export const Selector = styled(Select)`
   }
   .Select__control--is-focused {
     box-shadow: 0 0 0 1px ${colors['primary-i52']};
-    border: 1px solid ${colors['primary-100']};
+    border: 1px solid ${colors.primary};
   }
   .Select__control--menu-is-open {
     svg {
@@ -140,7 +140,7 @@ export const Selector = styled(Select)`
     color: ${colors['gray-i200']};
     background: white;
     &:hover {
-      background: ${colors['primary-10']};
+      background: ${colors.light};
     }
   }
 `
@@ -149,7 +149,7 @@ export const SelectOuter = styled(OptionBtnOuter)`
   &:hover {
     ${Selector} {
       .Select__control {
-        border: 1px solid ${colors['primary-100']};
+        border: 1px solid ${colors.primary};
       }
     }
   }
@@ -187,7 +187,7 @@ export const TextSearchOuter = styled(OptionBtnOuter)`
   position: relative;
   &:hover {
     ${TextSearch} {
-      border: 1px solid ${colors['primary-100']};
+      border: 1px solid ${colors.primary};
     }
   }
 `

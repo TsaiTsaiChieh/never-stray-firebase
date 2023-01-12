@@ -7,7 +7,7 @@ import { Contain, FlexCenter } from '../Base'
 
 export const Wrapper = styled.div`
   padding: 5px 0;
-  border-bottom: 3px solid ${colors['primary-100']};
+  border-bottom: 3px solid ${colors.primary};
 `
 export const Container = styled(Contain)`
   ${LG} {
@@ -36,12 +36,12 @@ export const GoogleLogo = styled.img`
   content: url("/images/google.svg");
   width: 20px;
   height: 20px;
-  filter: ${filters['primary-100']};
+  filter: ${filters.primary};
 `
 export const Avatar = styled.div`
   width: 34px;
   height: 34px;
-  border: 2px solid ${colors['primary-100']};
+  border: 2px solid ${colors.primary};
   border-radius: 50%;
   margin-right: 8px;
 `

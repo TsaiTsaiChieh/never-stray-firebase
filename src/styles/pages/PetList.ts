@@ -64,7 +64,7 @@ export const Paw = styled.img`
   top: -18px;
   right: 10px;
   content: url("/images/paw.svg");
-  filter: ${filters['primary-100']};
+  filter: ${filters.primary};
   position: absolute;
   ${SM} {
     top: -26px;
@@ -148,12 +148,12 @@ export const Name = styled.h3`
     content: "";
     position: absolute;
     width: 50px;
-    background: ${colors['primary-100']};
+    background: ${colors.primary};
     margin: 0 auto;
     left: 0;
     right: 0;
     border-radius: 10px;
-    border-bottom: 3px solid ${colors['primary-100']};
+    border-bottom: 3px solid ${colors.primary};
   }
 `
 export const KindText = styled.span`
@@ -170,7 +170,7 @@ export const LearnMore = styled(FlexCenter)`
   border-radius: 10px;
   font-size: 13px;
   color: ${colors['gray-i150']};
-  background: ${colors.detailBg};
+  background: ${colors.light};
   margin: 0 15px 15px;
   gap: 0;
   ${SM} {
@@ -227,12 +227,12 @@ export const OuterHoverWrap = styled.div`
   border-radius: 5px;
   border: 1px solid transparent;
   &:hover {
-    background: ${colors['primary-10']};
+    background: ${colors.light};
     box-shadow: 0px 0px 8px ${colors['gray-t50']};
-    border: 1px solid ${colors['primary-100']};
+    border: 1px solid ${colors.primary};
     ${LearnMore} {
-      background: ${colors['primary-150']};
-      color: ${colors['primary-200']};
+      background: ${colors.primaryLighten};
+      color: ${colors.secondary};
       transition: all 0.8s ease;
     }
     ${SexWrap}, ${AgeText} {

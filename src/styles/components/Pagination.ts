@@ -42,7 +42,7 @@ export const PageInput = styled.input`
   color: ${colors.white};
   padding: 5px 10px;
   border: 2px ${colors['gray-i200']} solid;
-  background: ${colors['primary-100']};
+  background: ${colors.primary};
   outline: none;
   border: none;
   cursor: pointer;
