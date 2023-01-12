@@ -13,7 +13,7 @@ export const FilterContainer = styled(FlexCenter)<{
   width: 100%;
   height: ${(props) => (props.$scrolled ? 'calc(100vh - 59px)' : 'calc(100vh - 108px)')};
   display: ${(props) => (props.$visible ? 'flex' : 'none')};
-  box-shadow: 0px 0px 8px ${colors['gray-t50']};
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 12%), 0 2px 4px 0 rgb(0 0 0 / 8%);
   border-radius: 5px;
   padding: 45px 22px 50px 22px;
   color: ${colors['gray-i200']};
@@ -175,7 +175,7 @@ export const ClearIcon = styled.img`
   cursor: pointer;
   position: absolute;
   right: 12px;
-  filter: ${filters['gray-i60']};
+  filter: ${filters['gray-i50']};
   width: 16px;
   height: 16px;
   &:hover {

@@ -47,7 +47,7 @@ export const CardContainer = styled(FlexCenter)`
   background: ${colors.white};
   flex-direction: column;
   border-radius: 5px;
-  box-shadow: 0px 0px 8px ${colors['gray-t50']};
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 12%), 0 2px 4px 0 rgb(0 0 0 / 8%);
 `
 export const PetImgWrap = styled.div`
   position: absolute;
@@ -170,7 +170,7 @@ export const LearnMore = styled(FlexCenter)`
   border-radius: 10px;
   font-size: 13px;
   color: ${colors['gray-i150']};
-  background: ${colors['primary-10']};
+  background: ${colors.detailBg};
   margin: 0 15px 15px;
   gap: 0;
   ${SM} {
