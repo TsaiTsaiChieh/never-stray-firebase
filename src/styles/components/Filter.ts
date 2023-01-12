@@ -80,10 +80,9 @@ export const OptionBtn = styled.button`
   width: 80px;
   height: 40px;
   letter-spacing: 0.05em;
-  color: ${colors['gray-i210']};
-  border: 1px solid ${colors['gray-i40']};
   border-radius: 5px;
   background: ${colors.white};
+  border: 1px solid ${colors['gray-i50']};
 `
 export const OptionBtnOuter = styled(FlexCenter)`
   width: 84px;
@@ -101,13 +100,13 @@ export const OptionBtnOuter = styled(FlexCenter)`
     color: ${(props) => (props.$active ? colors.white : colors['gray-i200'])};
     border: ${(props) => (props.$active
         ? `1px solid ${colors['primary-100']}`
-        : `1px solid ${colors['gray-i40']}`)};
+        : `1px solid ${colors['gray-i50']}`)};
   }
 `
 export const Selector = styled(Select)`
   width: 275px;
   .Select__control {
-    border: 1px solid ${colors['gray-i40']};
+    border: 1px solid ${colors['gray-i50']};
     height: 40px;
     cursor: pointer;
     font-size: 14px;
@@ -154,7 +153,7 @@ export const TextSearch = styled.input`
   width: 275px;
   height: 40px;
   border-radius: 5px;
-  border: 1px solid ${colors['gray-i40']};
+  border: 1px solid ${colors['gray-i50']};
   font-size: 14px;
   letter-spacing: 0.05em;
   color: ${colors['gray-i200']};
@@ -175,7 +174,7 @@ export const TextSearchOuter = styled(OptionBtnOuter)`
     }
   }
   svg {
-    color: ${colors['gray-i60']};
+    color: ${colors['gray-i50']};
     position: absolute;
     right: 12px;
     cursor: pointer;
