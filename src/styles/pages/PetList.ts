@@ -211,7 +211,7 @@ export const OuterHoverWrap = styled.div`
   border-radius: 5px;
   border: 1px solid transparent;
   &:hover {
-    background: ${colors['primary-20']};
+    background: ${colors['primary-10']};
     box-shadow: 0px 0px 8px ${colors['gray-t50']};
     border: 1px solid ${colors['primary-100']};
     ${LearnMore} {

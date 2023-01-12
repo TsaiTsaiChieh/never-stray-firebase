@@ -4,8 +4,7 @@ export const LG = '@media (min-width: 1024px)'
 export const XL = '@media (min-width: 1200px)'
 
 export const colors = {
-  'primary-10': '#EBF8F7',
-  'primary-20': '#EBFAF6',
+  'primary-10': '#EBF8F7', // nav and learn more btn
   'primary-30': '#E2F5F0',
   'primary-i52': 'rgba(46, 223, 223, 0.2)',
   'primary-100': '#61DED7',

@@ -136,7 +136,7 @@ export const Selector = styled(Select)`
     color: ${colors['gray-i200']};
     background: white;
     &:hover {
-      background: ${colors['primary-20']};
+      background: ${colors['primary-10']};
     }
   }
 `
