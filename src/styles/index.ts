@@ -1,3 +1,5 @@
+import { generateFilter } from 'colorize-filter'
+
 export const sizes = {
   SM: 375,
   MD: 768,
@@ -10,12 +12,14 @@ export const LG = `@media (min-width: ${sizes.LG}px)`
 export const XL = `@media (min-width: ${sizes.XL}px)`
 
 export const colors = {
-  'primary-10': '#EBF8F7', // nav and learn more btn
   'primary-30': '#E2F5F0', // bar line
   'primary-i52': 'rgba(46, 223, 223, 0.2)', // only for filter btn hover effect
-  'primary-100': '#61DED7', // main color
-  'primary-150': '#95EED9', // main hover color
-  'primary-200': '#00948B', // hover text color for primary-150
+  Bg: '#FAFAFA',
+  detailBg: '#EBF8F7',
+  'primary-10': '#EBF8F7', // nav and learn more btn
+  'primary-100': '#47DDB3', // main color
+  'primary-150': '#a9efdb', // main hover color
+  'primary-200': '#309D91', // hover text color for primary-150
   'secondary-50': '#2D9CDB', // not used
   'blue-50': '#63B1E1',
   'pink-50': '#FFA8A8', // for warning color
@@ -29,17 +33,13 @@ export const colors = {
   white: '#FFFFFF',
 }
 export const filters = {
-  'primary-100':
-    'invert(91%) sepia(66%) saturate(3817%) hue-rotate(150deg) brightness(91%) contrast(90%)',
-  'primary-200':
-    'invert(32%) sepia(67%) saturate(3428%) hue-rotate(158deg) brightness(96%) contrast(103%)',
-    'blue-50': 'invert(76%) sepia(11%) saturate(4813%) hue-rotate(175deg) brightness(93%) contrast(89%)',
-    'pink-50': 'invert(87%) sepia(98%) saturate(6014%) hue-rotate(290deg) brightness(96%) contrast(108%)',
-    'gray-i50': 'invert(86%) sepia(3%) saturate(13%) hue-rotate(330deg) brightness(87%) contrast(94%)',
-    'gray-i60': 'invert(77%) sepia(34%) saturate(20%) hue-rotate(314deg) brightness(96%) contrast(93%)',
-    'gray-i150': 'invert(52%) sepia(9%) saturate(20%) hue-rotate(331deg) brightness(96%) contrast(96%)',
-    'gray-i200': 'invert(29%) sepia(53%) saturate(1%) hue-rotate(37deg) brightness(94%) contrast(97%)',
-    'gray-i250': 'invert(19%) sepia(0%) saturate(2608%) hue-rotate(293deg) brightness(90%) contrast(92%)',
-  white:
-    'invert(100%) sepia(1%) saturate(6933%) hue-rotate(359deg) brightness(109%) contrast(93%)',
+  'primary-100': generateFilter(colors['primary-100']),
+  'primary-200': generateFilter(colors['primary-200']),
+  'blue-50': generateFilter(colors['blue-50']),
+  'pink-50': generateFilter(colors['pink-50']),
+  'gray-i50': generateFilter(colors['gray-i50']),
+  'gray-i150': generateFilter(colors['gray-i150']),
+  'gray-i200': generateFilter(colors['gray-i200']),
+  'gray-i250': generateFilter(colors['gray-i250']),
+  white: generateFilter(colors.white),
 }
