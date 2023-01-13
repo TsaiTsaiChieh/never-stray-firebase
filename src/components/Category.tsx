@@ -13,11 +13,11 @@ import { Paths } from '../constants/index'
 import { useAppDispatch, useAppSelector } from '../store/hook'
 import { setFilter } from '../store/reducers/petSlice'
 import { toggleFilterVisible } from '../store/reducers/uiSlice'
-import { FlexCenter } from '../styles/Base'
 import {
   ButtonWrap,
   CategoryIcon,
   CategoryName,
+  CategoryWrap,
   Container,
   FilterIcon,
   FilterIconWrap,
@@ -77,7 +77,7 @@ const Category = ({ scrolled }: Props) => {
           <FilterIcon alt='filter' />
           <FilterText>{i18n.t('buttons.filter')}</FilterText>
         </FilterIconWrap>
-        <FlexCenter xlGap={35}>
+        <CategoryWrap>
           {categoryItem.map(({ id, name, iconPath }, i) => (
             <ButtonWrap
               key={id}
@@ -88,7 +88,7 @@ const Category = ({ scrolled }: Props) => {
               <CategoryName>{name}</CategoryName>
             </ButtonWrap>
           ))}
-        </FlexCenter>
+        </CategoryWrap>
       </Container>
     </Wrapper>
   )

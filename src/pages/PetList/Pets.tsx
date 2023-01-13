@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
 
+import { Card } from './Card'
+import Loading from './Loading'
 import { PawLoading } from '../../components'
 import Pagination from '../../components/Pagination'
 import { useAppSelector } from '../../store/hook'
 import { NotFound, PetContainer } from '../../styles/pages/PetList'
-import { Card } from './Card'
-import Loading from './Loading'
 
 interface Props {
   data: PetType[]
