@@ -7,11 +7,8 @@ import {
 } from '../../styles/pages/PetList'
 import Avatar from './Avatar'
 
-interface Props {
-  loading: true
-}
-const Loading = ({ loading }: Props) => (
-  <OuterHoverWrap className={loading && 'loading'}>
+const Loading = () => (
+  <OuterHoverWrap className='loading'>
     <CardContainer>
       <Avatar src='null' />
       <Name />
