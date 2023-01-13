@@ -90,7 +90,7 @@ export const Mask = styled.div`
   -webkit-mask-size: contain;
   mask-size: contain;
 `
-export const PetImg = styled.div`
+export const PetImg = styled.div<{$loading: boolean; src: string}>`
   width: 100px;
   height: 100px;
   ${SM} {
@@ -147,12 +147,11 @@ export const Name = styled.h3`
     top: 20px;
     content: "";
     position: absolute;
-    width: 50px;
+    width: 45px;
     background: ${colors.primary};
     margin: 0 auto;
     left: 0;
     right: 0;
-    border-radius: 10px;
     border-bottom: 3px solid ${colors.primary};
   }
 `
@@ -257,6 +256,44 @@ export const OuterHoverWrap = styled.div`
     ${PetImg} {
       -webkit-filter: brightness(75%);
       transition: all 0.8s ease;
+    }
+  }
+  // loading
+  &.loading {
+    & {
+      pointer-events: none;
+    }
+    ${Paw} {
+      filter: ${filters.gray8};
+    }
+    ${PetImg} {
+      -webkit-filter: brightness(95%);
+    }
+    ${Name} {
+      width: 50px;
+      height: 15px;
+    }
+    ${KindText} {
+      width: 70px;
+      height: 12px;
+    }
+    ${Name}, ${KindText}, ${LearnMore} {
+      background-image: linear-gradient(
+        90deg,
+        ${colors.gray8} 25%,
+        ${colors.white} 37%,
+        ${colors.gray8} 63%
+      );
+      background-position-x: 180%;
+      background-size: 400% 100%;
+      animation: loading 2s ease-in-out infinite;
+      
+    }
+  }
+
+  @keyframes loading {
+    to {
+      background-position-x: 20%;
     }
   }
 `
