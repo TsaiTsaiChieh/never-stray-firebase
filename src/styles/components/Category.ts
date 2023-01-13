@@ -58,6 +58,7 @@ export const CategoryWrap = styled(FlexCenter)`
 export const CategoryIcon = styled.img<{ $content: string }>`
   display: none;
   ${SM} {
+    margin-right: 3px;
     display: block;
     width: 22px;
     height: 22px;
@@ -102,9 +103,12 @@ export const ButtonWrap = styled.button`
 export const CategoryName = styled.span`
   font-size: 14px;
   color: ${colors['gray-i200']};
-  padding: 8px 4px;
+  padding: 4px 2px;
   ${SM} {
     font-size: 15px;
     padding: 6px 2px;
+  }
+  ${MD} {
+    padding: 8px 4px;
   }
 `

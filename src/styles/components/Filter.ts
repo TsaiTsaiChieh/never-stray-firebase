@@ -11,22 +11,21 @@ export const FilterContainer = styled(FlexCenter)<{
   $scrolled: boolean
 }>`
   width: 100%;
-  height: ${(props) => (props.$scrolled ? 'calc(100vh - 59px)' : 'calc(100vh - 108px)')};
+  height: ${(props) => (props.$scrolled ? 'calc(100vh - 57px)' : 'calc(100vh - 106px)')};
+  top: ${(props) => (props.$scrolled ? '57px' : '101px')};
   display: ${(props) => (props.$visible ? 'flex' : 'none')};
   box-shadow: 0 4px 8px 0 rgb(0 0 0 / 12%), 0 2px 4px 0 rgb(0 0 0 / 8%);
   border-radius: 5px;
-  padding: 45px 22px 50px 22px;
   color: ${colors['gray-i200']};
   flex-direction: column;
   row-gap: 10px;
   background: ${colors.white};
   z-index: 100;
   position: sticky;
-  top: ${(props) => (props.$scrolled ? '59px' : '108px')};
   overflow-y: auto;
   ${SM} {
-    top: ${(props) => (props.$scrolled ? '60px' : '109px')};
-    height: ${(props) => (props.$scrolled ? 'calc(100vh - 60px)' : 'calc(100vh - 109px)')};
+    height: ${(props) => (props.$scrolled ? 'calc(100vh - 62px)' : 'calc(100vh - 98px)')};
+    top: ${(props) => (props.$scrolled ? '62px' : '98px')};
   }
   ${MD} {
     width: auto;
