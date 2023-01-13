@@ -5,6 +5,7 @@ import Pagination from '../../components/Pagination'
 import { useAppSelector } from '../../store/hook'
 import { NotFound, PetContainer } from '../../styles/pages/PetList'
 import { Card } from './Card'
+import Loading from './Loading'
 
 interface Props {
   data: PetType[]
@@ -20,7 +21,6 @@ const Pets = ({ data }: Props) => {
   const totalPage = useRef<number>(data.length < initOffset
   ? 1
   : Math.ceil((data.length - initOffset) / offset) + 1)
-
   useEffect(() => {
     setIds(data.slice(0, initOffset).map((ele) => ele.animal_id))
     return () => {
@@ -66,9 +66,12 @@ const Pets = ({ data }: Props) => {
   return (
     <>
       <PetContainer>
+        {pageLoading
+          // eslint-disable-next-line react/no-array-index-key
+          ? Array.from({ length: initOffset }).map((_, i) => <Loading key={i} />) : null}
         {pageLoading ? <PawLoading /> : null}
         {!pageLoading && data.length
-            ? ids.map((id, i) => {
+          ? ids.map((id, i) => {
               if (data.length >= ids.length) {
                 const ref = i === ids.length - 1 ? lastItemRef : null
                 return <Card key={id} detail={data[i]} ref={ref} />
