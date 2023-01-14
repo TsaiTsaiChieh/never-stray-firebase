@@ -7,9 +7,13 @@ import { resetFilter } from '../store/reducers/petSlice'
 import {
   AuthState,
   AvatarWrap,
+  ChText,
   Container,
+  EnText,
   GoogleLogo,
   Logo,
+  LogoTextWrap,
+  LogoWrap,
   Wrapper,
 } from '../styles/components/Header'
 
@@ -24,7 +28,13 @@ export const Header = () => {
   return (
     <Wrapper>
       <Container className='flex-center'>
-        <Logo onClick={go2home} alt='logo' />
+        <LogoWrap onClick={go2home}>
+          <Logo alt='logo' />
+          <LogoTextWrap>
+            <ChText>{i18n.t('titles.main')}</ChText>
+            <EnText>{i18n.t('titles.main_en')}</EnText>
+          </LogoTextWrap>
+        </LogoWrap>
         <AvatarWrap>
           <GoogleLogo alt='login' />
           <AuthState>{i18n.t('buttons.login')}</AuthState>
