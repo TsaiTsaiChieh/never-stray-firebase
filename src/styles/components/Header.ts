@@ -39,6 +39,7 @@ export const EnText = styled.h1`
   margin-top: 2px;
 `
 export const AvatarWrap = styled(FlexCenter)`
+  width: 100px;
   gap: 1px;
   position: absolute;
   right: 0;
