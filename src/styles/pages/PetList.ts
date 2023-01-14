@@ -158,6 +158,7 @@ export const Name = styled.h3`
 export const KindText = styled.span`
   font-size: 12px;
   color: ${colors['gray-i100']};
+  margin-top: 3px;
   margin-bottom: 15px;
   ${MD} {
     margin-bottom: 35px;
