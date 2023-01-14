@@ -171,7 +171,6 @@ export const LearnMore = styled(FlexCenter)`
   color: ${colors['gray-i150']};
   background: ${colors.light};
   margin: 0 15px 15px;
-  gap: 0;
   ${SM} {
     height: 35px;
     width: 138px;
