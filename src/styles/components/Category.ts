@@ -33,9 +33,11 @@ export const FilterIcon = styled.img`
   width: 18px;
   height: 18px;
   filter: ${filters.primary};
+  margin-right: 3px;
   ${SM} {
     width: 20px;
     height: 20px;
+    margin-right: 7px;
   }
 `
 export const FilterText = styled.span`
