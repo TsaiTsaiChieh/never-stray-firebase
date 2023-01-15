@@ -55,7 +55,7 @@ const Category = ({ scrolled }: Props) => {
       pathname: Paths.home,
       search: createSearchParams(params).toString(),
     })
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    window.scroll({ top: 0, behavior: 'smooth' })
   }
   const icons = ['/images/all.svg', '/images/cat.svg', '/images/dog.svg']
   const categoryItem: CategoryItemType[] = names.map((name, i) => ({

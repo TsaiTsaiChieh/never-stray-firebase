@@ -45,7 +45,7 @@ const Pagination = ({ length }: Props) => {
       pathname: Paths.home,
       search: createSearchParams(params).toString(),
     })
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    window.scroll({ top: 0, behavior: 'smooth' })
   }
   const changePageInput = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target
