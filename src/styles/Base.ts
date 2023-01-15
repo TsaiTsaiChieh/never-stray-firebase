@@ -1,8 +1,6 @@
 import { styled } from '@linaria/react'
 
-import {
- LG, MD, SM, XL,
-} from '.'
+import { LG, MD } from '.'
 
 export const Contain = styled.div`
   max-width: 576px;
