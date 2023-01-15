@@ -2,7 +2,7 @@ import { styled } from '@linaria/react'
 
 import {
   alpha,
- colors, filters, MD, SM, XL,
+ colors, filters, MD, shadow, SM, XL,
 } from '..'
 import { Contain, FlexCenter } from '../Base'
 
@@ -48,7 +48,7 @@ export const CardContainer = styled(FlexCenter)`
   background: ${colors.white};
   flex-direction: column;
   border-radius: 5px;
-  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 12%), 0 2px 4px 0 rgb(0 0 0 / 8%);
+  box-shadow: ${shadow.card};
 `
 export const PetImgWrap = styled.div`
   position: absolute;

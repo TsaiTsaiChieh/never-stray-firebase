@@ -2,7 +2,7 @@ import { styled } from '@linaria/react'
 import Select from 'react-select'
 
 import {
- alpha, colors, filters, MD, SM, XL,
+ alpha, colors, filters, MD, shadow, SM, XL,
 } from '..'
 import { FlexCenter } from '../Base'
 
@@ -14,7 +14,7 @@ export const FilterContainer = styled(FlexCenter)<{
   height: ${(props) => (props.$scrolled ? 'calc(100vh - 57px)' : 'calc(100vh - 106px)')};
   top: ${(props) => (props.$scrolled ? '57px' : '101px')};
   display: ${(props) => (props.$visible ? 'flex' : 'none')};
-  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 12%), 0 2px 4px 0 rgb(0 0 0 / 8%);
+  box-shadow: ${shadow.filter};
   border-radius: 5px;
   color: ${colors.gray3};
   flex-direction: column;
