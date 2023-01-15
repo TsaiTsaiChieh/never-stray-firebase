@@ -131,7 +131,7 @@ export const PetImg = styled.div<{$loading: boolean; src: string}>`
     }
   }
 `
-export const Name = styled.h3`
+export const Name = styled.span`
   width: 100%;
   text-align: center;
   color: ${colors.gray3};
