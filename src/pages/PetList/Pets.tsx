@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react'
 
 import { Card } from './Card'
 import Loading from './Loading'
-import { PawLoading } from '../../components'
 import Pagination from '../../components/Pagination'
 import { useAppSelector } from '../../store/hook'
 import { NotFound, PetContainer } from '../../styles/pages/PetList'
@@ -69,10 +68,10 @@ const Pets = ({ data }: Props) => {
         {pageLoading
           // eslint-disable-next-line react/no-array-index-key
           ? Array.from({ length: initOffset }).map((_, i) => <Loading key={i} />) : null}
-        {pageLoading ? <PawLoading /> : null}
         {!pageLoading && data.length
           ? ids.map((id, i) => {
               if (data.length >= ids.length) {
+                console.log(i, ids.length - 1)
                 const ref = i === ids.length - 1 ? lastItemRef : null
                 return <Card key={id} detail={data[i]} ref={ref} />
               }
