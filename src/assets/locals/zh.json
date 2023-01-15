@@ -1,7 +1,8 @@
 {
  "titles": {
   "main": "讓愛不流浪",
-  "main_en": "Never Stray"
+  "main_en": "Never Stray",
+  "loading": "Loading"
  },
  "buttons": {
   "categories": [
