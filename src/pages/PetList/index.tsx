@@ -2,7 +2,9 @@ import { useEffect } from 'react'
 
 import { useLocation } from 'react-router-dom'
 
-import { Category, Header } from '../../components'
+import Filter from './Filter'
+import Pets from './Pets'
+import { Category, Footer, Header } from '../../components'
 import { useGetPetsQuery } from '../../services/api'
 import { useAppDispatch, useAppSelector } from '../../store/hook'
 import { setFilter } from '../../store/reducers/petSlice'
@@ -12,8 +14,6 @@ import {
 } from '../../styles/pages/PetList'
 import { isPositiveInteger } from '../../utils/helper'
 import { useScrolled } from '../../utils/useScrolled'
-import Filter from './Filter'
-import Pets from './Pets'
 
 const PetList = () => {
   const { filter } = useAppSelector((state) => state.pet)
@@ -55,6 +55,7 @@ const PetList = () => {
           {data && <Pets data={data} />}
         </PetsAndPage>
       </Container>
+      <Footer />
     </>
   )
 }
