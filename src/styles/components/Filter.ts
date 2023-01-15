@@ -40,7 +40,7 @@ export const FilterContainer = styled(FlexCenter)<{
   ${XL} {
     height: 100%;
     position: ${(props) => (props.$scrolled ? 'sticky' : 'relative')};
-    top: ${(props) => (props.$scrolled ? '60px' : 'auto')};
+    top: ${(props) => (props.$scrolled ? '120px' : 'auto')};
     display: flex;
   }
 `
@@ -189,11 +189,11 @@ export const TextSearchOuter = styled(OptionBtnOuter)`
   }
 `
 export const ResetBtnWrap = styled(OptionsFilterWrap)`
-${LG} {
-  position: absolute;
-  top: 43px;
-  right: -150px;
-}
+  ${LG} {
+    position: absolute;
+    top: 43px;
+    right: -150px;
+  }
 `
 export const ResetBtn = styled(OptionBtn)`
   width: 90px;
