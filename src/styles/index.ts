@@ -55,3 +55,7 @@ export const filters = {
   pink: generateFilter(colors.pink),
   white: generateFilter(colors.white),
 }
+export const shadow = {
+  card: 'rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px',
+  filter: 'rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px',
+}
