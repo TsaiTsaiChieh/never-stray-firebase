@@ -2,7 +2,7 @@ import { styled } from '@linaria/react'
 import Select from 'react-select'
 
 import {
- alpha, colors, filters, MD, shadow, SM, XL,
+ alpha, colors, filters, LG, MD, shadow, SM, XL,
 } from '..'
 import { FlexCenter } from '../Base'
 
@@ -187,6 +187,13 @@ export const TextSearchOuter = styled(OptionBtnOuter)`
       border: 1px solid ${colors.primary};
     }
   }
+`
+export const ResetBtnWrap = styled(OptionsFilterWrap)`
+${LG} {
+  position: absolute;
+  top: 43px;
+  right: -150px;
+}
 `
 export const ResetBtn = styled(OptionBtn)`
   width: 90px;

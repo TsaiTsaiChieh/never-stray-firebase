@@ -9,14 +9,19 @@ import { useAppDispatch, useAppSelector } from '../../store/hook'
 import { resetFilter } from '../../store/reducers/petSlice'
 import { FilterText } from '../../styles/components/Category'
 import {
- FilterContainer, FilterIcon, FilterIconWrap, OptionsFilterWrap, ResetBtn, ResetBtnOuter,
+  FilterContainer,
+  FilterIcon,
+  FilterIconWrap,
+  ResetBtn,
+  ResetBtnOuter,
+  ResetBtnWrap,
 } from '../../styles/components/Filter'
 import { mixAntiReplace } from '../../utils/helper'
 
 interface Props {
   scrolled: boolean
 }
-const Filter = ({ scrolled }:Props) => {
+const Filter = ({ scrolled }: Props) => {
   const dispatch = useAppDispatch()
   const nav = useNavigate()
   const Labels: string[] = i18n.t('labels.filters', { returnObjects: true })
@@ -93,11 +98,11 @@ const Filter = ({ scrolled }:Props) => {
         options={shelterOptsMap}
         placeholder={Placeholders[4]}
       />
-      <OptionsFilterWrap>
+      <ResetBtnWrap>
         <ResetBtnOuter>
           <ResetBtn onClick={resetState}>{i18n.t('buttons.reset')}</ResetBtn>
         </ResetBtnOuter>
-      </OptionsFilterWrap>
+      </ResetBtnWrap>
     </FilterContainer>
   )
 }
