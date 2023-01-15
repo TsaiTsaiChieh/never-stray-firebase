@@ -16,7 +16,6 @@ export const colors = {
   light: '#DCEFEB',
   primary: '#89C7A9',
   primaryLighten: '#B4DAC8',
-  // secondary: '#38AFA2',
   secondary: '#13756F',
   gray1: '#202020',
   gray2: '#3F3F3F',
