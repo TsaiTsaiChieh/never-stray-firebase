@@ -42,7 +42,7 @@ export const ContactWrap = styled.div`
 export const Link = styled.a`
   display: block;
   color: ${colors.white};
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.2;
   letter-spacing: 0.05rem;
 `
@@ -54,11 +54,11 @@ export const DisclaimerWrap = styled.div`
   }
 `
 export const DisclaimerText = styled.p`
-  font-size: 13px;
+  font-size: 12.5px;
   line-height: 1.2;
   color: ${colors.gray9};
 `
 export const CopyRight = styled.span`
   color: ${colors.white};
-  font-size: 14px;
+  font-size: 13px;
 `
