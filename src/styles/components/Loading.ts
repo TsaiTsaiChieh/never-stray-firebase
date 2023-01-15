@@ -1,210 +1,107 @@
 import { styled } from '@linaria/react'
 
-import { filters, MD } from '..'
+import { colors } from '..'
 import { FlexCenter } from '../Base'
 
-export const CatLoadingWrap = styled.div`
-  height: 100%;
-  margin: auto;
-  top: 0;
-  bottom: 0;
-  position: absolute;
-  display: ${(props) => (props.visible ? 'flex' : 'none')};
-  align-items: center;
-  justify-content: center;
-  z-index: 30;
-  svg {
-    width: 250px !important;
-  }
-`
-export const PawLoaderWrap = styled.div<{ $visible: boolean }>`
-  display: ${(props) => (props.$visible ? 'flex' : 'none')};
-  height: 100%;
-  width: 120px;
-  margin: auto;
-  top: 0;
-  bottom: 0;
-  position: absolute;
-  align-items: center;
-  justify-content: center;
-  #svg-sprite {
-    position: absolute;
-  }
-`
-export const PawLoader = styled.div`
-  font-size: 60px;
-  width: 1.2em;
-  ${MD} {
-    transform: rotate(90deg) translate(-50%, 0%);
-  }
-`
-export const Paw = styled.svg`
-  width: 100%;
-  height: 100%;
-  animation: 800ms pawAnimation ease-in-out infinite;
-  opacity: 0;
-  svg {
-    width: 100%;
-    height: 100%;
-    filter: ${filters.primary};
-  }
-  &:nth-child(odd) {
-    transform: rotate(-20deg);
-  }
-  &:nth-child(even) {
-    transform: rotate(10deg) translate(125%, 0);
-  }
-  &:nth-child(4) {
-    animation-delay: 0.2s;
-  }
-  &:nth-child(3) {
-    animation-delay: 0.4s;
-  }
-  &:nth-child(2) {
-    animation-delay: 0.6s;
-  }
-  &:nth-child(1) {
-    animation-delay: 0.8s;
-  }
-  .no-cssanimations & {
-    opacity: 1;
-  }
-  @keyframes pawAnimation {
-    0% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
-`
 export const MainLoadingContainer = styled(FlexCenter)<{ $visible: boolean }>`
   display: ${(props) => (props.$visible ? 'flex' : 'none')};
   position: relative;
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(180deg, #c4f1db 0%, #b9eff2 100%);
+  padding: 0;
+  margin: 0;
+  background: linear-gradient(
+    180deg,
+    ${colors.primary} 0%,
+    ${colors.primaryLighten} 100%
+  );
   flex-direction: column;
 `
-export const Sparkles = styled.g`
-  & > path {
-    animation: sparklyBits 1000ms infinite;
-    position: absolute;
+export const Wrapper = styled.div`
+  width: 200px;
+  height: 60px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+`
+export const Circle = styled.div`
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  border-radius: 50%;
+  background-color: ${colors.white};
+  left: 15%;
+  transform-origin: 50%;
+  animation: circle 0.5s alternate infinite ease;
+  &:nth-child(2) {
+    left: 45%;
+    animation-delay: 0.2s;
   }
-  & > path:nth-child(1) {
-    animation-delay: 0ms;
+  &:nth-child(3) {
+    left: auto;
+    right: 15%;
+    animation-delay: 0.3s;
   }
-  & > path:nth-child(2) {
-    animation-delay: 35ms;
-  }
-  & > path:nth-child(3) {
-    animation-delay: 70ms;
-  }
-  & > path:nth-child(4) {
-    animation-delay: 105ms;
-  }
-  & > path:nth-child(5) {
-    animation-delay: 140ms;
-  }
-  & > path:nth-child(6) {
-    animation-delay: 175ms;
-  }
-  & > path:nth-child(7) {
-    animation-delay: 210ms;
-  }
-  & > path:nth-child(8) {
-    animation-delay: 245ms;
-  }
-  & > path:nth-child(9) {
-    animation-delay: 280ms;
-  }
-  & > path:nth-child(10) {
-    animation-delay: 315ms;
-  }
-  & > path:nth-child(11) {
-    animation-delay: 350ms;
-  }
-  & > path:nth-child(12) {
-    animation-delay: 385ms;
-  }
-  & > path:nth-child(13) {
-    animation-delay: 420ms;
-  }
-  & > path:nth-child(14) {
-    animation-delay: 455ms;
-  }
-  & > path:nth-child(15) {
-    animation-delay: 490ms;
-  }
-  & > path:nth-child(16) {
-    animation-delay: 525ms;
-  }
-  & > path:nth-child(17) {
-    animation-delay: 560ms;
-  }
-  & > path:nth-child(18) {
-    animation-delay: 595ms;
-  }
-  & > path:nth-child(19) {
-    animation-delay: 630ms;
-  }
-  & > path:nth-child(20) {
-    animation-delay: 665ms;
-  }
-  & > path:nth-child(21) {
-    animation-delay: 700ms;
-  }
-  & > path:nth-child(22) {
-    animation-delay: 735ms;
-  }
-  & > path:nth-child(23) {
-    animation-delay: 770ms;
-  }
-  & > path:nth-child(24) {
-    animation-delay: 805ms;
-  }
-  & > path:nth-child(25) {
-    animation-delay: 840ms;
-  }
-  & > path:nth-child(26) {
-    animation-delay: 875ms;
-  }
-  & > path:nth-child(27) {
-    animation-delay: 910ms;
-  }
-  & > path:nth-child(28) {
-    animation-delay: 945ms;
-  }
-  & > path:nth-child(29) {
-    animation-delay: 980ms;
-  }
-  @keyframes sparklyBits {
+  animation: circle 0.5s alternate infinite ease;
+  @keyframes circle {
     0% {
-      opacity: 0;
+      top: 60px;
+      height: 5px;
+      border-radius: 50px 50px 25px 25px;
+      transform: scaleX(1.7);
+    }
+    40% {
+      height: 20px;
+      border-radius: 50%;
+      transform: scaleX(1);
     }
     100% {
-      opacity: 1;
+      top: 0%;
     }
   }
 `
-export const Logo = styled.img`
+export const Shadow = styled.div`
+  width: 20px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
-  top: 50%;
-  bottom: 50%;
-  margin: auto;
-  margin-bottom: -20px;
-  width: 80px;
-  height: 80px;
-  content: url("/images/logo.svg");
+  top: 62px;
+  transform-origin: 50%;
+  z-index: -1;
+  left: 15%;
+  filter: blur(1px);
+  animation: shadow 0.5s alternate infinite ease;
+  &:nth-child(4) {
+    left: 45%;
+    animation-delay: 0.2s;
+  }
+  &:nth-child(5) {
+    left: auto;
+    right: 15%;
+    animation-delay: 0.3s;
+  }
+  @keyframes shadow {
+    0% {
+      transform: scaleX(1.5);
+    }
+    40% {
+      transform: scaleX(1);
+      opacity: 0.7;
+    }
+    100% {
+      transform: scaleX(0.2);
+      opacity: 0.4;
+    }
+  }
 `
 export const LoadingText = styled.span`
-  margin-top: 15px;
-  margin-left: 10px;
-  text-align: center;
+  position: absolute;
+  top: 90px;
+  font-size: 20px;
+  letter-spacing: 11px;
+  color: ${colors.white};
+  left: 15%;
   font-weight: bold;
-  font-size: 18px;
-  letter-spacing: 0.08rem;
 `
