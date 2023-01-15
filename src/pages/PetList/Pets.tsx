@@ -16,7 +16,7 @@ const Pets = ({ data }: Props) => {
   const lastItemRef = useRef<any | null>(null)
   const observer = useRef<IntersectionObserver | null>(null)
   const [page, setPage] = useState<number>(1)
-  const [ids, setIds] = useState<number[]>(data.slice(0, initOffset).map((ele) => ele.animal_id))
+  const [ids, setIds] = useState<number[]>([])
   const totalPage = useRef<number>(data.length < initOffset
   ? 1
   : Math.ceil((data.length - initOffset) / offset) + 1)
