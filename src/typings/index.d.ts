@@ -58,6 +58,7 @@ type ShelterUrlType =
   | 89
   | 92
   | 96
+type CollectionName = 'users'
 type PathType = 'home'
 type LabelValueType = {
   value: string | number
@@ -101,4 +102,10 @@ type PetType = {
   cDate: string
   shelter_address: string
   shelter_tel: string
+}
+type UserDataType = {
+  uid: string
+  name: string | null
+  email: string
+  photo: string | null
 }
