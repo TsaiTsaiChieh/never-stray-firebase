@@ -1,6 +1,7 @@
 import { styled } from '@linaria/react'
 
 import {
+  alpha,
  colors, filters, MD, SM, XL,
 } from '..'
 import { Contain, FlexCenter } from '../Base'
@@ -133,7 +134,7 @@ export const PetImg = styled.div<{$loading: boolean; src: string}>`
 export const Name = styled.h3`
   width: 100%;
   text-align: center;
-  color: ${colors['gray-i200']};
+  color: ${colors.gray3};
   position: relative;
   font-size: 15px;
   letter-spacing: 0.05em;
@@ -157,7 +158,7 @@ export const Name = styled.h3`
 `
 export const KindText = styled.span`
   font-size: 12px;
-  color: ${colors['gray-i100']};
+  color: ${colors.gray6};
   margin-top: 3px;
   margin-bottom: 15px;
   ${MD} {
@@ -169,7 +170,7 @@ export const LearnMore = styled(FlexCenter)`
   height: 32px;
   border-radius: 10px;
   font-size: 13px;
-  color: ${colors['gray-i150']};
+  color: ${colors.gray4};
   background: ${colors.light};
   margin: 0 15px 15px;
   ${SM} {
@@ -195,7 +196,6 @@ export const SexIcon = styled.img<{ $content: string; filter: string }>`
   content: ${(props) => `url(${props.$content})`};
   width: 13px;
   height: 15px;
-
   filter: ${(props) => props.filter};
   padding: 0;
   ${MD} {
@@ -227,7 +227,7 @@ export const OuterHoverWrap = styled.div`
   border: 1px solid transparent;
   &:hover {
     background: ${colors.light};
-    box-shadow: 0px 0px 8px ${colors['gray-t50']};
+    box-shadow: 0px 0px 8px ${alpha.gray3};
     border: 1px solid ${colors.primary};
     ${LearnMore} {
       background: ${colors.primaryLighten};

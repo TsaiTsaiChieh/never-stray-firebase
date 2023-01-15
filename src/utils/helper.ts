@@ -14,11 +14,15 @@ export const petKindConverter = (kind: string): string => {
 export const petSexConverter = (sex: string): SexIconType => {
   switch (sex) {
     case 'M':
-      return { iconPath: '/images/mars.svg', name: '弟弟', color: filters['blue-50'] }
+      return {
+        iconPath: '/images/mars.svg',
+        name: '弟弟',
+        color: filters.blue,
+      }
     case 'F':
-      return { iconPath: '/images/venus.svg', name: '妹妹', color: filters['pink-50'] }
+      return { iconPath: '/images/venus.svg', name: '妹妹', color: filters.pink }
     default:
-      return { iconPath: '/images/question.svg', name: unknown, color: filters['gray-i50'] }
+      return { iconPath: '/images/question.svg', name: unknown, color: filters.gray6 }
   }
 }
 export const petAgeConverter = (age: string): string => {

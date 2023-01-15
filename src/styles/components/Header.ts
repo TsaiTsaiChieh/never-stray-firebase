@@ -64,7 +64,7 @@ export const Avatar = styled.div`
   border-radius: 50%;
 `
 export const AuthState = styled.button`
-  color: ${colors['gray-i200']};
+  color: ${colors.gray3};
   padding: 0 0 0 2px;
   font-size: 14px;
   ${SM} {

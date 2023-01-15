@@ -104,7 +104,7 @@ export const ButtonWrap = styled.button`
 `
 export const CategoryName = styled.span`
   font-size: 14px;
-  color: ${colors['gray-i200']};
+  color: ${colors.gray3};
   padding: 4px 2px;
   ${SM} {
     font-size: 15px;

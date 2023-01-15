@@ -2,7 +2,7 @@ import { styled } from '@linaria/react'
 import Select from 'react-select'
 
 import {
- colors, filters, MD, SM, XL,
+ alpha, colors, filters, MD, SM, XL,
 } from '..'
 import { FlexCenter } from '../Base'
 
@@ -16,7 +16,7 @@ export const FilterContainer = styled(FlexCenter)<{
   display: ${(props) => (props.$visible ? 'flex' : 'none')};
   box-shadow: 0 4px 8px 0 rgb(0 0 0 / 12%), 0 2px 4px 0 rgb(0 0 0 / 8%);
   border-radius: 5px;
-  color: ${colors['gray-i200']};
+  color: ${colors.gray3};
   flex-direction: column;
   row-gap: 10px;
   background: ${colors.white};
@@ -50,7 +50,7 @@ export const FilterIconWrap = styled.div`
   margin-bottom: 20px;
   position: sticky;
   span {
-    color: ${colors['gray-i150']};
+    color: ${colors.gray6};
   }
   ${XL} {
     display: flex;
@@ -60,7 +60,7 @@ export const FilterIcon = styled.img`
   content: url("/images/filter.svg");
   width: 16px;
   height: 16px;
-  filter: ${filters['gray-i150']};
+  filter: ${filters.gray6};
   margin-right: 5px;
 `
 export const OptionsFilterWrap = styled.div`
@@ -73,7 +73,7 @@ export const LabelName = styled.label`
   margin-left: 2px;
   letter-spacing: 0.05em;
   font-size: 15px;
-  color: ${colors['gray-i200']};
+  color: ${colors.gray3};
 `
 export const OptionGroup = styled.div`
   justify-content: space-between;
@@ -85,15 +85,13 @@ export const OptionBtn = styled.button`
   height: 40px;
   letter-spacing: 0.05em;
   border-radius: 5px;
-  background: ${colors.white};
-  border: 1px solid ${colors['gray-i50']};
 `
 export const OptionBtnOuter = styled(FlexCenter)`
   width: 84px;
   height: 44px;
   border-radius: 5px;
   &:hover {
-    background-color: ${colors['primary-i52']};
+    background-color: ${alpha.primary};
     ${OptionBtn} {
       border: 1px solid ${colors.primary};
     }
@@ -101,29 +99,29 @@ export const OptionBtnOuter = styled(FlexCenter)`
   /* active */
   ${OptionBtn} {
     background: ${(props) => (props.$active ? colors.primary : colors.white)};
-    color: ${(props) => (props.$active ? colors.white : colors['gray-i200'])};
+    color: ${(props) => (props.$active ? colors.white : colors.gray3)};
     border: ${(props) => (props.$active
         ? `1px solid ${colors.primary}`
-        : `1px solid ${colors['gray-i50']}`)};
+        : `1px solid ${colors.gray7}`)};
   }
 `
 export const Selector = styled(Select)`
   width: 275px;
   .Select__control {
-    border: 1px solid ${colors['gray-i50']};
+    border: 1px solid ${colors.gray7};
     height: 40px;
     cursor: pointer;
     font-size: 14px;
     letter-spacing: 0.05em;
   }
   .Select__placeholder {
-    color: ${colors['gray-i50']};
+    color: ${colors.gray4};
   }
   .Select__single-value {
-    color: ${colors['gray-i200']};
+    color: ${colors.gray3};
   }
   .Select__control--is-focused {
-    box-shadow: 0 0 0 1px ${colors['primary-i52']};
+    box-shadow: 0 0 0 1px ${alpha.primary};
     border: 1px solid ${colors.primary};
   }
   .Select__control--menu-is-open {
@@ -136,7 +134,7 @@ export const Selector = styled(Select)`
     cursor: pointer;
     font-size: 14px;
     letter-spacing: 0.05em;
-    color: ${colors['gray-i200']};
+    color: ${colors.gray3};
     background: white;
     &:hover {
       background: ${colors.light};
@@ -157,13 +155,13 @@ export const TextSearch = styled.input`
   width: 275px;
   height: 40px;
   border-radius: 5px;
-  border: 1px solid ${colors['gray-i50']};
+  border: 1px solid ${colors.gray7};
   font-size: 14px;
   letter-spacing: 0.05em;
-  color: ${colors['gray-i200']};
+  color: ${colors.gray3};
   padding-left: 10px;
   &::placeholder {
-    color: ${colors['gray-i50']};
+    color: ${colors.gray6};
   }
   &:focus {
     outline: none;
@@ -174,11 +172,11 @@ export const ClearIcon = styled.img`
   cursor: pointer;
   position: absolute;
   right: 12px;
-  filter: ${filters['gray-i50']};
+  filter: ${filters.gray7};
   width: 16px;
   height: 16px;
   &:hover {
-    filter: ${filters['gray-i250']};
+    filter: ${filters.gray5};
   }
 `
 export const TextSearchOuter = styled(OptionBtnOuter)`
@@ -196,9 +194,9 @@ export const ResetBtn = styled(OptionBtn)`
 export const ResetBtnOuter = styled(OptionBtnOuter)`
   width: 94px;
   &:hover {
-    background-color: ${colors['pink-i52']};
+    background: ${alpha.pink};
     ${ResetBtn} {
-      border-color: ${colors['pink-50']};
+      border-color: ${colors.pink};
     }
   }
 `
