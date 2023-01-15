@@ -42,6 +42,7 @@ export const AvatarWrap = styled(FlexCenter)`
   width: 100px;
   gap: 1px;
   position: absolute;
+  cursor: pointer;
   right: 0;
   ${SM} {
     right: 4px;
