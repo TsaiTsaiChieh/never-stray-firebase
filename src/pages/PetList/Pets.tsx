@@ -26,7 +26,7 @@ const Pets = ({ data }: Props) => {
       setIds([])
       setPage(1)
     }
-  }, [data.length])
+  }, [data, initOffset])
 
   useEffect(() => {
     if (page <= totalPage.current) {
