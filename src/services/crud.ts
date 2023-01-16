@@ -1,7 +1,8 @@
-import { setDoc, doc } from 'firebase/firestore'
+import {
+ setDoc, doc, updateDoc, serverTimestamp,
+} from 'firebase/firestore'
 
 import { db } from './firebase'
-
 /**
  * Add data
  *
@@ -17,7 +18,17 @@ export const createData = async (
 ): Promise<string> => {
   try {
     const docRef = doc(db, col, id)
-    await setDoc(docRef, data, { merge: true })
+    const updateTimestamp = await updateDoc(docRef, {
+      timestamp: serverTimestamp(),
+    })
+    await setDoc(
+      docRef,
+      {
+        ...data,
+        updateTimestamp,
+      },
+      { merge: true },
+    )
     console.info('Document written with ID', id)
     return Promise.resolve(id)
   } catch (error: any) {
