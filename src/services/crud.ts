@@ -18,17 +18,14 @@ export const createData = async (
 ): Promise<string> => {
   try {
     const docRef = doc(db, col, id)
-    const updateTimestamp = await updateDoc(docRef, {
-      timestamp: serverTimestamp(),
-    })
     await setDoc(
       docRef,
-      {
-        ...data,
-        updateTimestamp,
-      },
+      data,
       { merge: true },
     )
+    await updateDoc(docRef, {
+      update_time: serverTimestamp(),
+    })
     console.info('Document written with ID', id)
     return Promise.resolve(id)
   } catch (error: any) {
