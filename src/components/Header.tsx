@@ -2,7 +2,7 @@ import * as i18n from 'i18next'
 import { useNavigate } from 'react-router-dom'
 
 import { Paths } from '../constants'
-import { createData } from '../services/crud'
+import { createData, readDoc } from '../services/crud'
 import { googleLogin } from '../services/users'
 import { useAppDispatch } from '../store/hook'
 import { resetFilter } from '../store/reducers/petSlice'
@@ -29,14 +29,17 @@ export const Header = () => {
   const loginHandle = async () => {
     const userData = await googleLogin()
     const { name, email, photo } = userData
-    const saved = {
+    const docSnap = await readDoc('users', email)
+    const saved: any = {
       name: name !== null ? name : '',
       email,
       photo: photo !== null ? photo : '',
-      like_limit: 18,
     }
-    const result = await createData('users', email, saved)
-    console.log(result)
+    if (!docSnap) {
+      saved.like_limit = 18
+      saved.create_time = new Date()
+    }
+    await createData('users', email, saved)
   }
   return (
     <Wrapper>
