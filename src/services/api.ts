@@ -35,7 +35,6 @@ export const api = createApi({
         if (shelter) {
           url += `&animal_shelter_pkid=${shelter}`
         }
-        console.log(`${import.meta.env.VITE_API_URL}${url}`)
         return {
           url,
           method: 'GET',
