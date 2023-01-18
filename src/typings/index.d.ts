@@ -109,3 +109,6 @@ type UserDataType = {
   email: string
   photo: string | null
 }
+type UserInfoType = UserDataType & {
+  like_limit: number
+}
