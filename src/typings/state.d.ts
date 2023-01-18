@@ -8,3 +8,7 @@ type LoadingState = {
 type UiState = {
   filterVisible: boolean
 }
+type AuthState = {
+  userData?: UserInfoType
+  isAuth: boolean
+}
