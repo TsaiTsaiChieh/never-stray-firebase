@@ -4,7 +4,8 @@ import { useNavigate } from 'react-router-dom'
 import { Paths } from '../constants'
 import { createData, readDoc } from '../services/crud'
 import { googleLogin } from '../services/users'
-import { useAppDispatch } from '../store/hook'
+import { useAppDispatch, useAppSelector } from '../store/hook'
+import { login, logout } from '../store/reducers/authSlice'
 import { resetFilter } from '../store/reducers/petSlice'
 import {
   AuthState,
@@ -13,9 +14,11 @@ import {
   Container,
   EnText,
   GoogleLogo,
+  GoogleLogoWrap,
   Logo,
   LogoTextWrap,
   LogoWrap,
+  UserPic,
   Wrapper,
 } from '../styles/components/Header'
 
@@ -26,20 +29,29 @@ export const Header = () => {
     nav({ pathname: Paths.home })
     dispatch(resetFilter())
   }
-  const loginHandle = async () => {
-    const userData = await googleLogin()
-    const { name, email, photo } = userData
-    const docSnap = await readDoc('users', email)
-    const saved: any = {
-      name: name !== null ? name : '',
-      email,
-      photo: photo !== null ? photo : '',
+  const { isAuth, userData } = useAppSelector((state) => state.auth)
+  const authHandle = async () => {
+    if (!isAuth) {
+      const user = await googleLogin()
+      const { name, email, photo } = user
+      const docSnap: UserInfoType = await readDoc('users', email)
+      const saved: any = {
+        email,
+        name: name !== null ? name : '',
+        photo: photo !== null ? photo : '',
+      }
+      if (!docSnap) {
+        saved.like_limit = 18
+        saved.create_time = new Date()
+      }
+      await createData('users', email, saved)
+      delete saved.create_time
+      dispatch(
+        login(docSnap ? { ...saved, like_limit: docSnap.like_limit } : saved),
+      )
+    } else if (isAuth) {
+      dispatch(logout())
     }
-    if (!docSnap) {
-      saved.like_limit = 18
-      saved.create_time = new Date()
-    }
-    await createData('users', email, saved)
   }
   return (
     <Wrapper>
@@ -51,9 +63,17 @@ export const Header = () => {
             <EnText>{i18n.t('titles.main_en')}</EnText>
           </LogoTextWrap>
         </LogoWrap>
-        <AvatarWrap onClick={loginHandle}>
-          <GoogleLogo alt='login' />
-          <AuthState>{i18n.t('buttons.login')}</AuthState>
+        <AvatarWrap onClick={authHandle}>
+          {userData ? (
+            <UserPic $content={userData.photo} />
+          ) : (
+            <GoogleLogoWrap>
+              <GoogleLogo alt='login' />
+            </GoogleLogoWrap>
+          )}
+          <AuthState>
+            {isAuth ? i18n.t('buttons.logout') : i18n.t('buttons.login')}
+          </AuthState>
         </AvatarWrap>
       </Container>
     </Wrapper>
