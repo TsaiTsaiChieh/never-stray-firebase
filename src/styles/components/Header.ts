@@ -52,11 +52,21 @@ export const AvatarWrap = styled(FlexCenter)`
     right: 0;
   }
 `
+export const GoogleLogoWrap = styled(FlexCenter)`
+  width: 40.59px;
+  height: 40.59px;
+`
 export const GoogleLogo = styled.img`
   content: url("/images/google.svg");
-  width: 20px;
-  height: 20px;
+  width: 65%;
   filter: ${filters.primary};
+`
+export const UserPic = styled.img<{ $content: string }>`
+  width: 35px;
+  height: 35px;
+  content: ${(props) => `url(${props.$content})`};
+  border: 2.8px solid ${colors.primary};
+  border-radius: 50%;
 `
 export const Avatar = styled.div`
   width: 34px;
