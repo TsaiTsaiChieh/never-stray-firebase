@@ -64,9 +64,11 @@ const Category = ({ scrolled }: Props) => {
     iconPath: icons[i],
   }))
   // reset state
-  useEffect(() => {
-    if (kindUrl === null) setActiveId(0)
-  }, [kindUrl])
+  useEffect(() => (kindUrl === null
+      ? setActiveId(0)
+      : setActiveId(
+          Object.keys(PetKindEnum).indexOf(kindUrl.toUpperCase()) + 1,
+        )), [kindUrl])
   const toggleFilter = () => {
     dispatch(toggleFilterVisible())
   }
