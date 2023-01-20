@@ -109,6 +109,10 @@ type UserDataType = {
   email: string
   photo: string | null
 }
-type UserInfoType = UserDataType & {
+type UserInfoType = {
+  uid: string
+  name: string
+  email: string
+  photo: string
   like_limit: number
 }
