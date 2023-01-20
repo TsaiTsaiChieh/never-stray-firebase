@@ -58,7 +58,7 @@ export const GoogleLogoWrap = styled(FlexCenter)`
 `
 export const GoogleLogo = styled.img`
   content: url("/images/google.svg");
-  width: 65%;
+  width: 50%;
   filter: ${filters.primary};
 `
 export const UserPic = styled.img<{ $content: string }>`
