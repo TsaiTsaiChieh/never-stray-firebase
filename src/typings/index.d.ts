@@ -114,5 +114,6 @@ type UserInfoType = {
   name: string
   email: string
   photo: string
+  like_ids: number[]
   like_limit: number
 }
