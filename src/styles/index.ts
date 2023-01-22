@@ -33,8 +33,9 @@ export const colors = {
 }
 export const alpha = {
   primary: colorAlpha(colors.primary, 0.2),
+  primaryLighten: colorAlpha(colors.primaryLighten, 0.4),
   pink: colorAlpha(colors.pink, 0.2),
-  gray3: colorAlpha(colors.gray3, 0.2),
+  gray1: colorAlpha(colors.gray1, 0.3),
 }
 export const filters = {
   light: generateFilter(colors.light),
@@ -58,4 +59,5 @@ export const filters = {
 export const shadow = {
   card: 'rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px',
   filter: 'rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px',
+  modal: 'rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px',
 }
