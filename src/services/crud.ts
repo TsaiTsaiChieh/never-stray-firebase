@@ -49,3 +49,20 @@ export const readDoc = async (
     return Promise.reject(error)
   }
 }
+
+export const updateData = async (
+  col: CollectionName,
+  id: string,
+  field: string,
+  data: any,
+): Promise<string> => {
+  try {
+    const docRef = doc(db, col, id)
+    await updateDoc(docRef, {
+      [field]: data,
+    })
+    return Promise.resolve(id)
+  } catch (error: any) {
+    return Promise.reject(error)
+  }
+}
