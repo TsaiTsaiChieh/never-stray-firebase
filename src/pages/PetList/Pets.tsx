@@ -27,13 +27,12 @@ const Pets = ({ data }: Props) => {
       setPage(1)
     }
   }, [data, initOffset])
-
   useEffect(() => {
     if (page <= totalPage.current) {
       const newPage = page + 1
       const options = {
         root: document,
-        rootMargin: '40px',
+        rootMargin: '220px',
         threshold: 1,
       }
       const callback = (entries: IntersectionObserverEntry[]) => {
@@ -71,7 +70,6 @@ const Pets = ({ data }: Props) => {
         {!pageLoading && data.length
           ? ids.map((id, i) => {
               if (data.length >= ids.length) {
-                console.log(i, ids.length - 1)
                 const ref = i === ids.length - 1 ? lastItemRef : null
                 return <Card key={id} detail={data[i]} ref={ref} />
               }
