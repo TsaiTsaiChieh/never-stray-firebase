@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-import { LoadingModal, MainLoading } from './components'
+import { MainLoading } from './components'
 import View from './routes/View'
 import { useAppDispatch, useAppSelector } from './store/hook'
 import { setMainLoading } from './store/reducers/loadingSlice'
@@ -15,12 +15,7 @@ export const App = () => {
     return () => clearTimeout(timer)
   }, [dispatch, mainLoading])
 
-  return mainLoading ? <MainLoading /> : (
-    <>
-      <View />
-      <LoadingModal />
-    </>
-)
+  return mainLoading ? <MainLoading /> : <View />
 }
 
 export default App
