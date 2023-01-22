@@ -10,7 +10,7 @@ interface Props {
 }
 const Pets = ({ data }: Props) => {
   const { pageLoading } = useAppSelector((state) => state.loading)
-  const initOffset = window.innerWidth < 768 ? 6 : 9
+  const initOffset = 9
   const [ids, lastItemRef] = useIntersection(initOffset, data)
   return (
     <>
