@@ -1,4 +1,6 @@
-import { ChangeEvent, KeyboardEvent, useState } from 'react'
+import {
+ ChangeEvent, KeyboardEvent, useEffect, useState,
+} from 'react'
 
 import {
   createSearchParams,
@@ -67,6 +69,11 @@ const TextFilter = ({
       search: createSearchParams(searchParams).toString(),
     })
   }
+  useEffect(
+    () => (urlParam === null ? setText('') : setText(urlParam)),
+    [urlParam],
+  )
+
   return (
     <OptionsFilterWrap>
       <LabelName>{label}</LabelName>
@@ -78,9 +85,7 @@ const TextFilter = ({
           onKeyDown={onkeyDown}
           placeholder={placeholder}
         />
-        {!text ? null : (
-          <ClearIcon onClick={clearText} alt='clear' />
-        )}
+        {!text ? null : <ClearIcon onClick={clearText} alt='clear' />}
       </TextSearchOuter>
     </OptionsFilterWrap>
   )
