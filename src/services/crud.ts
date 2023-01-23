@@ -53,14 +53,11 @@ export const readDoc = async (
 export const updateData = async (
   col: CollectionName,
   id: string,
-  field: string,
   data: any,
 ): Promise<string> => {
   try {
     const docRef = doc(db, col, id)
-    await updateDoc(docRef, {
-      [field]: data,
-    })
+    await updateDoc(docRef, data)
     return Promise.resolve(id)
   } catch (error: any) {
     return Promise.reject(error)
