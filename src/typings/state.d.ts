@@ -6,10 +6,13 @@ type ModalLoading = {
   title?: string
   content?: string
 }
+type AuthModalType = {
+  visible: boolean
+  type: 'login' | 'logout'
+}
 type LoadingState = {
   mainLoading: boolean
   pageLoading: boolean
-  modalLoading: ModalLoading
 }
 type UiState = {
   filterVisible: boolean
@@ -17,4 +20,7 @@ type UiState = {
 type AuthState = {
   userData?: UserInfoType
   isAuth: boolean
+  loginLoading: AuthModalType
+  likePets: PetType[]
+  isLike: boolean
 }
