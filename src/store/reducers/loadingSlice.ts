@@ -6,9 +6,6 @@ import { api } from '../../services/api'
 const initialState: LoadingState = {
   mainLoading: true,
   pageLoading: false,
-  modalLoading: {
-    visible: false,
-  },
 }
 
 export const loadingSlice = createSlice({
@@ -17,9 +14,6 @@ export const loadingSlice = createSlice({
   reducers: {
     setMainLoading: (state, { payload }: PayloadAction<boolean>) => {
       state.mainLoading = payload
-    },
-    setModal: (state, { payload }: PayloadAction<ModalLoading>) => {
-      state.modalLoading = payload
     },
   },
   extraReducers: (builder) => {
@@ -35,6 +29,6 @@ export const loadingSlice = createSlice({
   },
 })
 
-export const { setMainLoading, setModal } = loadingSlice.actions
+export const { setMainLoading } = loadingSlice.actions
 
 export default loadingSlice.reducer
