@@ -1,8 +1,7 @@
 import { styled } from '@linaria/react'
 
 import {
-  alpha,
- colors, filters, MD, shadow, SM, XL,
+ alpha, colors, filters, MD, shadow, SM, XL,
 } from '..'
 import { Contain, FlexCenter } from '../Base'
 
@@ -77,6 +76,21 @@ export const Paw = styled.img`
     right: 26px;
   }
 `
+export const Like = styled.img<{ $fill: boolean }>`
+  display: none;
+  content: ${(props) => (props.$fill ? "url('/images/heart-fill.svg')" : "url('/images/heart.svg')")};
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 10;
+  filter: ${(props) => (props.$fill ? filters.red : filters.white)};
+`
 export const Mask = styled.div`
   object-fit: cover;
   width: 110px;
@@ -91,7 +105,7 @@ export const Mask = styled.div`
   -webkit-mask-size: contain;
   mask-size: contain;
 `
-export const PetImg = styled.div<{$loading: boolean; src: string}>`
+export const PetImg = styled.div<{ $loading: boolean; src: string }>`
   width: 100px;
   height: 100px;
   ${SM} {
@@ -207,7 +221,7 @@ export const SexText = styled.span``
 export const Bar = styled.div`
   width: 2%;
   height: 16px;
-  border-left: 2px solid #E2F5F0;
+  border-left: 2px solid ${colors.gray9};
   ${SM} {
     margin: 0 8px;
   }
@@ -257,6 +271,9 @@ export const OuterHoverWrap = styled.div`
       -webkit-filter: brightness(75%);
       transition: all 0.8s ease;
     }
+    ${Like} {
+      display: block;
+    }
   }
   // loading
   &.loading {
@@ -287,7 +304,6 @@ export const OuterHoverWrap = styled.div`
       background-position-x: 180%;
       background-size: 400% 100%;
       animation: loading 2s ease-in-out infinite;
-      
     }
   }
 
