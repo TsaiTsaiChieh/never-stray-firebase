@@ -27,6 +27,7 @@ export const colors = {
   gray8: '#CFCFCF',
   gray9: '#E2E2E2',
   gray10: '#F5F5F5',
+  red: '#EB5757',
   blue: '#63B1E1',
   pink: '#FFA8A8',
   white: '#FFFFFF',
@@ -36,6 +37,7 @@ export const alpha = {
   primaryLighten: colorAlpha(colors.primaryLighten, 0.4),
   pink: colorAlpha(colors.pink, 0.2),
   gray1: colorAlpha(colors.gray1, 0.3),
+  gray3: colorAlpha(colors.gray3, 0.2),
 }
 export const filters = {
   light: generateFilter(colors.light),
@@ -52,6 +54,7 @@ export const filters = {
   gray8: generateFilter(colors.gray8),
   gray9: generateFilter(colors.gray9),
   gray10: generateFilter(colors.gray10),
+  red: generateFilter(colors.red),
   blue: generateFilter(colors.blue),
   pink: generateFilter(colors.pink),
   white: generateFilter(colors.white),
