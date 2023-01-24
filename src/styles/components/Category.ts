@@ -59,15 +59,11 @@ export const CategoryWrap = styled(FlexCenter)`
 `
 export const CategoryIcon = styled.img<{ $content: string }>`
   display: none;
-  ${SM} {
+  ${MD} {
     margin-right: 3px;
     display: block;
-    width: 22px;
-    height: 22px;
     content: ${(props) => `url(${props.$content})`};
     filter: ${filters.secondary};
-  }
-  ${MD} {
     width: 24px;
     height: 24px;
   }
