@@ -1,7 +1,7 @@
 import i18n from 'i18next'
 import { useNavigate } from 'react-router-dom'
 
-import { SelectorFilter, TextFilter } from '../../components'
+import { SelectorFilter } from '../../components'
 import OptionFilter from '../../components/OptionFilter'
 import { Paths } from '../../constants'
 import { city2shelters, shelter2city } from '../../constants/limitation'
@@ -64,11 +64,6 @@ const Filter = ({ scrolled }: Props) => {
         <FilterIcon alt='filter' />
         <FilterText>{i18n.t('buttons.filter')}</FilterText>
       </FilterIconWrap>
-      <TextFilter
-        fieldName='id'
-        label={Labels[0]}
-        placeholder={Placeholders[0]}
-      />
       <OptionFilter fieldName='age' label={Labels[1]} options={AgeOpts} />
       <OptionFilter fieldName='sex' label={Labels[2]} options={SexOpts} />
       <SelectorFilter
