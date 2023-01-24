@@ -152,11 +152,11 @@ export const SelectOuter = styled(OptionBtnOuter)`
   }
 `
 export const TextSearch = styled.input`
-  width: 275px;
-  height: 40px;
+  width: 90%;
   border-radius: 5px;
   border: 1px solid ${colors.gray7};
   font-size: 14px;
+  line-height: 36px;
   letter-spacing: 0.05em;
   color: ${colors.gray3};
   padding-left: 10px;
@@ -165,6 +165,9 @@ export const TextSearch = styled.input`
   }
   &:focus {
     outline: none;
+  }
+  ${MD} {
+    width: 146px;
   }
 `
 export const ClearIcon = styled.img`
@@ -180,12 +183,16 @@ export const ClearIcon = styled.img`
   }
 `
 export const TextSearchOuter = styled(OptionBtnOuter)`
-  width: 279px;
+  height: 43px;
+  width: calc(100% + 8px);
   position: relative;
   &:hover {
     ${TextSearch} {
       border: 1px solid ${colors.primary};
     }
+  }
+  ${MD} {
+    width: 70%;
   }
 `
 export const ResetBtnWrap = styled(OptionsFilterWrap)`
@@ -205,5 +212,49 @@ export const ResetBtnOuter = styled(OptionBtnOuter)`
     ${ResetBtn} {
       border-color: ${colors.pink};
     }
+  }
+`
+export const TextFilterWrap = styled(FlexCenter)`
+  width: 50%;
+  ${MD} {
+    justify-content: flex-start;
+    margin-left: 10px;
+    margin-right: 0;
+    padding-right: 0;
+    width: 36%;
+  }
+`
+export const TextLabelName = styled(LabelName)`
+  display: none;
+  width: 80px;
+  margin: auto 5px auto 0;
+  ${MD} {
+    display: block;
+  }
+`
+export const SubFilterWrap = styled(FlexCenter)`
+  width: 346px;
+  background: ${colors.white};
+  box-shadow: ${shadow.filter};
+  padding: 10px;
+  gap: 10px;
+  border-radius: 5px;
+  ${MD} {
+    width: 682px;
+    justify-content: flex-start;
+    margin-bottom: 25px;
+  }
+`
+export const LikeBtnOuter = styled(OptionBtnOuter)`
+  height: 43px;
+  width: calc(50% + 8px);
+  ${MD} {
+    width: 164px;
+  }
+`
+export const LikeBtn = styled(OptionBtn)`
+  width: 98.5%;
+  ${MD} {
+    width: 160px;
   }
 `
