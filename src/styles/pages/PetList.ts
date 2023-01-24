@@ -13,15 +13,21 @@ export const Container = styled(Contain)`
     justify-content: space-evenly;
   }
 `
+export const SubFilterAndPetsWrap = styled(FlexCenter)`
+  flex-direction: column;
+  ${XL} {
+    margin-left: 20px;
+  }
+`
 export const PetsAndPage = styled(FlexCenter)`
   flex-direction: column;
   ${XL} {
     min-width: 720px;
-    margin-left: 20px;
     width: 720px;
   }
 `
 export const PetContainer = styled.div`
+  position: relative;
   margin-top: 100px;
   justify-content: center;
   justify-items: center;
@@ -31,7 +37,7 @@ export const PetContainer = styled.div`
   grid-row-start: auto;
   grid-row-gap: 85px;
   ${SM} {
-    grid-row-gap: 100px;
+    grid-row-gap: 110px;
   }
   ${MD} {
     grid-template-columns: repeat(3, auto);
@@ -306,7 +312,6 @@ export const OuterHoverWrap = styled.div`
       animation: loading 2s ease-in-out infinite;
     }
   }
-
   @keyframes loading {
     to {
       background-position-x: 20%;
