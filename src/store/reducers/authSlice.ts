@@ -4,6 +4,13 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 const initialState: AuthState = {
   userData: undefined,
   isAuth: false,
+  loginLoading: {
+    visible: false,
+    type: 'login',
+  },
+  likeModalVisible: false,
+  likePets: [],
+  isLike: false,
 }
 
 export const authSlice = createSlice({
@@ -15,12 +22,55 @@ export const authSlice = createSlice({
       state.userData = payload
     },
     logout: (state) => {
-      state.isAuth = false
+      state.isAuth = initialState.isAuth
       state.userData = undefined
+      state.loginLoading = initialState.loginLoading
+      state.isLike = initialState.isLike
+      state.likeModalVisible = initialState.likeModalVisible
+    },
+    setAuthLoading: (state, { payload }: PayloadAction<AuthModalType>) => {
+      state.loginLoading = payload
+    },
+    setIsLike: (state, { payload }: PayloadAction<boolean>) => {
+      state.isLike = payload
+    },
+    addLikePet: (
+      state,
+      { payload }: PayloadAction<{ id: number; pet: PetType }>,
+    ) => {
+      if (state.userData) {
+        state.likeModalVisible = true
+        state.userData.like_ids.push(payload.id)
+        state.likePets.push(payload.pet)
+        state.userData.like_limit -= 1
+        state.likeModalVisible = false
+      }
+    },
+    deleteLikePet: (state, { payload }: PayloadAction<number>) => {
+      if (state.userData) {
+        state.likeModalVisible = true
+        state.userData.like_ids = state.userData.like_ids.filter(
+          (ele) => ele !== payload,
+        )
+        state.likePets = state.likePets.filter(
+          (ele) => ele.animal_id !== payload,
+        )
+        if (state.userData.like_limit <= import.meta.env.VITE_PET_LIMIT) {
+          state.userData.like_limit += 1
+        }
+        state.likeModalVisible = false
+      }
     },
   },
 })
 
-export const { login, logout } = authSlice.actions
+export const {
+  login,
+  logout,
+  setAuthLoading,
+  setIsLike,
+  addLikePet,
+  deleteLikePet,
+} = authSlice.actions
 
 export default authSlice.reducer
