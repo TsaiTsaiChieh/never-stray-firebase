@@ -1,7 +1,7 @@
 import { styled } from '@linaria/react'
 
 import {
- colors, filters, LG, SM,
+ colors, filters, LG, SM, XL,
 } from '..'
 import { Contain, FlexCenter } from '../Base'
 
@@ -17,6 +17,9 @@ export const Container = styled(Contain)`
 export const LogoWrap = styled(FlexCenter)`
   width: 100%;
   cursor: pointer;
+  ${XL} {
+    justify-content: flex-start;
+  }
 `
 export const Logo = styled.img`
   content: url("/images/logo.svg");
