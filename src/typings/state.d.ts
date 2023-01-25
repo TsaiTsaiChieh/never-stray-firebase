@@ -16,6 +16,7 @@ type LoadingState = {
 }
 type UiState = {
   filterVisible: boolean
+  overLimitVisible: boolean
 }
 type AuthState = {
   userData?: UserInfoType
