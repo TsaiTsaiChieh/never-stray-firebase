@@ -12,6 +12,8 @@ const Pets = ({ data }: Props) => {
   const { pageLoading } = useAppSelector((state) => state.loading)
   const initOffset = 9
   const [ids, lastItemRef] = useIntersection(initOffset, data)
+  const { isLike } = useAppSelector((state) => state.auth)
+
   return (
     <>
       <PetContainer>
@@ -29,7 +31,7 @@ const Pets = ({ data }: Props) => {
           : null}
         {!pageLoading && !data.length ? <NotFound /> : null}
       </PetContainer>
-      <Pagination length={data.length} />
+      {isLike ? null : <Pagination length={data.length} />}
     </>
   )
 }
