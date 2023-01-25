@@ -10,6 +10,7 @@ import type { SingleValue } from 'react-select'
 
 import { Paths } from '../constants'
 import { useAppDispatch, useAppSelector } from '../store/hook'
+import { setIsLike } from '../store/reducers/authSlice'
 import { setFilter } from '../store/reducers/petSlice'
 import {
   LabelName,
@@ -56,6 +57,7 @@ const SelectorFilter = ({
       setSearchParams(searchParams)
       dispatch(setFilter({ ...filter, [fieldName]: undefined }))
     }
+    dispatch(setIsLike(false))
   }
   // reset state
   useEffect(() => {

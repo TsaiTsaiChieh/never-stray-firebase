@@ -11,6 +11,7 @@ import {
 import { PetKindEnum } from '../constants/enum'
 import { Paths } from '../constants/index'
 import { useAppDispatch, useAppSelector } from '../store/hook'
+import { setIsLike } from '../store/reducers/authSlice'
 import { setFilter } from '../store/reducers/petSlice'
 import { toggleFilterVisible } from '../store/reducers/uiSlice'
 import {
@@ -56,6 +57,7 @@ const Category = ({ scrolled }: Props) => {
       search: createSearchParams(params).toString(),
     })
     window.scroll({ top: 0, behavior: 'smooth' })
+    dispatch(setIsLike(false))
   }
   const icons = ['/images/all.svg', '/images/cat.svg', '/images/dog.svg']
   const categoryItem: CategoryItemType[] = names.map((name, i) => ({
