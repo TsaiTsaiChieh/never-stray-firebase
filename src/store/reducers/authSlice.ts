@@ -40,23 +40,25 @@ export const authSlice = createSlice({
     ) => {
       if (state.userData) {
         state.likeModalVisible = true
-        state.userData.like_ids.push(payload.id)
-        state.likePets.push(payload.pet)
-        state.userData.like_limit -= 1
+        if (state.userData.like_ids.length <= import.meta.env.VITE_PET_LIMIT) {
+          state.userData.like_ids.push(payload.id)
+          state.likePets.push(payload.pet)
+          state.userData.like_limit = import.meta.env.VITE_PET_LIMIT - state.likePets.length
+        }
         state.likeModalVisible = false
       }
     },
     deleteLikePet: (state, { payload }: PayloadAction<number>) => {
       if (state.userData) {
         state.likeModalVisible = true
-        state.userData.like_ids = state.userData.like_ids.filter(
-          (ele) => ele !== payload,
-        )
-        state.likePets = state.likePets.filter(
-          (ele) => ele.animal_id !== payload,
-        )
         if (state.userData.like_limit <= import.meta.env.VITE_PET_LIMIT) {
-          state.userData.like_limit += 1
+          state.userData.like_ids = state.userData.like_ids.filter(
+            (ele) => ele !== payload,
+          )
+          state.likePets = state.likePets.filter(
+            (ele) => ele.animal_id !== payload,
+          )
+          state.userData.like_limit = import.meta.env.VITE_PET_LIMIT - state.likePets.length
         }
         state.likeModalVisible = false
       }
