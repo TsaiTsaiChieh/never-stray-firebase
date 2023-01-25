@@ -4,13 +4,17 @@ import { useLocation } from 'react-router-dom'
 
 import Filter from './Filter'
 import Pets from './Pets'
-import { Category, Footer, Header } from '../../components'
+import SubFilter from './SubFilter'
+import {
+ AuthModal, Category, Footer, Header, LikeModal, OverLimitModal,
+} from '../../components'
 import { useGetPetsQuery } from '../../services/api'
 import { useAppDispatch, useAppSelector } from '../../store/hook'
 import { setFilter } from '../../store/reducers/petSlice'
 import {
   Container,
   PetsAndPage,
+  SubFilterAndPetsWrap,
 } from '../../styles/pages/PetList'
 import { isPositiveInteger } from '../../utils/helper'
 import { useScrolled } from '../../utils/useScrolled'
@@ -21,7 +25,7 @@ const PetList = () => {
   const dispatch = useAppDispatch()
   const location = useLocation()
   const scrolled = useScrolled()
-
+  const { isLike, likePets } = useAppSelector((state) => state.auth)
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search)
     const params = Object.fromEntries(urlParams)
@@ -47,13 +51,19 @@ const PetList = () => {
 
   return (
     <>
+      <AuthModal />
+      <LikeModal />
+      <OverLimitModal />
       <Header />
       <Category scrolled={scrolled} />
       <Container>
         <Filter scrolled={scrolled} />
-        <PetsAndPage>
-          {data && <Pets data={data} />}
-        </PetsAndPage>
+        <SubFilterAndPetsWrap>
+          <SubFilter />
+          <PetsAndPage>
+            {data && <Pets data={isLike ? likePets : data} />}
+          </PetsAndPage>
+        </SubFilterAndPetsWrap>
       </Container>
       <Footer />
     </>
