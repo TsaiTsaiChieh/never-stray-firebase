@@ -1,3 +1,4 @@
+import Avatar from './Avatar'
 import {
   CardContainer,
   KindText,
@@ -5,12 +6,11 @@ import {
   Name,
   OuterHoverWrap,
 } from '../../styles/pages/PetList'
-import Avatar from './Avatar'
 
 const Loading = () => (
   <OuterHoverWrap className='loading'>
     <CardContainer>
-      <Avatar src='null' />
+      <Avatar />
       <Name />
       <KindText />
       <LearnMore />

@@ -41,7 +41,7 @@ export const Card = forwardRef(
     return (
       <OuterHoverWrap ref={ref}>
         <CardContainer>
-          <Avatar src={detail.album_file} />
+          <Avatar detail={detail} />
           <Name>{petName}</Name>
           <KindText>{mixAntiReplace(animal_Variety)}</KindText>
           <LearnMore as='button'>
