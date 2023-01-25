@@ -9,6 +9,7 @@ import {
 import { Paths } from '../constants'
 import { PetAgeEnum, PetSexEnum } from '../constants/enum'
 import { useAppDispatch, useAppSelector } from '../store/hook'
+import { setIsLike } from '../store/reducers/authSlice'
 import { setFilter } from '../store/reducers/petSlice'
 import {
   LabelName,
@@ -52,6 +53,7 @@ const OptionFilter = ({ fieldName, label, options }: Props) => {
       pathname: Paths.home,
       search: createSearchParams(params).toString(),
     })
+    dispatch(setIsLike(false))
   }
   // reset state
   useEffect(() => {
