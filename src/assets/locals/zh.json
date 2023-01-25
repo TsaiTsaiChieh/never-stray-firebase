@@ -2,7 +2,15 @@
  "titles": {
   "main": "讓愛不流浪",
   "main_en": "Never Stray",
-  "loading": "Loading"
+  "loading": "Loading",
+  "login": "登入中",
+  "logout": "登出中", 
+  "update_like": "更新我的小窩中",
+  "over_limit": "超過小窩的數量上限"
+ },
+ "content": {
+  "update_like": "可點選我的小窩查看追蹤的寵物",
+  "over_limit": "每個帳號只可以追蹤 {{limit}} 隻的寵物<br/>（可取消追蹤其他寵物）"
  },
  "buttons": {
   "categories": [
@@ -13,7 +21,9 @@
   "filter": "篩選",
   "login": "登入",
   "logout": "登出",
-  "reset": "清除條件"
+  "reset": "清除條件",
+  "like": "我的小窩",
+  "understand": "已瞭解"
  },
  "labels": {
   "filters": [
