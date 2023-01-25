@@ -192,7 +192,7 @@ export const TextSearchOuter = styled(OptionBtnOuter)`
     }
   }
   ${MD} {
-    width: 70%;
+    width: 69%;
   }
 `
 export const ResetBtnWrap = styled(OptionsFilterWrap)`
