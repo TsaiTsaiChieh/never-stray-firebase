@@ -151,6 +151,25 @@ export const PetImg = styled.div<{ $loading: boolean; src: string }>`
     }
   }
 `
+export const ID = styled.span`
+  display: none;
+  ${MD} {
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 50px;
+    height: 13px;
+    margin: auto;
+    text-align: center;
+    color: ${colors.gray5};
+    margin-bottom: 10px;
+    font-size: 13px;
+    &::before {
+      content: "#";
+    }
+  }
+`
 export const Name = styled.span`
   width: 100%;
   text-align: center;
@@ -300,7 +319,7 @@ export const OuterHoverWrap = styled.div`
       width: 70px;
       height: 12px;
     }
-    ${Name}, ${KindText}, ${LearnMore} {
+    ${Name}, ${KindText}, ${LearnMore}, ${ID} {
       background-image: linear-gradient(
         90deg,
         ${colors.gray8} 25%,
@@ -310,6 +329,11 @@ export const OuterHoverWrap = styled.div`
       background-position-x: 180%;
       background-size: 400% 100%;
       animation: loading 2s ease-in-out infinite;
+    }
+    ${ID} {
+      &::before {
+        content: "";
+      }
     }
   }
   @keyframes loading {
