@@ -10,11 +10,12 @@ import {
 
 import { Paths } from '../constants'
 import { useAppDispatch } from '../store/hook'
+import { setIsLike } from '../store/reducers/authSlice'
 import { resetFilter } from '../store/reducers/petSlice'
 import {
   ClearIcon,
-  LabelName,
-  OptionsFilterWrap,
+  TextFilterWrap,
+  TextLabelName,
   TextSearch,
   TextSearchOuter,
 } from '../styles/components/Filter'
@@ -58,6 +59,7 @@ const TextFilter = ({
           pathname: Paths.home,
         })
       }
+      dispatch(setIsLike(false))
     }
   }
   const clearText = () => {
@@ -75,8 +77,8 @@ const TextFilter = ({
   )
 
   return (
-    <OptionsFilterWrap>
-      <LabelName>{label}</LabelName>
+    <TextFilterWrap>
+      <TextLabelName>{label}</TextLabelName>
       <TextSearchOuter>
         <TextSearch
           type='number'
@@ -87,7 +89,7 @@ const TextFilter = ({
         />
         {!text ? null : <ClearIcon onClick={clearText} alt='clear' />}
       </TextSearchOuter>
-    </OptionsFilterWrap>
+    </TextFilterWrap>
   )
 }
 
