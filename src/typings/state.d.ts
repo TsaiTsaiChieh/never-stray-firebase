@@ -23,6 +23,5 @@ type AuthState = {
   isAuth: boolean
   likeModalVisible: boolean
   loginLoading: AuthModalType
-  likePets: PetType[]
   isLike: boolean
 }
