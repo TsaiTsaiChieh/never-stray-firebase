@@ -57,7 +57,7 @@ export const updateData = async (
 ): Promise<string> => {
   try {
     const docRef = doc(db, col, id)
-    await updateDoc(docRef, data)
+    await updateDoc(docRef, { ...data, update_time: serverTimestamp() })
     return Promise.resolve(id)
   } catch (error: any) {
     return Promise.reject(error)
