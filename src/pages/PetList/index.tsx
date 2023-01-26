@@ -25,7 +25,7 @@ const PetList = () => {
   const dispatch = useAppDispatch()
   const location = useLocation()
   const scrolled = useScrolled()
-  const { isLike, likePets } = useAppSelector((state) => state.auth)
+  const { isLike, userData } = useAppSelector((state) => state.auth)
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search)
     const params = Object.fromEntries(urlParams)
@@ -44,7 +44,7 @@ const PetList = () => {
         shelter: params.shelter
           ? (parseInt(params.shelter, 10) as ShelterUrlType)
           : filter.shelter,
-        limit: import.meta.env.VITE_PET_LIMIT,
+        limit: parseInt(import.meta.env.VITE_PET_LIMIT, 10),
       }),
     )
   }, [location.search])
@@ -61,7 +61,7 @@ const PetList = () => {
         <SubFilterAndPetsWrap>
           <SubFilter />
           <PetsAndPage>
-            {data && <Pets data={isLike ? likePets : data} />}
+            {data && <Pets data={isLike && userData ? userData.like_pets : data} />}
           </PetsAndPage>
         </SubFilterAndPetsWrap>
       </Container>
