@@ -2,7 +2,8 @@
 
 interface ImportMetaEnv {
   readonly VITE_API_URL: string
-  readonly VITE_PET_LIMIT: number
+  readonly VITE_PET_LIMIT: string
+  readonly VITE_LIKE_LIMIT: string
   readonly VITE_FIREBASE_API_KEY: string
   readonly VITE_FIREBASE_AUTH_DOMAIN: string
   readonly VITE_FIREBASE_DATABASE_URL: string
