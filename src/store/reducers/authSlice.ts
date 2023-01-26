@@ -9,7 +9,6 @@ const initialState: AuthState = {
     type: 'login',
   },
   likeModalVisible: false,
-  likePets: [],
   isLike: false,
 }
 
@@ -34,31 +33,24 @@ export const authSlice = createSlice({
     setIsLike: (state, { payload }: PayloadAction<boolean>) => {
       state.isLike = payload
     },
-    addLikePet: (
-      state,
-      { payload }: PayloadAction<{ id: number; pet: PetType }>,
-    ) => {
+    addLikePet: (state, { payload }: PayloadAction<PetType>) => {
       if (state.userData) {
+        const likeLimit = parseInt(import.meta.env.VITE_LIKE_LIMIT, 10)
         state.likeModalVisible = true
-        if (state.userData.like_ids.length <= import.meta.env.VITE_PET_LIMIT) {
-          state.userData.like_ids.push(payload.id)
-          state.likePets.push(payload.pet)
-          state.userData.like_limit = import.meta.env.VITE_PET_LIMIT - state.likePets.length
+        if (state.userData.like_pets.length <= likeLimit) {
+          state.userData.like_pets.push(payload)
         }
         state.likeModalVisible = false
       }
     },
     deleteLikePet: (state, { payload }: PayloadAction<number>) => {
       if (state.userData) {
+        const likeLimit = parseInt(import.meta.env.VITE_LIKE_LIMIT, 10)
         state.likeModalVisible = true
-        if (state.userData.like_limit <= import.meta.env.VITE_PET_LIMIT) {
-          state.userData.like_ids = state.userData.like_ids.filter(
-            (ele) => ele !== payload,
-          )
-          state.likePets = state.likePets.filter(
+        if (state.userData.like_pets.length <= likeLimit) {
+          state.userData.like_pets = state.userData.like_pets.filter(
             (ele) => ele.animal_id !== payload,
           )
-          state.userData.like_limit = import.meta.env.VITE_PET_LIMIT - state.likePets.length
         }
         state.likeModalVisible = false
       }
