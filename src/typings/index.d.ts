@@ -110,10 +110,12 @@ type UserDataType = {
   photo: string | null
 }
 type UserInfoType = {
-  uid: string
   name: string
   email: string
   photo: string
-  like_ids: number[]
-  like_limit: number
+  like_pets: PetType[]
+}
+type UserFromFirebase = UserInfoType & {
+  create_time: Date
+  update_time: Date
 }
