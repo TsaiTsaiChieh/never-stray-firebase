@@ -18,7 +18,8 @@ const Avatar = ({ detail }: Props) => {
   const dispatch = useAppDispatch()
   const { userData } = useAppSelector((state) => state.auth)
   const [isLike, setIsLike] = useState(
-    id && userData ? userData.like_ids.includes(id) : false,
+    id && userData ? userData.like_pets.map((ele) => ele.animal_id).includes(id)
+      : false,
   )
   const [loading, setLoading] = useState<boolean>(true)
   const nullImgPath = '/images/pet-null.svg'
@@ -28,17 +29,25 @@ const Avatar = ({ detail }: Props) => {
     if (img) setLoading(false)
   }, [img])
   useEffect(() => {
-    if (id && userData && userData.like_ids.includes(id)) {
+    if (id && userData && userData.like_pets.map((ele) => ele.animal_id).includes(id)) {
       setIsLike(true)
     } else setIsLike(false)
-  }, [userData?.like_ids])
+  }, [userData?.like_pets])
 
   const toggleLike = async () => {
-    if (!isLike && userData && userData.like_limit > 0 && id) {
-      dispatch(addLikePet({ id, pet: detail! }))
+    const likeLimit = parseInt(import.meta.env.VITE_LIKE_LIMIT, 10)
+    if (
+      detail
+      && !isLike
+      && userData
+      && userData.like_pets.length < likeLimit
+    ) {
+      dispatch(addLikePet(detail))
     } else if (isLike && userData?.email && id) {
       dispatch(deleteLikePet(id))
-    } else if (!isLike && userData?.like_limit === 0) { dispatch(setOverLimitVisible(true)) }
+    } else if (!isLike && userData?.like_pets.length === likeLimit) {
+      dispatch(setOverLimitVisible(true))
+    }
   }
 
   return (
