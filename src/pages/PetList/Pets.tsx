@@ -16,7 +16,7 @@ const Pets = ({ data }: Props) => {
 
   return (
     <>
-      <PetContainer>
+      <PetContainer $small={isLike}>
         {pageLoading
           // eslint-disable-next-line react/no-array-index-key
           ? Array.from({ length: initOffset }).map((_, i) => <Loading key={i} />) : null}

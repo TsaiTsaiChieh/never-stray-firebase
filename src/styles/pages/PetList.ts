@@ -26,14 +26,14 @@ export const PetsAndPage = styled(FlexCenter)`
     width: 720px;
   }
 `
-export const PetContainer = styled.div`
+export const PetContainer = styled.div<{$small: boolean}>`
   position: relative;
   margin-top: 100px;
   justify-content: center;
   justify-items: center;
   display: grid;
   grid-template-columns: repeat(2, auto);
-  grid-template-rows: repeat(9, auto);
+  grid-template-rows: ${(props) => (props.$small ? 'repeat(6, auto)' : 'repeat(9, auto)')};
   grid-row-start: auto;
   grid-row-gap: 85px;
   ${SM} {
@@ -41,7 +41,7 @@ export const PetContainer = styled.div`
   }
   ${MD} {
     grid-template-columns: repeat(3, auto);
-    grid-template-rows: repeat(6, auto);
+     grid-template-rows: ${(props) => (props.$small ? 'repeat(4, auto)' : 'repeat(6, auto)')};
   }
 `
 export const NotFound = styled.img`
