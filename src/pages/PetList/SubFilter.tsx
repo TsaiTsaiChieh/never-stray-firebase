@@ -6,22 +6,28 @@ import { Paths } from '../../constants'
 import { useAppDispatch, useAppSelector } from '../../store/hook'
 import { setIsLike } from '../../store/reducers/authSlice'
 import { resetFilter } from '../../store/reducers/petSlice'
+import { setShouldLoginVisible } from '../../store/reducers/uiSlice'
 import {
- LikeBtn, LikeBtnOuter, SubFilterWrap,
+  LikeBtn,
+  LikeBtnOuter,
+  SubFilterWrap,
 } from '../../styles/components/Filter'
 
 const SubFilter = () => {
   const dispatch = useAppDispatch()
   const nav = useNavigate()
-  const { isLike } = useAppSelector((state) => state.auth)
+  const { isLike, isAuth } = useAppSelector((state) => state.auth)
   const Labels: string[] = i18n.t('labels.filters', { returnObjects: true })
   const Placeholders: string[] = i18n.t('placeholders.selector', {
     returnObjects: true,
   })
   const isLikeHandle = () => {
-    dispatch(setIsLike(!isLike))
-    dispatch(resetFilter())
-    nav({ pathname: Paths.home })
+    if (!isAuth) dispatch(setShouldLoginVisible(true))
+    else {
+      dispatch(setIsLike(!isLike))
+      dispatch(resetFilter())
+      nav({ pathname: Paths.home })
+    }
   }
   return (
     <SubFilterWrap>

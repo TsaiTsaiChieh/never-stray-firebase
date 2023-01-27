@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 
 import { useAppDispatch, useAppSelector } from '../../store/hook'
 import { addLikePet, deleteLikePet } from '../../store/reducers/authSlice'
-import { setOverLimitVisible } from '../../store/reducers/uiSlice'
+import { setOverLimitVisible, setShouldLoginVisible } from '../../store/reducers/uiSlice'
 import {
   ID,
  Like, Paw, PetImg, PetImgWrap,
@@ -36,7 +36,9 @@ const Avatar = ({ detail }: Props) => {
 
   const toggleLike = async () => {
     const likeLimit = parseInt(import.meta.env.VITE_LIKE_LIMIT, 10)
-    if (
+    if (!userData) {
+      dispatch(setShouldLoginVisible(true))
+    } else if (
       detail
       && !isLike
       && userData
