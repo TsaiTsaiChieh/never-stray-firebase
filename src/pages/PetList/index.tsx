@@ -6,7 +6,7 @@ import Filter from './Filter'
 import Pets from './Pets'
 import SubFilter from './SubFilter'
 import {
- AuthModal, Category, Footer, Header, LikeModal, OverLimitModal,
+ AuthModal, Category, Footer, Header, LikeModal, OverLimitModal, ShouldLoginModal,
 } from '../../components'
 import { useGetPetsQuery } from '../../services/api'
 import { useAppDispatch, useAppSelector } from '../../store/hook'
@@ -54,6 +54,7 @@ const PetList = () => {
       <AuthModal />
       <LikeModal />
       <OverLimitModal />
+      <ShouldLoginModal />
       <Header />
       <Category scrolled={scrolled} />
       <Container>
