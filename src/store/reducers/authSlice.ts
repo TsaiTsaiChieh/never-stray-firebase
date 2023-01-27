@@ -22,7 +22,7 @@ export const authSlice = createSlice({
     },
     logout: (state) => {
       state.isAuth = initialState.isAuth
-      state.userData = undefined
+      state.userData = initialState.userData
       state.loginLoading = initialState.loginLoading
       state.isLike = initialState.isLike
       state.likeModalVisible = initialState.likeModalVisible
