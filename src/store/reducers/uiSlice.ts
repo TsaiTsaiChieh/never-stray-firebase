@@ -4,6 +4,7 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 const initialState: UiState = {
   filterVisible: false,
   overLimitVisible: false,
+  shouldLoginVisible: false,
 }
 
 export const uiSlice = createSlice({
@@ -16,9 +17,12 @@ export const uiSlice = createSlice({
     setOverLimitVisible: (state, { payload }: PayloadAction<boolean>) => {
       state.overLimitVisible = payload
     },
+    setShouldLoginVisible: (state, { payload }: PayloadAction<boolean>) => {
+      state.shouldLoginVisible = payload
+    },
   },
 })
 
-export const { toggleFilterVisible, setOverLimitVisible } = uiSlice.actions
+export const { toggleFilterVisible, setOverLimitVisible, setShouldLoginVisible } = uiSlice.actions
 
 export default uiSlice.reducer
