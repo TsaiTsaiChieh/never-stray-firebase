@@ -6,11 +6,13 @@
   "login": "登入中",
   "logout": "登出中", 
   "update_like": "更新我的小窩中",
-  "over_limit": "超過小窩的數量上限"
+  "over_limit": "超過小窩的數量上限",
+  "should_login": "此功能需要登入才能使用"
  },
  "content": {
   "update_like": "可點選我的小窩查看追蹤的寵物",
-  "over_limit": "每個帳號只可以追蹤 {{limit}} 隻的寵物<br/>（可取消追蹤其他寵物）"
+  "over_limit": "每個帳號只可以追蹤 {{limit}} 隻的寵物<br/>（可取消追蹤其他寵物）",
+  "should_login": "加入我的小窩功能需要 Google 登入才能使用，建議您前往登入"
  },
  "buttons": {
   "categories": [
