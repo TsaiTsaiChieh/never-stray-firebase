@@ -26,7 +26,6 @@ export const createData = async (
     await updateDoc(docRef, {
       update_time: serverTimestamp(),
     })
-    console.info('Document written with ID', id)
     return Promise.resolve(id)
   } catch (error: any) {
     return Promise.reject(error)
@@ -41,7 +40,6 @@ export const readDoc = async (
     const docRef = doc(db, col, id)
     const docSnap = await getDoc(docRef)
     if (docSnap.exists()) {
-      console.log('Document data:', docSnap.data())
       return Promise.resolve(docSnap.data())
     }
     return false
