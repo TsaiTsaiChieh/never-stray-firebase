@@ -3,13 +3,14 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { PetAgeEnum, PetKindEnum, PetSexEnum } from '../constants/enum'
 import { mixReplace } from '../utils/helper'
 
+const UnitId = '?UnitId=QcbUEzN6E6DL&'
 export const api = createApi({
   reducerPath: 'api',
   baseQuery: fetchBaseQuery({
     baseUrl: import.meta.env.VITE_API_URL,
   }),
   endpoints: (builder) => ({
-    getPets: builder.query<GetPetsRes, GetPetReq>({
+    getPets: builder.query<GetPetsRes, GetPetsReq>({
       query: ({
         limit,
         page,
@@ -22,8 +23,12 @@ export const api = createApi({
         city,
         shelter,
       }) => {
-        let url = `?UnitId=QcbUEzN6E6DL&$top=${limit}&$skip=${limit * (page - 1)}`
-        if (kind && PetKindEnum[kind]) url += `&animal_kind=${PetKindEnum[kind]}`
+        let url = `${UnitId}$top=${limit}&$skip=${
+          limit * (page - 1)
+        }`
+        if (kind && PetKindEnum[kind]) {
+          url += `&animal_kind=${PetKindEnum[kind]}`
+        }
         if (id) url += `&animal_id=${id}`
         if (age && PetAgeEnum[age]) url += `&animal_age=${PetAgeEnum[age]}`
         if (sex && PetSexEnum[sex]) url += `&animal_sex=${PetSexEnum[sex]}`
@@ -41,7 +46,13 @@ export const api = createApi({
         }
       },
     }),
+    getPet: builder.mutation<GetPetRes, GetPetReq>({
+      query: ({ id }) => ({
+        url: `${UnitId}animal_id=${id}`,
+        method: 'GET',
+      }),
+    }),
   }),
 })
 
-export const { useGetPetsQuery } = api
+export const { useGetPetsQuery, useGetPetMutation } = api
