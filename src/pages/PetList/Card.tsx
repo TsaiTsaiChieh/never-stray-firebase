@@ -1,6 +1,9 @@
 import { forwardRef, Ref } from 'react'
 
+import { useNavigate } from 'react-router-dom'
+
 import Avatar from './Avatar'
+import { Paths } from '../../constants'
 import {
   AgeText,
   Bar,
@@ -25,6 +28,7 @@ interface Props {
 }
 export const Card = forwardRef(
   ({ detail }: Props, ref: Ref<HTMLDivElement>) => {
+    const nav = useNavigate()
     const {
       animal_colour,
       animal_Variety,
@@ -37,14 +41,16 @@ export const Card = forwardRef(
     )}`
     const sex = petSexConverter(animal_sex)
     const age = petAgeConverter(animal_age)
-
+      const go2pet = () => {
+        nav(`${Paths.pet}/${detail.animal_id}`)
+      }
     return (
       <OuterHoverWrap ref={ref}>
         <CardContainer>
           <Avatar detail={detail} />
           <Name>{petName}</Name>
           <KindText>{mixAntiReplace(animal_Variety)}</KindText>
-          <LearnMore as='button'>
+          <LearnMore as='button' onClick={go2pet}>
             <SexWrap>
               <SexIcon
                 $content={sex.iconPath}
