@@ -1,5 +1,5 @@
 type GetPetsRes = PetType[]
-type GetPetReq = {
+type GetPetsReq = {
   limit: number
   page: number
   kind?: PetKindUrlType
@@ -10,4 +10,8 @@ type GetPetReq = {
   color?: string
   city?: CityUrlType
   shelter?: ShelterUrlType
+}
+type GetPetRes = GetPetsRes
+type GetPetReq = {
+  id: string
 }
