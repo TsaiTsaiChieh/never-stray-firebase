@@ -65,3 +65,4 @@ export const searchQuery = (filter: GetPetsReq) => {
 }
 export const mixAntiReplace = (str: string): string => str.replace('混種', '米克斯').trim()
 export const mixReplace = (str: string): string => str.replace('米克斯', '混種').trim()
+export const dateFormatter = (str: string): string => str.replaceAll('/', '-')
