@@ -19,7 +19,7 @@ import {
 import {
   mixAntiReplace,
   petAgeConverter,
-  petKindConverter,
+  petNameConverter,
   petSexConverter,
 } from '../../utils/helper'
 
@@ -36,19 +36,16 @@ export const Card = forwardRef(
       animal_sex,
       animal_age,
     } = detail
-    const petName = `${animal_colour.replace('色', '')}${petKindConverter(
-      animal_kind,
-    )}`
     const sex = petSexConverter(animal_sex)
     const age = petAgeConverter(animal_age)
       const go2pet = () => {
-        nav(`${Paths.pet}/${detail.animal_id}`)
+        nav(`${Paths.pet}/${detail.animal_id}`, { state: { detail } })
       }
     return (
       <OuterHoverWrap ref={ref}>
         <CardContainer>
           <Avatar detail={detail} />
-          <Name>{petName}</Name>
+          <Name>{petNameConverter(animal_colour, animal_kind)}</Name>
           <KindText>{mixAntiReplace(animal_Variety)}</KindText>
           <LearnMore as='button' onClick={go2pet}>
             <SexWrap>
