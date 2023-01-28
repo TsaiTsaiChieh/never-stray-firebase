@@ -21,9 +21,17 @@ export const petSexConverter = (sex: string): SexIconType => {
         color: filters.blue,
       }
     case 'F':
-      return { iconPath: '/images/venus.svg', name: '妹妹', color: filters.pink }
+      return {
+        iconPath: '/images/venus.svg',
+        name: '妹妹',
+        color: filters.pink,
+      }
     default:
-      return { iconPath: '/images/question.svg', name: unknown, color: filters.gray6 }
+      return {
+        iconPath: '/images/question.svg',
+        name: unknown,
+        color: filters.gray6,
+      }
   }
 }
 export const petAgeConverter = (age: string): string => {
@@ -42,7 +50,7 @@ export const isPositiveInteger = (str: string): boolean => {
   if (Number.isInteger(num) && num > 0) return true
   return false
 }
-export const searchQuery = (filter: GetPetReq) => {
+export const searchQuery = (filter: GetPetsReq) => {
   const params: any = {}
   if (filter.id) params.id = filter.id
   if (filter.kind) params.kind = filter.kind
