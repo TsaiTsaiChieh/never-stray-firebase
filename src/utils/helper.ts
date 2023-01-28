@@ -11,6 +11,7 @@ export const petKindConverter = (kind: string): string => {
       return kind
   }
 }
+export const petNameConverter = (color: string, kind: string): string => `${color.replace('色', '')}${petKindConverter(kind)}`
 export const petSexConverter = (sex: string): SexIconType => {
   switch (sex) {
     case 'M':
