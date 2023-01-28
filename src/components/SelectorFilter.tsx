@@ -21,7 +21,7 @@ import {
 import { searchQuery } from '../utils/helper'
 
 interface Props {
-  fieldName: keyof Pick<GetPetReq, 'species' | 'city' | 'color' | 'shelter'>
+  fieldName: keyof Pick<GetPetsReq, 'species' | 'city' | 'color' | 'shelter'>
   options: LabelValueType[]
   label: string
   placeholder?: string
