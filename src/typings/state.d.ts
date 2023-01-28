@@ -1,5 +1,5 @@
 type PetState = {
-  filter: GetPetReq
+  filter: GetPetsReq
 }
 type ModalLoading = {
   visible: boolean
