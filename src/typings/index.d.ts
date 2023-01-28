@@ -59,7 +59,7 @@ type ShelterUrlType =
   | 92
   | 96
 type CollectionName = 'users'
-type PathType = 'home'
+type PathType = 'home' | 'pet'
 type LabelValueType = {
   value: string | number
   label: string
