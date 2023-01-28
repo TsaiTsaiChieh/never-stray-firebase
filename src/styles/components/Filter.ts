@@ -23,6 +23,7 @@ export const FilterContainer = styled(FlexCenter)<{
   z-index: 100;
   position: sticky;
   overflow-y: auto;
+  overflow-x: hidden;
   ${SM} {
     height: ${(props) => (props.$scrolled ? 'calc(100vh - 62px)' : 'calc(100vh - 98px)')};
     top: ${(props) => (props.$scrolled ? '62px' : '98px')};
@@ -42,6 +43,7 @@ export const FilterContainer = styled(FlexCenter)<{
     position: ${(props) => (props.$scrolled ? 'sticky' : 'relative')};
     top: ${(props) => (props.$scrolled ? '120px' : 'auto')};
     display: flex;
+    margin-top: 44px;
   }
 `
 export const FilterIconWrap = styled.div`
@@ -236,6 +238,7 @@ export const SubFilterWrap = styled(FlexCenter)`
   width: 346px;
   background: ${colors.white};
   box-shadow: ${shadow.filter};
+  margin-bottom: 10px;
   padding: 10px;
   gap: 10px;
   border-radius: 5px;

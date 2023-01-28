@@ -10,7 +10,7 @@ interface Props {
 }
 const Pets = ({ data }: Props) => {
   const { pageLoading } = useAppSelector((state) => state.loading)
-  const initOffset = 9
+  const initOffset = 6
   const [ids, lastItemRef] = useIntersection(initOffset, data)
   const { isLike } = useAppSelector((state) => state.auth)
 

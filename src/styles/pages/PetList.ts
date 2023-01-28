@@ -22,10 +22,10 @@ export const SubFilterAndPetsWrap = styled(FlexCenter)`
 export const Banner = styled.img`
   width: 366px;
   content: url("/images/donate.svg");
-  margin: 8px 0 20px;
+  margin: 16px 0 28px;
   ${MD} {
     width: 702px;
-    margin: 0px 0 24px;
+    margin: 20px 0 30px;
   }
 `
 export const PetsAndPage = styled(FlexCenter)`
