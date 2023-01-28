@@ -9,7 +9,7 @@ const initialState: PetState = {
     color: undefined,
     species: undefined,
     page: 1,
-    limit: import.meta.env.VITE_PET_LIMIT,
+    limit: parseInt(import.meta.env.VITE_PET_LIMIT, 10),
   },
 }
 
@@ -20,7 +20,7 @@ export const petSlice = createSlice({
     resetFilter: (state) => {
       state.filter = initialState.filter
     },
-    setFilter: (state, { payload }: PayloadAction<GetPetReq>) => {
+    setFilter: (state, { payload }: PayloadAction<GetPetsReq>) => {
       state.filter = payload
     },
   },
