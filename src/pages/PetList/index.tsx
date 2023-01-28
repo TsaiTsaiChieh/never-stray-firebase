@@ -6,12 +6,19 @@ import Filter from './Filter'
 import Pets from './Pets'
 import SubFilter from './SubFilter'
 import {
- AuthModal, Category, Footer, Header, LikeModal, OverLimitModal, ShouldLoginModal,
+  AuthModal,
+  Category,
+  Footer,
+  Header,
+  LikeModal,
+  OverLimitModal,
+  ShouldLoginModal,
 } from '../../components'
 import { useGetPetsQuery } from '../../services/api'
 import { useAppDispatch, useAppSelector } from '../../store/hook'
 import { setFilter } from '../../store/reducers/petSlice'
 import {
+  Banner,
   Container,
   PetsAndPage,
   SubFilterAndPetsWrap,
@@ -60,9 +67,14 @@ const PetList = () => {
       <Container>
         <Filter scrolled={scrolled} />
         <SubFilterAndPetsWrap>
+          <a href='https://www.buymeacoffee.com/never.stray' target='_blank' rel='noreferrer noopener'>
+            <Banner />
+          </a>
           <SubFilter />
           <PetsAndPage>
-            {data && <Pets data={isLike && userData ? userData.like_pets : data} />}
+            {data && (
+              <Pets data={isLike && userData ? userData.like_pets : data} />
+            )}
           </PetsAndPage>
         </SubFilterAndPetsWrap>
       </Container>

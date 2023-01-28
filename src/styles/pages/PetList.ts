@@ -19,6 +19,15 @@ export const SubFilterAndPetsWrap = styled(FlexCenter)`
     margin-left: 20px;
   }
 `
+export const Banner = styled.img`
+  width: 366px;
+  content: url("/images/donate.svg");
+  margin: 8px 0 20px;
+  ${MD} {
+    width: 702px;
+    margin: 0px 0 24px;
+  }
+`
 export const PetsAndPage = styled(FlexCenter)`
   flex-direction: column;
   ${XL} {
@@ -26,7 +35,7 @@ export const PetsAndPage = styled(FlexCenter)`
     width: 720px;
   }
 `
-export const PetContainer = styled.div<{$small: boolean}>`
+export const PetContainer = styled.div<{ $small: boolean }>`
   position: relative;
   margin-top: 100px;
   justify-content: center;
@@ -41,7 +50,7 @@ export const PetContainer = styled.div<{$small: boolean}>`
   }
   ${MD} {
     grid-template-columns: repeat(3, auto);
-     grid-template-rows: ${(props) => (props.$small ? 'repeat(4, auto)' : 'repeat(6, auto)')};
+    grid-template-rows: ${(props) => (props.$small ? 'repeat(4, auto)' : 'repeat(6, auto)')};
   }
 `
 export const NotFound = styled.img`
