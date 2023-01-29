@@ -25,7 +25,7 @@ interface Props {
   length: number
 }
 const Pagination = ({ length }: Props) => {
-  const LIMIT = import.meta.env.VITE_PET_LIMIT
+  const LIMIT = parseInt(import.meta.env.VITE_PET_LIMIT, 10)
   const iconPaths: string[] = [
     'angles-left',
     'angle-left',
