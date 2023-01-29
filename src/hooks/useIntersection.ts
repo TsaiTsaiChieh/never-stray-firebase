@@ -6,7 +6,7 @@ export const useIntersection = (
   initOffset: number,
   data: any[],
 ): [number[], MutableRefObject<any>] => {
-  const offset = window.innerWidth < 768 ? 2 : 3
+  const offset = 3
   const lastItemRef = useRef<any | null>(null)
   const observer = useRef<IntersectionObserver | null>(null)
   const [page, setPage] = useState<number>(1)
