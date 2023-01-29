@@ -4,7 +4,7 @@
   "main_en": "Never Stray",
   "loading": "Loading",
   "login": "登入中",
-  "logout": "登出中", 
+  "logout": "登出中",
   "update_like": "更新我的小窩中",
   "over_limit": "超過小窩的數量上限",
   "should_login": "此功能需要登入才能使用"
@@ -12,7 +12,8 @@
  "content": {
   "update_like": "可點選我的小窩查看追蹤的寵物",
   "over_limit": "每個帳號只可以追蹤 {{limit}} 隻的寵物<br/>（可取消追蹤其他寵物）",
-  "should_login": "加入我的小窩功能需要 Google 登入才能使用，建議您前往登入"
+  "should_login": "加入我的小窩功能需要 Google 登入才能使用，建議您前往登入",
+  "donate": "贊助我一杯咖啡，讓我繼續提供這項服務"
  },
  "buttons": {
   "categories": [
@@ -36,7 +37,16 @@
    "顏色",
    "縣市",
    "收容所"
-  ]
+  ],
+  "update_time": "更新時間",
+  "uid": "編號",
+  "color": "顏色",
+  "age": "年紀",
+  "species": "品種",
+  "sex": "性別",
+  "size": "體型",
+  "sterilization": "結紮",
+  "introduction": "介紹描述"
  },
  "filters": {
   "ages": [
@@ -349,7 +359,8 @@
    "請選擇縣市",
    "請選擇收容所"
   ],
-  "empty_options": "無其他選項"
+  "empty_options": "無其他選項",
+  "empty_intro": "無"
  },
  "footer": {
   "description": "本網站整合政府收容所的動物資料，並提供了較細膩的篩選功能，可以協助使用者快速找尋心目中符合條件的寵物進行領養。",
