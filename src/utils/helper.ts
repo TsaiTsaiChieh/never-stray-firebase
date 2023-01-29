@@ -44,6 +44,28 @@ export const petAgeConverter = (age: string): string => {
       return unknown
   }
 }
+export const petSizeConverter = (size: string): string => {
+  switch (size.toLowerCase()) {
+    case 'small':
+      return '小型'
+    case 'big':
+      return '大型'
+    case 'medium':
+      return '中型'
+    default:
+      return unknown
+  }
+}
+export const ternaryConverter = (str: string): string => {
+  switch (str.toLowerCase()) {
+    case 't':
+      return '是'
+    case 'n':
+      return '否'
+    default:
+      return unknown
+  }
+}
 export const isPositiveInteger = (str: string): boolean => {
   if (typeof str !== 'string') return false
   const num = Number(str)
