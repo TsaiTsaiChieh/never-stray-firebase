@@ -52,7 +52,7 @@ export const Card = forwardRef(
               <SexIcon
                 $content={sex.iconPath}
                 filter={sex.color}
-                alt='sex.name'
+                alt={sex.name}
               />
               <SexText>{sex.name}</SexText>
             </SexWrap>
