@@ -88,3 +88,9 @@ export const searchQuery = (filter: GetPetsReq) => {
 export const mixAntiReplace = (str: string): string => str.replace('混種', '米克斯').trim()
 export const mixReplace = (str: string): string => str.replace('米克斯', '混種').trim()
 export const dateFormatter = (str: string): string => str.replaceAll('/', '-')
+export const b64DecodeUnicode = (str: string): string => {
+  const b64 = window.btoa(str)
+  const ut = `${b64.substring(0, 7)}=`
+  const result = `${b64.replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '')}&UT=${ut}`
+  return result
+}
