@@ -4,18 +4,19 @@ import { colors, MD } from '..'
 import { Contain } from '../Base'
 
 export const Container = styled(Contain)`
-  margin-top: 20px;
+  height: calc(100vh - 58px - 109px);
   ${MD} {
-    margin-top: 30px;
     display: flex;
     gap: 30px;
   }
 `
 
 export const AvatarWrap = styled.div`
+  margin-top: 20px;
   width: 100%;
   ${MD} {
     width: 50%;
+    margin-top: 30px;
   }
 `
 export const Avatar = styled.div<{ $content: string }>`
@@ -68,12 +69,10 @@ export const InfoBoxWrap = styled.div`
   display: flex;
   gap: 10px;
   ${MD} {
-    /* margin-top:10px ; */
-    height: 10px;
     width: 100%;
     position: absolute;
     left: 0;
-    bottom: -90px;
+    bottom: 150px;
     gap: 20px;
   }
 `
