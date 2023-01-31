@@ -11,6 +11,10 @@ export const BoxContainer = styled(FlexCenter)`
   border-radius: 5px;
   letter-spacing: 0.1em;
   gap: 10px;
+  ${MD} {
+    width: 80px;
+    height: 80px;
+  }
 `
 export const Label = styled.label`
   font-size: 14px;
