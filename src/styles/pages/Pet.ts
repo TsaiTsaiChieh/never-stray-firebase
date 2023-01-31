@@ -12,17 +12,21 @@ export const Container = styled(Contain)`
 `
 
 export const AvatarWrap = styled.div`
+  position: relative;
   margin-top: 20px;
-  width: 100%;
+  width: 400px;
+  height: 40vh;
   ${MD} {
     width: 50%;
     margin-top: 30px;
   }
 `
-export const Avatar = styled.div<{ $content: string }>`
-  height: 40vh;
-  object-fit: cover;
-  background: ${(props) => `url(${props.$content})`} no-repeat center;
+export const Avatar = styled.img<{ $content: string }>`
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  background: ${colors.light};
+  height: 100%;
   background-size: cover;
   border-radius: 6px;
   border: 4px solid ${colors.primaryLighten};
@@ -43,6 +47,9 @@ export const SummaryWrap = styled.div`
   margin-top: 20px;
   gap: 10px;
   letter-spacing: 0.1em;
+  ${MD} {
+    margin-top: 30px;
+  }
 `
 export const ShelterName = styled.h2`
   font-weight: bold;
@@ -90,4 +97,5 @@ export const IntroLabel = styled(Label)`
 export const IntroValue = styled(Value)`
   font-size: 15px;
   color: ${colors.gray5};
+  line-height: 1.3;
 `
