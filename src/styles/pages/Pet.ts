@@ -4,8 +4,8 @@ import { colors, MD } from '..'
 import { Contain } from '../Base'
 
 export const Container = styled(Contain)`
-  height: calc(100vh - 58px - 109px);
   ${MD} {
+    height: calc(100vh - 58px - 109px);
     display: flex;
     gap: 30px;
   }
@@ -63,10 +63,12 @@ export const Label = styled.label`
   color: ${colors.gray5};
   margin-right: 12px;
   font-size: 15px;
+  white-space: nowrap;
 `
 export const Value = styled.span`
   font-size: 15px;
   color: ${colors.gray3};
+  line-height: 1.3;
 `
 export const UpdateTime = styled(Value)`
   color: ${colors.gray5};
@@ -79,7 +81,7 @@ export const InfoBoxWrap = styled.div`
     width: 100%;
     position: absolute;
     left: 0;
-    bottom: 150px;
+    bottom: 130px;
     gap: 20px;
   }
 `
@@ -96,6 +98,16 @@ export const IntroLabel = styled(Label)`
 `
 export const IntroValue = styled(Value)`
   font-size: 15px;
-  color: ${colors.gray5};
+  color: ${colors.gray2};
   line-height: 1.3;
+`
+export const ContactWrap = styled(IntroWrap)`
+  display: flex;
+  margin-top: 18px;
+  gap: 12px;
+`
+export const Website = styled.a`
+  font-size: 15px;
+  text-decoration: underline;
+  color: ${colors.primary};
 `
