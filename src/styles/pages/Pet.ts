@@ -21,7 +21,7 @@ export const AvatarWrap = styled.div`
     margin-top: 30px;
   }
 `
-export const Avatar = styled.img<{ $content: string }>`
+export const Avatar = styled.img`
   height: 100%;
   width: 100%;
   object-fit: contain;
