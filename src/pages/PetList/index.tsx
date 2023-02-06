@@ -14,7 +14,7 @@ import {
   OverLimitModal,
   ShouldLoginModal,
 } from '../../components'
-import { useGetPetsQuery } from '../../services/api'
+import { api } from '../../services/api'
 import { useAppDispatch, useAppSelector } from '../../store/hook'
 import { setFilter } from '../../store/reducers/petSlice'
 import {
@@ -27,12 +27,15 @@ import { isPositiveInteger } from '../../utils/helper'
 import { useScrolled } from '../../utils/useScrolled'
 
 const PetList = () => {
-  const { filter } = useAppSelector((state) => state.pet)
-  const { data } = useGetPetsQuery(filter, { refetchOnMountOrArgChange: true })
+  const { filter, pets } = useAppSelector((state) => state.pet)
   const dispatch = useAppDispatch()
   const location = useLocation()
   const scrolled = useScrolled()
   const { isLike, userData } = useAppSelector((state) => state.auth)
+  useEffect(() => {
+    dispatch(api.endpoints.getPets.initiate(filter))
+  }, [dispatch, filter])
+
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search)
     const params = Object.fromEntries(urlParams)
@@ -72,8 +75,8 @@ const PetList = () => {
           </a>
           <SubFilter />
           <PetsAndPage>
-            {data && (
-              <Pets data={isLike && userData ? userData.like_pets : data} />
+            {pets.length && (
+              <Pets data={isLike && userData ? userData.like_pets : pets} />
             )}
           </PetsAndPage>
         </SubFilterAndPetsWrap>

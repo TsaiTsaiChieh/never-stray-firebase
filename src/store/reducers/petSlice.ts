@@ -1,7 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 
+import { api } from '../../services/api'
+
 const initialState: PetState = {
+  pets: [],
   filter: {
     kind: undefined,
     age: undefined,
@@ -23,6 +26,14 @@ export const petSlice = createSlice({
     setFilter: (state, { payload }: PayloadAction<GetPetsReq>) => {
       state.filter = payload
     },
+  },
+  extraReducers: (builder) => {
+    builder.addMatcher(
+      api.endpoints.getPets.matchFulfilled,
+      (state, { payload }: PayloadAction<GetPetsRes>) => {
+        state.pets = payload
+      },
+    )
   },
 })
 
