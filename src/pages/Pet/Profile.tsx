@@ -1,5 +1,6 @@
 import * as i18n from 'i18next'
 
+import Contact from './Contact'
 import InfoBoxes from './InfoBoxes'
 import {
   Avatar,
@@ -26,17 +27,16 @@ const Profile = ({ profile }: Props) => {
     album_file,
     animal_place,
     animal_update,
-    animal_subid,
     animal_colour,
     animal_Variety,
     animal_remark,
+    animal_subid,
   } = profile
-  console.log(profile)
 
   return (
     <Container>
       <AvatarWrap>
-        <Avatar $content={album_file} />
+        <Avatar src={album_file === '' ? '/images/pet-null.svg' : album_file} />
       </AvatarWrap>
       <DetailWrap>
         <SummaryWrap>
@@ -63,6 +63,7 @@ const Profile = ({ profile }: Props) => {
           <IntroLabel>{i18n.t('labels.introduction')}</IntroLabel>
           <IntroValue>{animal_remark === '' ? i18n.t('placeholders.empty_intro') : animal_remark}</IntroValue>
         </IntroWrap>
+        <Contact profile={profile} />
       </DetailWrap>
     </Container>
   )
