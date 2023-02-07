@@ -75,7 +75,7 @@ const PetList = () => {
           </a>
           <SubFilter />
           <PetsAndPage>
-            {pets.length && (
+            {pets.length !== 0 && (
               <Pets data={isLike && userData ? userData.like_pets : pets} />
             )}
           </PetsAndPage>
