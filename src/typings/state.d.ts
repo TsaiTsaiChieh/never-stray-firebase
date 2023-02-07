@@ -1,6 +1,7 @@
 type PetState = {
   filter: GetPetsReq
   pets: PetType[]
+  currIdx?: number
 }
 type ModalLoading = {
   visible: boolean
