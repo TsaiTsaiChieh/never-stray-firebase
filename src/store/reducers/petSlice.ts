@@ -5,6 +5,7 @@ import { api } from '../../services/api'
 
 const initialState: PetState = {
   pets: [],
+  currIdx: undefined,
   filter: {
     kind: undefined,
     age: undefined,
@@ -26,6 +27,9 @@ export const petSlice = createSlice({
     setFilter: (state, { payload }: PayloadAction<GetPetsReq>) => {
       state.filter = payload
     },
+    setCurrIdx: (state, { payload }: PayloadAction<number>) => {
+      state.currIdx = payload
+    },
   },
   extraReducers: (builder) => {
     builder.addMatcher(
@@ -37,6 +41,6 @@ export const petSlice = createSlice({
   },
 })
 
-export const { resetFilter, setFilter } = petSlice.actions
+export const { resetFilter, setFilter, setCurrIdx } = petSlice.actions
 
 export default petSlice.reducer
