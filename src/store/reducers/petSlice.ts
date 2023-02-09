@@ -1,8 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 
-import { api } from '../../services/api'
-
 const initialState: PetState = {
   pets: [],
   currIdx: undefined,
@@ -27,20 +25,13 @@ export const petSlice = createSlice({
     setFilter: (state, { payload }: PayloadAction<GetPetsReq>) => {
       state.filter = payload
     },
-    setCurrIdx: (state, { payload }: PayloadAction<number>) => {
-      state.currIdx = payload
+    setPets: (state, { payload }: PayloadAction<{pets: GetPetsRes; currIdx: number}>) => {
+      state.pets = payload.pets
+      state.currIdx = payload.currIdx
     },
-  },
-  extraReducers: (builder) => {
-    builder.addMatcher(
-      api.endpoints.getPets.matchFulfilled,
-      (state, { payload }: PayloadAction<GetPetsRes>) => {
-        state.pets = payload
-      },
-    )
   },
 })
 
-export const { resetFilter, setFilter, setCurrIdx } = petSlice.actions
+export const { resetFilter, setFilter, setPets } = petSlice.actions
 
 export default petSlice.reducer
