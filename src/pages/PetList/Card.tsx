@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom'
 
 import Avatar from './Avatar'
 import { Paths } from '../../constants'
+import { useAppDispatch } from '../../store/hook'
+import { setPets } from '../../store/reducers/petSlice'
 import {
   AgeText,
   Bar,
@@ -24,27 +26,31 @@ import {
 } from '../../utils/helper'
 
 interface Props {
-  detail: PetType
+  data: PetType[]
+  currIdx: number
 }
 export const Card = forwardRef(
-  ({ detail }: Props, ref: Ref<HTMLDivElement>) => {
+  ({ data, currIdx }: Props, ref: Ref<HTMLDivElement>) => {
+    const dispatch = useAppDispatch()
     const nav = useNavigate()
     const {
+      animal_id,
       animal_colour,
       animal_Variety,
       animal_kind,
       animal_sex,
       animal_age,
-    } = detail
+    } = data[currIdx]
     const sex = petSexConverter(animal_sex)
     const age = petAgeConverter(animal_age)
-      const go2pet = () => {
-        nav(`${Paths.pet}/${detail.animal_id}`, { state: { detail } })
-      }
+    const go2pet = () => {
+      dispatch(setPets({ pets: data, currIdx }))
+      nav(`${Paths.pet}/${animal_id}`)
+    }
     return (
       <OuterHoverWrap ref={ref}>
         <CardContainer>
-          <Avatar detail={detail} />
+          <Avatar detail={data[currIdx]} />
           <Name>{petNameConverter(animal_colour, animal_kind)}</Name>
           <KindText>{mixAntiReplace(animal_Variety)}</KindText>
           <LearnMore as='button' onClick={go2pet}>

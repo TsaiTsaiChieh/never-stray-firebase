@@ -24,7 +24,7 @@ const Pets = ({ data }: Props) => {
           ? ids.map((id, i) => {
               if (data.length >= ids.length) {
                 const ref = i === ids.length - 1 ? lastItemRef : null
-                return <Card key={id} detail={data[i]} ref={ref} />
+                return <Card key={id} currIdx={i} data={data} ref={ref} />
               }
               return null
             })
