@@ -14,7 +14,7 @@ export const Container = styled(Contain)`
 export const AvatarWrap = styled.div`
   position: relative;
   margin-top: 20px;
-  width: 400px;
+  width: 100%;
   height: 40vh;
   ${MD} {
     width: 50%;
