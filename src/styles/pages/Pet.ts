@@ -1,9 +1,10 @@
 import { styled } from '@linaria/react'
 
-import { colors, MD } from '..'
+import { colors, filters, MD } from '..'
 import { Contain } from '../Base'
 
 export const Container = styled(Contain)`
+  position: relative;
   ${MD} {
     height: calc(100vh - 58px - 109px);
     display: flex;
@@ -37,6 +38,7 @@ export const Avatar = styled.img`
 export const DetailWrap = styled.div`
   display: flex;
   flex-direction: column;
+  position: relative;
   ${MD} {
     width: 50%;
   }
@@ -110,4 +112,40 @@ export const Website = styled.a`
   font-size: 15px;
   text-decoration: underline;
   color: ${colors.primary};
+`
+export const PageContainer = styled.div`
+  width: 90%;
+  height: 100vh;
+  position: fixed;
+  top: 90%;
+  opacity: 0.7;
+`
+export const IconContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`
+export const IconWrap = styled.button`
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  display: flex;
+  border-radius: 50%;
+  background: ${colors.gray9};
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+`
+export const PrevIcon = styled.img`
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  position: absolute;
+  left: 10px;
+  content: url("/images/angle-left.svg");
+  filter: ${filters.gray6};
+`
+export const NextIcon = styled(PrevIcon)`
+  content: url("/images/angle-right.svg");
+  right: 10px;
 `
