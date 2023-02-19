@@ -29,9 +29,14 @@ export const petSlice = createSlice({
       state.pets = payload.pets
       state.currIdx = payload.currIdx
     },
+    setCurrPetIdx: (state, { payload }: PayloadAction<number>) => {
+      state.currIdx = payload
+    },
   },
 })
 
-export const { resetFilter, setFilter, setPets } = petSlice.actions
+export const {
+ resetFilter, setFilter, setPets, setCurrPetIdx,
+} = petSlice.actions
 
 export default petSlice.reducer
