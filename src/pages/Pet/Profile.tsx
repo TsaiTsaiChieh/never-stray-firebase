@@ -2,6 +2,7 @@ import * as i18n from 'i18next'
 
 import Contact from './Contact'
 import InfoBoxes from './InfoBoxes'
+import NextOrPrev from './NextOrPrev'
 import {
   Avatar,
   Container,
@@ -65,6 +66,7 @@ const Profile = ({ profile }: Props) => {
         </IntroWrap>
         <Contact profile={profile} />
       </DetailWrap>
+      <NextOrPrev />
     </Container>
   )
 }
