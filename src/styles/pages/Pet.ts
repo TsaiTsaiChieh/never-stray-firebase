@@ -125,7 +125,7 @@ export const IconContainer = styled.div`
   display: flex;
   justify-content: space-between;
 `
-export const IconWrap = styled.button`
+export const IconWrap = styled.button<{ $visible: boolean }>`
   width: 40px;
   height: 40px;
   text-align: center;
@@ -135,6 +135,7 @@ export const IconWrap = styled.button`
   align-items: center;
   position: relative;
   cursor: pointer;
+  visibility: ${(props) => (props.$visible ? 'visible' : 'hidden')};
 `
 export const PrevIcon = styled.img`
   width: 30px;
