@@ -115,11 +115,16 @@ export const Website = styled.a`
   color: ${colors.primary};
 `
 export const PageContainer = styled.div`
-  width: 90%;
+  width: 91%;
   height: 100vh;
   position: fixed;
   top: 90%;
+  margin: auto;
   opacity: 0.7;
+  left: 5%;
+  ${MD} {
+    top: 45%;
+  }
 `
 export const IconContainer = styled.div`
   width: 100%;
