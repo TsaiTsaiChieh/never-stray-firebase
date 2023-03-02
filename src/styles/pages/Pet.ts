@@ -38,7 +38,6 @@ export const Avatar = styled.img`
 export const DetailWrap = styled.div`
   display: flex;
   flex-direction: column;
-  position: relative;
   ${MD} {
     width: 50%;
   }
