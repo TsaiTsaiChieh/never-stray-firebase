@@ -60,6 +60,7 @@ export const ShelterName = styled.h2`
 `
 export const LabelAndValue = styled.div`
   display: flex;
+  align-items: center;
 `
 export const Label = styled.label`
   color: ${colors.gray5};
@@ -74,6 +75,7 @@ export const Value = styled.span`
 `
 export const UpdateTime = styled(Value)`
   color: ${colors.gray5};
+  height: 20px;
 `
 export const InfoBoxWrap = styled.div`
   margin-top: 20px;
